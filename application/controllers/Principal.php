@@ -92,6 +92,10 @@ class Principal extends CI_Controller
                     $valor = $this->agregar_gastos_almacen($id_general, $array_almacen);
 
                 }
+                if (isset($array_almacen)) {
+                    $valor = $this->agregar_gastos_almacen($id_general, $array_almacen);
+
+                }
             }
         } else {
             $json['response_code'] = 500;
