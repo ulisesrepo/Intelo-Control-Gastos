@@ -78,7 +78,6 @@ class model_gastosFacturables extends CI_Model {
             . $id_viaticos . ")";
         return $this->db->query($sql_insert_alimentos);
     }
-
     
     public function insert_gastos_hospedaje($id_viaticos,$array_data) {
 
@@ -175,6 +174,7 @@ class model_gastosFacturables extends CI_Model {
             . $id_gastosudn . ")";
         return $this->db->query($sql_insert_caja);
     }
+
     public function insert_gastos_arreunidades($id_gastosudn,$array_data) {
 
         $no_factura    = $array_data['no_factura'];
@@ -271,7 +271,7 @@ class model_gastosFacturables extends CI_Model {
         return $this->db->query($sql_insert_serviciosagl);
     }
      
-    public function insert_gastos_internet($id_serviciosudn,$array_data) {
+    public function insert_gastos_Internet($id_serviciosudn,$array_data) {
 
         $no_factura    = $array_data['no_factura'];
         $sub_total     = $array_data['sub_total'];
@@ -286,46 +286,49 @@ class model_gastosFacturables extends CI_Model {
             . $id_serviciosudn . ")";
         return $this->db->query($sql_insert_internet);
     }
-    // public function insert_gastos_monitoreo($array_data) {
+    public function insert_gastos_monitoreo($id_serviciosudn,$array_data) {
 
-    //     $no_factura    = $array_data['no_factura'];
-    //     $sub_total     = $array_data['sub_total'];
-    //     $iva           = $array_data['iva'];
-    //     $total         = $array_data['total'];
+        $no_factura    = $array_data['no_factura'];
+        $sub_total     = $array_data['sub_total'];
+        $iva           = $array_data['iva'];
+        $total         = $array_data['total'];
 
-    //    $sql_insert_monitoreo = "insert into monitoreo values('"
-    //         . $no_factura . "','"
-    //         . $sub_total . "','"
-    //         . $iva ."','"
-    //         . $total ."')";
-    //     return $this->db->query($sql_insert_monitoreo);
-    // }
-    // public function insert_gastos_fianzas($array_data) {
+       $sql_insert_monitoreo = "insert into monitoreo values(null,'"
+            . $no_factura . "','"
+            . $sub_total . "','"
+            . $iva ."','"
+            . $total .  "',"
+            . $id_serviciosudn . ")";
+        return $this->db->query($sql_insert_monitoreo);
+    }
+    public function insert_gastos_fianzas($id_serviciosudn,$array_data) {
 
-    //     $no_factura    = $array_data['no_factura'];
-    //     $sub_total     = $array_data['sub_total'];
-    //     $iva           = $array_data['iva'];
-    //     $total         = $array_data['total'];
+        $no_factura    = $array_data['no_factura'];
+        $sub_total     = $array_data['sub_total'];
+        $iva           = $array_data['iva'];
+        $total         = $array_data['total'];
 
-    //    $sql_insert_fianzas = "insert into fianzas values('"
-    //         . $no_factura . "','"
-    //         . $sub_total . "','"
-    //         . $iva ."','"
-    //         . $total ."')";
-    //     return $this->db->query($sql_insert_fianzas);
-    // }
-    // public function insert_gastos_facturacion($array_data) {
+       $sql_insert_fianzas = "insert into fianzas values(null,'"
+            . $no_factura . "','"
+            . $sub_total . "','"
+            . $iva ."','"
+            . $total .  "',"
+            . $id_serviciosudn . ")";
+        return $this->db->query($sql_insert_fianzas);
+    }
+    public function insert_gastos_facturacion($id_serviciosudn,$array_data) {
 
-    //     $no_factura    = $array_data['no_factura'];
-    //     $sub_total     = $array_data['sub_total'];
-    //     $iva           = $array_data['iva'];
-    //     $total         = $array_data['total'];
+        $no_factura    = $array_data['no_factura'];
+        $sub_total     = $array_data['sub_total'];
+        $iva           = $array_data['iva'];
+        $total         = $array_data['total'];
 
-    //    $sql_insert_facturacion = "insert into facturacion values('"
-    //         . $no_factura . "','"
-    //         . $sub_total . "','"
-    //         . $iva ."','"
-    //         . $total ."')";
-    //     return $this->db->query($sql_insert_facturacion);
-    // }
+       $sql_insert_facturacion = "insert into facturacion values(null,'"
+            . $no_factura . "','"
+            . $sub_total . "','"
+            . $iva ."','"
+            . $total .  "',"
+            . $id_serviciosudn . ")";
+        return $this->db->query($sql_insert_facturacion);
+    }
 }

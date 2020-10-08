@@ -98,6 +98,9 @@ $(function () {
 								array_arrendamientoinmuebles:array_arrendamientoinmuebles,
 								array_ServiciosAGL:array_ServiciosAGL,
 								array_Internet:array_Internet,
+								array_monitoreo:array_monitoreo,
+								array_fianzas:array_fianzas,
+								array_facturacion:array_facturacion,					
 
 								
 								array_gastosUDN: array_gastosUDN,
@@ -107,13 +110,13 @@ $(function () {
 							}
 							
 							// swal.closer //
-						}); //,//
+						}),
 						
 
-						// localStorage.clear();
+						localStorage.clear();
 						
 				}
-				// loader()
+				//loader()
 			});
 		}
 	})

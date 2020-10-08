@@ -61,6 +61,9 @@ class Principal extends CI_Controller
                 $array_arrendamientoinmuebles = json_decode($_POST['array_arrendamientoinmuebles']);
                 $array_ServiciosAGL = json_decode($_POST['array_ServiciosAGL']);
                 $array_Internet = json_decode($_POST['array_Internet']);
+                $array_monitoreo = json_decode($_POST['array_monitoreo']);
+                $array_fianzas = json_decode($_POST['array_fianzas']);
+                $array_facturacion = json_decode($_POST['array_facturacion']);
 
 
                 if (isset($array_vehiculos)) {
@@ -85,17 +88,15 @@ class Principal extends CI_Controller
                 }
                 if (isset($array_serviciosUDN)) {
                     $valor = $this->agregar_gastos_servicios($id_general, $array_serviciosUDN,
-                    $array_arrendamientoinmuebles,$array_ServiciosAGL,$array_Internet);
+                    $array_arrendamientoinmuebles,$array_ServiciosAGL,$array_Internet,$array_monitoreo,
+                    $array_fianzas,$array_facturacion);
 
                 }
                 if (isset($array_almacen)) {
                     $valor = $this->agregar_gastos_almacen($id_general, $array_almacen);
 
                 }
-                if (isset($array_almacen)) {
-                    $valor = $this->agregar_gastos_almacen($id_general, $array_almacen);
-
-                }
+                
             }
         } else {
             $json['response_code'] = 500;
@@ -308,7 +309,7 @@ class Principal extends CI_Controller
     }
 
     public function agregar_gastos_servicios($id_general, $array_serviciosUDN,$array_arrendamientoinmuebles,
-    $array_ServiciosAGL) 
+    $array_ServiciosAGL,$array_Internet,$array_monitoreo,$array_fianzas,$array_facturacion) 
     {
     	$gas = $array_serviciosUDN -> gas;
     	$inputarrendamientoinmuebles = $array_serviciosUDN -> inputarrendamientoinmuebles;
@@ -361,6 +362,18 @@ class Principal extends CI_Controller
     		}
     		if (isset($array_ServiciosAGL)) {
     			$this -> agregar_gastos_ServiciosAGL($id_serviciosudn, $array_ServiciosAGL);
+    		}
+    		if (isset($array_Internet)) {
+    			$this -> agregar_gastos_Internet($id_serviciosudn, $array_Internet);
+    		}
+    		if (isset($array_monitoreo)) {
+    			$this -> agregar_gastos_monitoreo($id_serviciosudn, $array_monitoreo);
+    		}
+    		if (isset($array_fianzas)) {
+    			$this -> agregar_gastos_fianzas($id_serviciosudn, $array_fianzas);
+    		}
+    		if (isset($array_facturacion)) {
+    			$this -> agregar_gastos_facturacion($id_serviciosudn, $array_facturacion);
     		}
 
     		return true;
@@ -819,7 +832,6 @@ class Principal extends CI_Controller
         echo json_encode($json);
 
     }
-
     public function agregar_gastos_ServiciosAGL($id_serviciosudn, $data)
     {
         $array_ServiciosAGL = array();
@@ -847,113 +859,112 @@ class Principal extends CI_Controller
         echo json_encode($json);
 
     }
-    // public function agregar_gastos_Internet()
-    // {
-    //     $data           = json_decode($_POST['array_Internet']);
-    //     $longitud_data  = $this->input->post('longitud_datos_tabla');
-    //     $array_Internet = array();
-    //     if ($longitud_data == '0') {
-    //         $json['response_code'] = 500;
-    //         $json['response_text'] = "Favor de agregar productos a la tabla";
-    //     } else {
-    //         for ($i = 0; $i < count($data); ++$i) {
-    //             $no_factura   = $data[$i]->no_factura;
-    //             $sub_total    = $data[$i]->sub_total;
-    //             $iva          = $data[$i]->iva;
-    //             $total        = $data[$i]->total;
+    public function agregar_gastos_Internet($id_serviciosudn, $data)
+    {
+        $array_Internet = array();
+        $longitud_data = count($data);
+        if ($longitud_data == 0) {
+            $json['response_code'] = 500;
+            $json['response_text'] = "Favor de agregar productos a la tabla";
+        } else {
+            for ($i = 0; $i < count($data); ++$i) {
+                $no_factura   = $data[$i]->no_factura;
+                $sub_total    = $data[$i]->sub_total;
+                $iva          = $data[$i]->iva;
+                $total        = $data[$i]->total;
 
-    //             $array_Internet["no_factura"]  = $no_factura;
-    //             $array_Internet["sub_total"]   = $sub_total;
-    //             $array_Internet["iva"]         = $iva;
-    //             $array_Internet["total"]       = $total;
-    //             $this->model_gastosFacturables->insert_gastos_Internet($array_Internet);
-    //         }
-    //         $json['response_code'] = 200;
-    //         $json['response_text'] = "Guardado con Exito";
-    //     }
-    //     echo json_encode($json);
+                $array_Internet["no_factura"]  = $no_factura;
+                $array_Internet["sub_total"]   = $sub_total;
+                $array_Internet["iva"]         = $iva;
+                $array_Internet["total"]       = $total;
+                $this->model_gastosFacturables->insert_gastos_Internet($id_serviciosudn,
+                $array_Internet);
+            }
+            $json['response_code'] = 200;
+            $json['response_text'] = "Guardado con Exito";
+        }
+        echo json_encode($json);
 
-    // }
-    // public function agregar_gastos_monitoreo()
-    // {
-    //     $data           = json_decode($_POST['array_monitoreo']);
-    //     $longitud_data  = $this->input->post('longitud_datos_tabla');
-    //     $array_monitoreo = array();
-    //     if ($longitud_data == '0') {
-    //         $json['response_code'] = 500;
-    //         $json['response_text'] = "Favor de agregar productos a la tabla";
-    //     } else {
-    //         for ($i = 0; $i < count($data); ++$i) {
-    //             $no_factura   = $data[$i]->no_factura;
-    //             $sub_total    = $data[$i]->sub_total;
-    //             $iva          = $data[$i]->iva;
-    //             $total        = $data[$i]->total;
+    }
+    public function agregar_gastos_monitoreo($id_serviciosudn, $data)
+    {
+        $array_monitoreo = array();
+        $longitud_data = count($data);
+        if ($longitud_data == 0) {
+            $json['response_code'] = 500;
+            $json['response_text'] = "Favor de agregar productos a la tabla";
+        } else {
+            for ($i = 0; $i < count($data); ++$i) {
+                $no_factura   = $data[$i]->no_factura;
+                $sub_total    = $data[$i]->sub_total;
+                $iva          = $data[$i]->iva;
+                $total        = $data[$i]->total;
 
-    //             $array_monitoreo["no_factura"]  = $no_factura;
-    //             $array_monitoreo["sub_total"]   = $sub_total;
-    //             $array_monitoreo["iva"]         = $iva;
-    //             $array_monitoreo["total"]       = $total;
-    //             $this->model_gastosFacturables->insert_gastos_monitoreo($array_monitoreo);
-    //         }
-    //         $json['response_code'] = 200;
-    //         $json['response_text'] = "Guardado con Exito";
-    //     }
-    //     echo json_encode($json);
+                $array_monitoreo["no_factura"]  = $no_factura;
+                $array_monitoreo["sub_total"]   = $sub_total;
+                $array_monitoreo["iva"]         = $iva;
+                $array_monitoreo["total"]       = $total;
+                $this->model_gastosFacturables->insert_gastos_monitoreo($id_serviciosudn,
+                $array_monitoreo);
+            }
+            $json['response_code'] = 200;
+            $json['response_text'] = "Guardado con Exito";
+        }
+        echo json_encode($json);
 
-    // }
-    // public function agregar_gastos_fianzas()
-    // {
-    //     $data           = json_decode($_POST['array_fianzas']);
-    //     $longitud_data  = $this->input->post('longitud_datos_tabla');
-    //     $array_fianzas = array();
-    //     if ($longitud_data == '0') {
-    //         $json['response_code'] = 500;
-    //         $json['response_text'] = "Favor de agregar productos a la tabla";
-    //     } else {
-    //         for ($i = 0; $i < count($data); ++$i) {
-    //             $no_factura   = $data[$i]->no_factura;
-    //             $sub_total    = $data[$i]->sub_total;
-    //             $iva          = $data[$i]->iva;
-    //             $total        = $data[$i]->total;
+    }
+    public function agregar_gastos_fianzas($id_serviciosudn, $data)
+    {
+        $array_fianzas = array();
+        $longitud_data = count($data);
+        if ($longitud_data == 0) {
+            $json['response_code'] = 500;
+            $json['response_text'] = "Favor de agregar productos a la tabla";
+        } else {
+            for ($i = 0; $i < count($data); ++$i) {
+                $no_factura   = $data[$i]->no_factura;
+                $sub_total    = $data[$i]->sub_total;
+                $iva          = $data[$i]->iva;
+                $total        = $data[$i]->total;
 
-    //             $array_fianzas["no_factura"]  = $no_factura;
-    //             $array_fianzas["sub_total"]   = $sub_total;
-    //             $array_fianzas["iva"]         = $iva;
-    //             $array_fianzas["total"]       = $total;
-    //             $this->model_gastosFacturables->insert_gastos_fianzas($array_fianzas);
-    //         }
-    //         $json['response_code'] = 200;
-    //         $json['response_text'] = "Guardado con Exito";
-    //     }
-    //     echo json_encode($json);
+                $array_fianzas["no_factura"]  = $no_factura;
+                $array_fianzas["sub_total"]   = $sub_total;
+                $array_fianzas["iva"]         = $iva;
+                $array_fianzas["total"]       = $total;
+                $this->model_gastosFacturables->insert_gastos_fianzas($id_serviciosudn,$array_fianzas);
+            }
+            $json['response_code'] = 200;
+            $json['response_text'] = "Guardado con Exito";
+        }
+        echo json_encode($json);
 
-    // }
-    // public function agregar_gastos_facturacion()
-    // {
-    //     $data           = json_decode($_POST['array_facturacion']);
-    //     $longitud_data  = $this->input->post('longitud_datos_tabla');
-    //     $array_facturacion = array();
-    //     if ($longitud_data == '0') {
-    //         $json['response_code'] = 500;
-    //         $json['response_text'] = "Favor de agregar productos a la tabla";
-    //     } else {
-    //         for ($i = 0; $i < count($data); ++$i) {
-    //             $no_factura   = $data[$i]->no_factura;
-    //             $sub_total    = $data[$i]->sub_total;
-    //             $iva          = $data[$i]->iva;
-    //             $total        = $data[$i]->total;
+    }
+    public function agregar_gastos_facturacion($id_serviciosudn, $data)
+    {
+        $array_facturacion = array();
+        $longitud_data = count($data);
+        if ($longitud_data == 0) {
+            $json['response_code'] = 500;
+            $json['response_text'] = "Favor de agregar productos a la tabla";
+        } else {
+            for ($i = 0; $i < count($data); ++$i) {
+                $no_factura   = $data[$i]->no_factura;
+                $sub_total    = $data[$i]->sub_total;
+                $iva          = $data[$i]->iva;
+                $total        = $data[$i]->total;
 
-    //             $array_facturacion["no_factura"]  = $no_factura;
-    //             $array_facturacion["sub_total"]   = $sub_total;
-    //             $array_facturacion["iva"]         = $iva;
-    //             $array_facturacion["total"]       = $total;
-    //             $this->model_gastosFacturables->insert_gastos_facturacion($array_facturacion);
-    //         }
-    //         $json['response_code'] = 200;
-    //         $json['response_text'] = "Guardado con Exito";
-    //     }
-    //     echo json_encode($json);
+                $array_facturacion["no_factura"]  = $no_factura;
+                $array_facturacion["sub_total"]   = $sub_total;
+                $array_facturacion["iva"]         = $iva;
+                $array_facturacion["total"]       = $total;
+                $this->model_gastosFacturables->insert_gastos_facturacion($id_serviciosudn,
+                $array_facturacion);
+            }
+            $json['response_code'] = 200;
+            $json['response_text'] = "Guardado con Exito";
+        }
+        echo json_encode($json);
 
-    // }
+    }
 
 }
