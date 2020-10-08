@@ -68,7 +68,7 @@
   </div>
   <!-- Nav Item - Charts -->
   <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="Empleados">
       <i class="fas fa-fw fa-users"></i>
       <span>Gestion Usuarios</span></a>
   </li>
