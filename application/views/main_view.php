@@ -129,23 +129,12 @@
 	<!-- wizar -->
 	<script src="<?=base_url();?>static/js/jquery.steps.js"></script>
 	<script src="<?=base_url();?>static/js/main.js"></script>
+	<script src="<?=base_url();?>static/my_jquerys/empleados.js"></script>
 
 	<!-- mi jq -->
 	<script src="<?=base_url();?>static/my_jquerys/<?=$my_jquery;?>"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<!--Graficas-->
-	<!-- Page level plugins -->
-	<!-- <script src="<?=base_url();?>assets/vendor/chart.js/Chart.min.js"></script> -->
-	<!-- Page level custom scripts -->
-	<!-- <script src="<?=base_url();?>assets/js/demo/chart-area-demo.js"></script>
-	<script src="<?=base_url();?>assets/js/demo/chart-pie-demo.js"></script>
-	<script src="<?=base_url();?>assets/js/demo/chart-bar-demo.js"></script> -->
-	<!--Graficas-->
-	<!--Tablas-->
-	<!-- Page level plugins -->
-	<!-- <script src="<?=base_url();?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="<?=base_url();?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
 	<!-- Page level custom scripts -->
 	<script src="<?=base_url();?>assets/js/demo/datatables-demo.js"></script>

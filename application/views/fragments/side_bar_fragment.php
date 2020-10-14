@@ -67,10 +67,23 @@
     Catalogos
   </div>
   <!-- Nav Item - Charts -->
+
   <li class="nav-item">
-    <a class="nav-link" href="Empleados">
-      <i class="fas fa-fw fa-users"></i>
-      <span>Gestion Usuarios</span></a>
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true"
+      aria-controls="collapseTree">
+     <i class="fas fa-address-book"></i>
+      <span>Gestion Usuarios</span>
+    </a>
+    <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+
+      
+      <a class="collapse-item" href="Empleados"> <i class="fas fa-id-card"></i> Registro de Usuarios</a>
+      
+        <a class="collapse-item" href="ListaUsuarios"> <i class="fa fa-table"></i>  Lista de Usuarios</a>
+    
+      </div>
+    </div>
   </li>
 
   <!-- Divider -->

@@ -1,92 +1,95 @@
-<div class="section">
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h5 class="m-0 font-weight-bold text-primary">Tablas</h5>
-		</div>
-		<div class="card-body">
-			<div class="table-responsive">
-				<table class="table" id="dataTable_visualizacion" width="100%" cellspacing="0">
-					<thead>
-						<tr>
-							<th class="center">Nombre</th>
-							<th class="center">Descripcion</th>
-							<th class="center">Visualizar</th>
-						</tr>
-					</thead>
+<div class="row mr-2 ml-2">
+	<div class="col-sm-12">
+		<div class="section">
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h5 class="m-0 font-weight-bold text-dark">Tablas</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table" id="dataTable_visualizacion" width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th class="center">Nombre</th>
+									<th class="center">Descripcion</th>
+									<th class="center">Visualizar</th>
+								</tr>
+							</thead>
 
-					<tbody>
+							<tbody>
 
-						<tr>
-							<td>Vehiculos</td>
-							<td>Concentrado de gastos de Vehiculos</td>
-							<td>
-								<a class="btn btn-dark" id="btn_visualizar_vehiculos">
-									<i class="fa fa-eye"></i>
-								</a>
+								<tr>
+									<td>Vehiculos</td>
+									<td>Concentrado de gastos de Vehiculos</td>
+									<td>
+										<a class="btn btn-dark" id="btn_visualizar_vehiculos">
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-						<tr>
-							<td>Viaticos</td>
-							<td>Concentrado de gastos de Viaticos</td>
-							<td>
+									</td>
+								</tr>
+								<tr>
+									<td>Viaticos</td>
+									<td>Concentrado de gastos de Viaticos</td>
+									<td>
 
-								<a class="btn btn-dark" id="btn_visualizar_viaticos">
-									<i class="fa fa-eye"></i>
-								</a>
+										<a class="btn btn-dark" id="btn_visualizar_viaticos">
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-						<tr>
-							<td>Gastos UDN</td>
-							<td>Concentrado de gastos de Gastos UDN</td>
-							<td>
-								<a class="btn btn-dark" id='btn_visualizar_gastosudn'>
-									<i class="fa fa-eye"></i>
-								</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Gastos UDN</td>
+									<td>Concentrado de gastos de Gastos UDN</td>
+									<td>
+										<a class="btn btn-dark" id='btn_visualizar_gastosudn'>
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-						<tr>
-							<td>Fletes</td>
-							<td>Concentrado de gastos de Fletes</td>
-							<td>
+									</td>
+								</tr>
+								<tr>
+									<td>Fletes</td>
+									<td>Concentrado de gastos de Fletes</td>
+									<td>
 
-								<a class="btn btn-dark" id="btn_visualizar_fletes">
-									<i class="fa fa-eye"></i>
-								</a>
+										<a class="btn btn-dark" id="btn_visualizar_fletes">
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-						<tr>
-							<td>Servicios UDN</td>
-							<td>Concentrado de gastos de Servicios UDN</td>
-							<td>
+									</td>
+								</tr>
+								<tr>
+									<td>Servicios UDN</td>
+									<td>Concentrado de gastos de Servicios UDN</td>
+									<td>
 
-								<a class="btn btn-dark" id="btn_visualizar_servudn">
-									<i class="fa fa-eye"></i>
-								</a>
+										<a class="btn btn-dark" id="btn_visualizar_servudn">
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-						<tr>
-							<td>Almacen</td>
-							<td>Concentrado de gastos de Almacen</td>
-							<td>
+									</td>
+								</tr>
+								<tr>
+									<td>Almacen</td>
+									<td>Concentrado de gastos de Almacen</td>
+									<td>
 
-								<a class="btn btn-dark" id="btn_visualizar_almacen">
-									<i class="fa fa-eye"></i>
-								</a>
+										<a class="btn btn-dark" id="btn_visualizar_almacen">
+											<i class="fa fa-eye"></i>
+										</a>
 
-							</td>
-						</tr>
-					</tbody>
-				</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <div class="modal fade" id="modal_visualizacion_vehiculos" role="dialog">
 	<div class="modal-dialog modal-xl">
