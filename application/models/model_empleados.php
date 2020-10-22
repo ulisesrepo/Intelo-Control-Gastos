@@ -6,16 +6,16 @@ class model_empleados extends CI_Model
     public function insert_empleados($array_data)
     {
         $nombre               = $array_data['nombre'];
-        $apellido_1           = $array_data['apellido_1'];
-        $apellido_2           = $array_data['apellido_2'];
+        $apellidos           = $array_data['apellidos'];
         $email                = $array_data['email'];
         $password             = $array_data['password'];
+        $sucursal             = $array_data['sucursal'];
         $sql_insert_empleados = "insert into empleados values(null,'"
             . $nombre . "','"
-            . $apellido_1 . "','"
-            . $apellido_2 . "','"
+            . $apellidos . "','"
             . $email . "','"
-            . $password . "')";
+            . $password . "','"
+            . $sucursal . "')";
         
         return $this->db->query($sql_insert_empleados);
     }

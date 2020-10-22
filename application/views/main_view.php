@@ -50,7 +50,14 @@
 		;
 	}
 
+	.password-icon {
+		float: right;
+		position: relative;
+		margin: -25px 10px 0 0;
+		cursor: pointer;
+	}
 </style>
+
 </head>
 
 <body id="page-top">
@@ -129,36 +136,15 @@
 	<!-- wizar -->
 	<script src="<?=base_url();?>static/js/jquery.steps.js"></script>
 	<script src="<?=base_url();?>static/js/main.js"></script>
-	<script src="<?=base_url();?>static/my_jquerys/empleados.js"></script>
+	<!-- <script src="<?=base_url();?>static/my_jquerys/empleados.js"></script> -->
 
 	<!-- mi jq -->
 	<script src="<?=base_url();?>static/my_jquerys/<?=$my_jquery;?>"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="<?=base_url();?>assets/js/demo/datatables-demo.js"></script>
 	<!--Tablas-->
 
-	<script>
-		$(document).on('click', '#btn_imprimir', function () {
-			el = 'ImprimirC'
-			printContent(el)
-			
-		});
-		function printContent(el) {
-
-			document.getElementById('btn_imprimir').style.display = 'none';
-			var restorepage = $('body').html();
-			var printcontent = $('#' + el).clone();
-			$('body').empty().html(printcontent);
-			window.print();
-			
-			$('body').html(restorepage);
-			document.getElementById('btn_imprimir').style.display = '';
-		}
-	</script>
-	
 
 </body>
 

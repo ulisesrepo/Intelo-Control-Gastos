@@ -7,7 +7,7 @@ class Empleados extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model('model_empleados');
+        $this->load->model('model_empleados');
         // if (!$this->session->userdata('is_login')) {
         //     redirect(base_url());
         // }
@@ -32,35 +32,35 @@ class Empleados extends CI_Controller
     public function guardar_empleados()
     {
 
-        // print_r($this->input->post('nombre_1'));
+        $this->input->post('nombre');
         $this->form_validation->set_rules('apellido_1_usu', 'Email de usuario', 'trim|required|xss_clean');
         if($this->form_validation->run()){
             echo 'entro al if';
         } else {
             echo 'no entro al if';
         }
-        // $array_nuevo_empleado                = array();
-        // $array_nuevo_empleado['nombre']      = $this->input->post('nombre');
-        // $array_nuevo_empleado['apellido_1']  = $this->input->post('apellido_1');
-        // $array_nuevo_empleado['apellido_2']  = $this->input->post('apellido_2');
-        // $array_nuevo_empleado['email']       = $this->input->post('email');
-        // $array_nuevo_empleado['password'] = sha1($this->input->post('password'));
+        $array_nuevo_empleado                = array();
+        $array_nuevo_empleado['nombre']      = $this->input->post('nombre');
+        $array_nuevo_empleado['apellidos']  = $this->input->post('apellidos');
+        $array_nuevo_empleado['email']       = $this->input->post('email');
+        $array_nuevo_empleado['password'] = sha1($this->input->post('password'));
+        $array_nuevo_empleado['sucursal']       = $this->input->post('sucursal');
 
-        // $exist_email = $this->model_empleados->existe_email($this->input->post('email'));
-        // if(is_null($exist_email)){
-        //     if ($this->model_empleados->insert_empleados($array_nuevo_empleado)) {
-        //         $json['response_code'] = 200;
-        //         $json['response_text'] = "Guardado con Exito";
-        //     } else {
-        //         $json['response_code'] = 500;
-        //         $json['response_text'] = "No se pudo registrar el Usuario";
-        //     }
-        // } else {
-        //     $json['response_code'] = 500;
-        //     $json['response_text'] = "El Email de este usuario ya se encuentra registrado";
-        // }
+        $exist_email = $this->model_empleados->existe_email($this->input->post('email'));
+        if(is_null($exist_email)){
+            if ($this->model_empleados->insert_empleados($array_nuevo_empleado)) {
+                $json['response_code'] = 200;
+                $json['response_text'] = "Guardado con Exito";
+            } else {
+                $json['response_code'] = 500;
+                $json['response_text'] = "No se pudo registrar el Usuario";
+            }
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "El Email de este usuario ya se encuentra registrado";
+        }
 
-        // echo json_encode($json);
+        echo json_encode($json);
     }
 
     // public function agregar_empleados($array_empleados)

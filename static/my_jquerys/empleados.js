@@ -13,38 +13,41 @@ $(document).ready(function () {
 			cancelButtonText: 'Cancelar'
 		}).then((result) => {
 			if (result.value) {
-
 				guardar_empleados()
-				// var general = {
-				// 	'nombre': nombre,
-				// 	'apellido_1': apellido_1,
-				//     'apellido_2': apellido_2,
-				// 	'email': email,
-				// }
-				// var myJson = JSON.stringify(general);
-				// localStorage.setItem('array_empleados', myJson);
-
 			}
 		})
 	});
 
+	$(document).on('click', '#show-password', function () {
+		password1 = document.querySelector('.password1');
+		if (password1.type === "password") {
+			password1.type = "text";
+			$('#eye').removeClass('fa-eye'); 
+			$('#eye').addClass('fa-eye-slash'); 
+		} else {
+			password1.type = "password";
+			$('#eye').removeClass('fa-eye-slash'); 
+			$('#eye').addClass('fa-eye'); 
+		}
+	});
+
 	function guardar_empleados() {
 		var nombre = $('#nombre').val();
-		var apellido_1 = $('#apellido_1').val().trim();
-		var apellido_2 = $('#apellido_2').val().trim();
+		var apellidos = $('#apellidos').val()
 		var email = $('#email').val().trim();
-		var password = $('#password').val().trim();
+		var password = $('#password').val()
+		var sucursal = $('#sucursal').val()
 		$.ajax({
 			url: "Empleados/guardar_empleados",
-			type: "POST", 
+			type: "POST",
 			dataType: "json",
 			data: {
 				nombre: nombre,
-				apellido_1:apellido_1,
-				apellido_2:apellido_2,
-				email:email,
-				password:password,
-				
+				apellidos: apellidos,
+				email: email,
+				password: password,
+				sucursal: sucursal,
+
 			},
 			success: function (data) {
 				if (data.response_code == 200) {
@@ -56,11 +59,11 @@ $(document).ready(function () {
 				} else {
 					infoAlert("Verifica", data.response_text);
 				}
-			},
-			error: function (xhre) {
-				Swal.close();
-				infoAlert("Verifica", data.response_text);
 			}
+			// error: function (xhre) {
+			// 	Swal.close();
+			// 	infoAlert("Verifica", data.response_text);
+
 
 		});
 	}
@@ -76,11 +79,7 @@ $(document).ready(function () {
 			mensaje, text, 'question'
 		)
 	}
-
-
-
 })
-
 
 
 
