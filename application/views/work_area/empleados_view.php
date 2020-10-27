@@ -1,3 +1,4 @@
+
 <div class="row  mr-2 ml-2">
 	<div class="col-sm-12">
 		<div class="inner">
@@ -7,36 +8,35 @@
 						<h5 class="m-0 font-weight-bold text-dark">Registro Usuarios</h5>
 					</div>
 					<div class="card-body">
-						<form action="#" method="post">
+						<form id="form_empleados" >
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="nombre">Nombre(s):</label>
-									<input type="text" class="form-control" id="nombre" name="nombre" placeholder="">
+									<input type="text" class="form-control required" id="nombre" name="nombre" minlength="3" pattern="[a-z]">
 								</div>
 								<div class="form-group col-md-6">
 									<label for="apellidos">Apellidos</label>
-									<input type="text" class="form-control" id="apellidos" name="apellidos"
-										placeholder="">
+									<input type="text" class="form-control required" id="apellidos" name="apellidos" minlength="3">
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-12">
 									<label for="email">E-mail:</label>
-									<input type="email" class="form-control" id="email" name="email" placeholder="">
+									<input type="email" class="form-control required email" id="email" name="email"  minlength="3">
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="password">Contraseña:</label>
-									<input type="password" name="password" class="form-control password1"
-										value="password" placeholder="" />
+									<input type="password" name="password" class="form-control password1 required"
+										value=""  minlength="6"  />
 									<span id="show-password"> <i class="fa fa-fw fa-eye password-icon show-password"
 											id="eye"></i></span>
 								</div>
 								<div class="form-group col-md-6">
 									<label for="sucursal">Sucursal</label>
-									<select id="sucursal" name="sucursal" class="form-control">
-
+									<select id="sucursal" name="sucursal" class="form-control" required>
+										
 										<option value="Colima">Colima</option>
 										<option value="Guadalajara">Guadalajara</option>
 										<option value="Irapuato">Irapuato</option>
@@ -50,8 +50,8 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group p-2 col-md-12 justify-content-sm-end">
-									<a id="btn_datos_empleados" class="btn btn-info"> 
-									<i class="far fa-save"></i>  Guardar</a>
+									<button  type="submit" class="btn btn-info"> 
+									<i class="far fa-save"></i>  Guardar</button>
 								</div>
 							</div>  
 						</form> 

@@ -27,6 +27,29 @@ class model_empleados extends CI_Model
         return ($query->num_rows() == 1) ? $query->row() : null;
     }
 
+    public function select_empleados()
+    {
+        $sql_consulta = "
+            Select
+                e.id_empleados,
+                e.nombre,
+                e.apellidos,
+                e.sucursal
+            from
+                empleados e ";
+        $query = $this->db->query($sql_consulta);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+
+    public function delete_empleado($id_empleado) {
+        $sql_update = "
+            update
+                empleados set
+                    estatus = 0
+            where id_empleados = " . $id_empleado;
+        return $this->db->query($sql_update);
+    }
+
     // public function exist_email_update($email, $id_empleado) {
     //     $sql_select = "
     //         select id_empleados

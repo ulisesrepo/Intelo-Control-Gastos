@@ -80,7 +80,7 @@
       
       <a class="collapse-item" href="Empleados"> <i class="fas fa-id-card"></i> Registro de Usuarios</a>
       
-        <a class="collapse-item" href="ListaUsuarios"> <i class="fa fa-table"></i>  Lista de Usuarios</a>
+        <a class="collapse-item" href="ListaEmpleados"> <i class="fa fa-table"></i>  Lista de Usuarios</a>
     
       </div>
     </div>

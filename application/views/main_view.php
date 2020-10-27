@@ -56,6 +56,16 @@
 		margin: -25px 10px 0 0;
 		cursor: pointer;
 	}
+
+	.error {
+		color: #dc3545 !important;
+		font-size: 15px !important;
+		position: relative !important;
+		line-height: 1 !important;
+		width: 100% !important;
+		margin-top:.60rem !important; 
+	}
+
 </style>
 
 </head>
@@ -119,10 +129,11 @@
 
 
 
+	<!-- validate jquery -->
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="<?=base_url();?>assets/vendor/jquery/jquery.min.js"></script>
-	<script src="<?=base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+	<script src="<?=base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<script src="https://momentjs.com/downloads/moment.js"></script>
 	<!-- Core plugin JavaScript-->
@@ -144,6 +155,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 	<!--Tablas-->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> -->
+
+	<script src="<?=base_url();?>static/vendor/form_validate/jquery.validate.min.js"></script>
+	<script src="<?=base_url();?>static/vendor/form_validate/app_charateres.js"></script>
+	<script src="<?=base_url();?>static/vendor/form_validate/messages_es.js"></script>
 
 
 </body>

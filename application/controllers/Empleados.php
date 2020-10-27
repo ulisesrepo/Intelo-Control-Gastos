@@ -31,14 +31,6 @@ class Empleados extends CI_Controller
 
     public function guardar_empleados()
     {
-
-        $this->input->post('nombre');
-        $this->form_validation->set_rules('apellido_1_usu', 'Email de usuario', 'trim|required|xss_clean');
-        if($this->form_validation->run()){
-            echo 'entro al if';
-        } else {
-            echo 'no entro al if';
-        }
         $array_nuevo_empleado                = array();
         $array_nuevo_empleado['nombre']      = $this->input->post('nombre');
         $array_nuevo_empleado['apellidos']  = $this->input->post('apellidos');
@@ -63,24 +55,36 @@ class Empleados extends CI_Controller
         echo json_encode($json);
     }
 
-    // public function agregar_empleados($array_empleados)
-    // {
-    //     $nombre   = $array_empleados->nombre;
-    //     $apellido_1  = $array_empleados->apellido_1;
-    //     $apellido_2        = $array_empleados->apellido_2;
-    //     $email  = $array_empleados->email;
-    //     $array_data = array(
-    //         'nombre'         => $nombre,
-    //         'apellido_1'     => $apellido_1,
-    //         'apellido_2'     => $apellido_2,
-    //         'email'          => $email,
-    //     );
-    //     $id_empleados = $this->model_empleados->insert_empleados($array_data);
-    //     if ($id_empleados > 0) {
-    //         return $id_empleados;
-    //     } else {
-    //         return 0;
-    //     }
-    // }
+    public function mostrar_empleados() {
+        $datos_empleados = $this->model_empleados->select_empleados();
+        if ($datos_empleados != null && $datos_empleados != '') {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Mostrando datos de la tabla";
+            $json['response_data'] = $datos_empleados;
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No hay datos en la tabla";
+        }
+        echo json_encode($json);
+    }
+
+    public function eliminar_empleado() {
+        // $this->form_validation->set_rules('id_empleado', 'Id Empresa', 'trim|required|xss_clean|min_length[1]');
+        if ($this->form_validation->run()) {
+            $id_empleado = $this->input->post('id_empleado');
+            if ($this->model_empleados->delete_empleado($id_empleado)) {
+                $json['response_code'] = 200;
+                $json['response_text'] = "Se elimino el Empleado con Exito";
+            } else {
+                $json['response_code'] = 500;
+                $json['response_text'] = "No se elimino el Empleado";
+            }
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo realiza la operación.";
+        }
+        echo json_encode($json);
+    }
+
 
 }
