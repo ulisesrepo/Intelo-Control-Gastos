@@ -14,6 +14,7 @@
 									<th class="center">Nombre(s)</th>
 									<th class="center">Apellidos</th>
 									<th class="center">Sucursal</th>
+									<th class="center">Estatus</th>
 									<th class="center">Acciones</th>
 			        			</tr>
 							</thead>

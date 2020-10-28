@@ -1,23 +1,22 @@
 $(document).ready(function () {
 
 	cargaTabla_Empleados()
-	
+
 	var form_validate_agregar = $('#form_empleados').validate({
-        rules: {
-        },
-        messages: {},
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).addClass("is-valid").removeClass("is-invalid");
-        },
-        submitHandler: function () {
+		rules: {},
+		messages: {},
+		errorElement: 'span',
+		errorPlacement: function (error, element) {
+			error.addClass('invalid-feedback');
+			element.closest('.form-group').append(error);
+		},
+		highlight: function (element, errorClass, validClass) {
+			$(element).addClass("is-invalid").removeClass("is-valid");
+		},
+		unhighlight: function (element, errorClass, validClass) {
+			$(element).addClass("is-valid").removeClass("is-invalid");
+		},
+		submitHandler: function () {
 			Swal.fire({
 				title: '¿Esta seguro?',
 				text: "",
@@ -32,20 +31,20 @@ $(document).ready(function () {
 					guardar_empleados()
 				}
 			})
-        }
-    });
-	  
+		}
+	});
+
 
 	$(document).on('click', '#show-password', function () {
 		password1 = document.querySelector('.password1');
 		if (password1.type === "password") {
 			password1.type = "text";
-			$('#eye').removeClass('fa-eye'); 
-			$('#eye').addClass('fa-eye-slash'); 
+			$('#eye').removeClass('fa-eye');
+			$('#eye').addClass('fa-eye-slash');
 		} else {
 			password1.type = "password";
-			$('#eye').removeClass('fa-eye-slash'); 
-			$('#eye').addClass('fa-eye'); 
+			$('#eye').removeClass('fa-eye-slash');
+			$('#eye').addClass('fa-eye');
 		}
 	});
 
@@ -53,45 +52,93 @@ $(document).ready(function () {
 
 		var tabla = $("#dataTable_listaempleados").DataTable();
 		var row = tabla.row($(this).parent().parent());
-        var data = row.data();
-        Swal.fire({
-            title: "¿Estas seguro?",
-            text: "",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: '#2c9faf',
+		var data = row.data();
+		var id_empleado = data.id_empleados;
+
+		Swal.fire({
+			title: "¿Estas seguro?",
+			text: "",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: '#2c9faf',
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Si, Eliminar!',
 			cancelButtonText: 'Cancelar'
-        }).then((result) => {
+		}).then((result) => {
 			if (result.value) {
-                    var id_empleado = data.id_empleados;
-                    $.ajax({
-                        url: "Empleados/eliminar_empleado",
-                        type: "POST",
-                        data: {
-                            id_empleado: id_empleado
-                        },
-                        dataType: "json",
-                        success: function (data) {
-                            if (data.response_code == 200) {
-                                successAlert("Eliminado!", data.response_text, "success");
-								// tabla.row(row).remove().draw(false);
-								tabla.clear().draw(false);
-                            } else if (data.response_code == 500) {
-                                infoAlert("Verificar", data.response_text);
-                            }
-                        },
-                        error: function (xhr) {
-                            infoAlert("Verifica", data.response_text);
-                        }
-                    })
-                } else {
-                    infoAlert("Cancelado", "La eliminación ha sido cancelada");
-                }
-            }
-        );
-    });
+				// var id_empleado = data.id_empleados;
+				$.ajax({
+					url: "Empleados/eliminar_empleado",
+					type: "POST",
+					data: {
+						id_empleado: id_empleado
+					},
+					dataType: "json",
+					success: function (data) {
+						if (data.response_code == 200) {
+							successAlert("Eliminado!", data.response_text, "success");
+							cargaTabla_Empleados()
+							// tabla.row(row).remove().draw(false);
+							// tabla.clear().draw(false);
+						} else if (data.response_code == 500) {
+							infoAlert("Verificar", data.response_text);
+						}
+					},
+					error: function (xhr) {
+						infoAlert("Verifica", data.response_text);
+					}
+				})
+			} else {
+				infoAlert("Cancelado", "La eliminación ha sido cancelada");
+			}
+		});
+	});
+
+	$(document).on('click', '#btn_activar_empleados', function () {
+
+		var tabla = $("#dataTable_listaempleados").DataTable();
+		var row = tabla.row($(this).parent().parent());
+		var data = row.data();
+		var id_empleado = data.id_empleados;
+
+		Swal.fire({
+			title: "¿Estas seguro?",
+			text: "",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: '#2c9faf',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si, Activar',
+			cancelButtonText: 'Cancelar'
+		}).then((result) => {
+			if (result.value) {
+				// var id_empleado = data.id_empleados;
+				$.ajax({
+					url: "Empleados/activar_empleado",
+					type: "POST",
+					data: {
+						id_empleado: id_empleado
+					},
+					dataType: "json",
+					success: function (data) {
+						if (data.response_code == 200) {
+							successAlert("Activado!", data.response_text, "success");
+							cargaTabla_Empleados()
+							// tabla.row(row).remove().draw(false);
+							// tabla.clear().draw(false);
+						} else if (data.response_code == 500) {
+							infoAlert("Verificar", data.response_text);
+						}
+					},
+					error: function (xhr) {
+						infoAlert("Verifica", data.response_text);
+					}
+				})
+			} else {
+				infoAlert("Cancelado", "La activación ha sido cancelada");
+			}
+		});
+	});
 
 
 	function guardar_empleados() {
@@ -115,6 +162,7 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					successAlert(data.response_text);
+					cargaTabla_Empleados()
 					// tabla.clear().draw(false);
 					// limpiar_inputs();
 				} else if (data.response_code == 500) {
@@ -148,8 +196,7 @@ $(document).ready(function () {
 							"className": "text-center",
 							"targets": "_all"
 						}],
-						"columns": [
-							{
+						"columns": [{
 								'data': "id_empleados"
 							},
 							{
@@ -162,13 +209,32 @@ $(document).ready(function () {
 								'data': "sucursal"
 							},
 							{
+								'data': null,
+								'render': function (data, type, row) {
+									
+									if (row.estatus == 1) {
+										"<label class='mr-1'> Ser.Unidades/Refacciones:</label>"
+									} else {
+										"<label class='mr-1'> Ser.Unidades/Refacciones:</label>"
+									}
+								}
+							},
+							{
 								"data": null,
 								'render': function (data, type, row) {
-									return  "<a id='btn_mostrar_' class='btn btn-warning btn-sm btn_editar_empleados'" +
-									" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Editar empleado'>" +
-									"<i class='far fa-edit'></i></a>   "+ "<a id='btn_borrar_empleados' class='btn btn-danger btn-sm btn_borrar_empleados'" +
-									" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Borrar empleado'>" +
-									"<i class='far fa-trash-alt'></i></a>" ;
+									var boton = "";
+									if (data.estatus == 1) {
+										boton = "<a id='btn_borrar_empleados' class='btn btn-danger btn-sm btn_borrar_empleados'" +
+											" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Borrar empleado'>" +
+											"<i class='far fa-trash-alt'></i></a>"
+									} else {
+										boton = "<a id='btn_activar_empleados' class='btn btn-success btn-sm btn_activar_empleados'" +
+											" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Activar empleado'>" +
+											"<i class='fas fa-trash-restore-alt'></i></a>"
+									}
+									return "<a id='btn_mostrar_' class='btn btn-warning btn-sm btn_editar_empleados'" +
+										" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Editar empleado'>" +
+										"<i class='far fa-edit'></i></a>    " + boton;
 
 								}
 							}
@@ -194,47 +260,6 @@ $(document).ready(function () {
 		)
 	}
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

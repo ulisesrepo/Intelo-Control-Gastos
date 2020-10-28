@@ -69,8 +69,6 @@ class Empleados extends CI_Controller
     }
 
     public function eliminar_empleado() {
-        // $this->form_validation->set_rules('id_empleado', 'Id Empresa', 'trim|required|xss_clean|min_length[1]');
-        if ($this->form_validation->run()) {
             $id_empleado = $this->input->post('id_empleado');
             if ($this->model_empleados->delete_empleado($id_empleado)) {
                 $json['response_code'] = 200;
@@ -79,10 +77,19 @@ class Empleados extends CI_Controller
                 $json['response_code'] = 500;
                 $json['response_text'] = "No se elimino el Empleado";
             }
-        } else {
-            $json['response_code'] = 500;
-            $json['response_text'] = "No se pudo realiza la operación.";
-        }
+        echo json_encode($json);
+    }
+
+    public function activar_empleado() {
+            $id_empleado = $this->input->post('id_empleado');
+          
+            if ($this->model_empleados->activate_empleado($id_empleado)) {
+                $json['response_code'] = 200;
+                $json['response_text'] = "Se activo el Empleado con Exito";
+            } else {
+                $json['response_code'] = 500;
+                $json['response_text'] = "No se activo el Empleado";
+            }
         echo json_encode($json);
     }
 

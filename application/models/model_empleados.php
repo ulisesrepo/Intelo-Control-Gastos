@@ -34,7 +34,8 @@ class model_empleados extends CI_Model
                 e.id_empleados,
                 e.nombre,
                 e.apellidos,
-                e.sucursal
+                e.sucursal,
+                e.estatus
             from
                 empleados e ";
         $query = $this->db->query($sql_consulta);
@@ -46,6 +47,15 @@ class model_empleados extends CI_Model
             update
                 empleados set
                     estatus = 0
+            where id_empleados = " . $id_empleado;
+        return $this->db->query($sql_update);
+    }
+
+    public function activate_empleado($id_empleado) {
+        $sql_update = "
+            update
+                empleados set
+                    estatus = 1
             where id_empleados = " . $id_empleado;
         return $this->db->query($sql_update);
     }
