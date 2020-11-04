@@ -37,6 +37,7 @@ class Empleados extends CI_Controller
         $array_nuevo_empleado['email']       = $this->input->post('email');
         $array_nuevo_empleado['password'] = sha1($this->input->post('password'));
         $array_nuevo_empleado['sucursal']       = $this->input->post('sucursal');
+        $array_nuevo_empleado['id_usuario']       = $this->input->post('id_usuario');
 
         $exist_email = $this->model_empleados->existe_email($this->input->post('email'));
         if(is_null($exist_email)){
@@ -51,7 +52,6 @@ class Empleados extends CI_Controller
             $json['response_code'] = 500;
             $json['response_text'] = "El Email de este usuario ya se encuentra registrado";
         }
-
         echo json_encode($json);
     }
 
@@ -90,6 +90,55 @@ class Empleados extends CI_Controller
                 $json['response_code'] = 500;
                 $json['response_text'] = "No se activo el Empleado";
             }
+        echo json_encode($json);
+    }
+
+    public function actualizar_datos() {
+        
+            $password_validacion    = $this->input->post('password_usu');
+            $email               = $this->input->post('email_usu');
+            $id_usuario          = $this->input->post('id_usuario');
+            $id_empleado          = $this->input->post('id_empleado');
+            $sucursal               = $this->input->post('sucursal_usu');
+            $array_datos_usuario = array();
+
+            $exist_email = $this->model_empleados->exist_email_update($email, $id_empleado);
+            if ($exist_email == null) {
+                // if ($password_validacion == null && $password_validacion == '') {
+                //     // $password_return                 = $this->model_empleados->return_password($id_empleado);
+                //     $array_datos_usuario['email']       = $this->input->post('email_usu');
+                //     $array_datos_usuario['id_usuario']   = $this->input->post('id_usuario');
+                //     $array_datos_usuario['sucursal']   = $this->input->post('sucursal_usu');
+                //     $array_datos_usuario['id_empleados']  = $this->input->post('id_empleados');
+                //     $array_datos_usuario['password'] = $this->model_empleados->return_password($id_empleado);
+
+                //     if ($this->model_empleados->update_usuario($array_datos_usuario)) {
+                //         $json['response_code'] = 200;
+                //         $json['response_text'] = "Se Actualizado los datos del Usuario con Exito";
+                //     } else {
+                //         $json['response_code'] = 500;
+                //         $json['response_text'] = "No se pudo Actualizado los datos del Usuario";
+                //     }
+                // } else {
+                    $array_datos_usuario['email']       = $this->input->post('email');
+                    $array_datos_usuario['sucursal']   = $this->input->post('sucursal');
+                    $array_datos_usuario['id_empleados']  = $this->input->post('id_empleados');
+                    $array_datos_usuario['id_usuario']  = $this->input->post('id_usuario');
+                    $array_datos_usuario['password'] = sha1($this->input->post('password'));
+
+                    if ($this->model_empleados->update_usuario($array_datos_usuario)) {
+                        $json['response_code'] = 200;
+                        $json['response_text'] = "Se Actualizaron los datos del Usuario con Exito";
+                    } else {
+                        $json['response_code'] = 500;
+                        $json['response_text'] = "No se pudo Actualizar los datos del Usuario";
+                    }
+                // }
+            } else {
+                $json['response_code'] = 500;
+                $json['response_text'] = "El Email que quiere actualizar ya se encuetra registrado para otro usuario";
+            }
+        
         echo json_encode($json);
     }
 

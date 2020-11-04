@@ -48,37 +48,37 @@ $(document).ready(function () {
 	});
 
 	$(document).on('click', '#btn_visualizar_vehiculos', function () {
-		$('#modal_visualizacion_vehiculos').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_vehiculos').modal({backdrop: 'static', keyboard: false});
 		$('#modal_visualizacion_vehiculos').modal('show');
 		cargaTabla_Vehiculos();
 	});
-
+ 
 	$(document).on('click', '#btn_visualizar_viaticos', function () {
-		$('#modal_visualizacion_viaticos').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_viaticos').modal({backdrop: 'static', keyboard: false});
 		$("#modal_visualizacion_viaticos").modal("show");
 		cargaTabla_Viaticos();
 	});
 
 	$(document).on('click', '#btn_visualizar_gastosudn', function () {
-		$('#modal_visualizacion_gastosudn').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_gastosudn').modal({backdrop: 'static', keyboard: false});
 		$("#modal_visualizacion_gastosudn").modal("show");
 		cargaTabla_Gastosudn();
 	});
 
 	$(document).on('click', '#btn_visualizar_fletes', function () {
-		$('#modal_visualizacion_fletes').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_fletes').modal({backdrop: 'static', keyboard: false});
 		$("#modal_visualizacion_fletes").modal("show");
 		cargaTabla_Fletes();
 	});
 	
 	$(document).on('click', '#btn_visualizar_servudn', function () {
-		$('#modal_visualizacion_servudn').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_servudn').modal({backdrop: 'static', keyboard: false});
 		$("#modal_visualizacion_servudn").modal("show");
 		cargaTabla_Servudn();
 	});
 
 	$(document).on('click', '#btn_visualizar_almacen', function () {
-		$('#modal_visualizacion_almacen').modal({backdrop: 'static', keyboard: false});
+		// $('#modal_visualizacion_almacen').modal({backdrop: 'static', keyboard: false});
 		$("#modal_visualizacion_almacen").modal("show");
 		cargaTabla_Almacen();
 	});
@@ -92,6 +92,9 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					$('#data_table_vizualizar_vehiculos').DataTable({
+						"language": {
+							"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+						},
 						"pageLength": 15,
 						"scrollCollapse": true,
 						"destroy": true,
@@ -214,6 +217,9 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					$('#data_table_vizualizar_viaticos').DataTable({
+						"language": {
+							"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+						},
 						"pageLength": 15,
 						"scrollCollapse": true,
 						"destroy": true,
@@ -275,6 +281,9 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					$('#data_table_vizualizar_gastosudn ').DataTable({
+						"language": {
+							"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+						},
 						"pageLength": 15,
 						"scrollCollapse": true,
 						"destroy": true,
@@ -409,6 +418,9 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					$('#data_table_vizualizar_fletes').DataTable({
+						"language": {
+							"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+						},
 						"pageLength": 15,
 						"scrollCollapse": true,
 						"destroy": true,
@@ -476,6 +488,9 @@ $(document).ready(function () {
 			success: function (data) {
 				if (data.response_code == 200) {
 					$('#data_table_vizualizar_servudn').DataTable({
+						"language": {
+							"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+						},
 						"pageLength": 15,
 						"scrollCollapse": true,
 						"destroy": true,
@@ -632,6 +647,9 @@ function cargaTabla_Almacen() {
 		success: function (data) {
 			if (data.response_code == 200) {
 				$('#data_table_vizualizar_almacen').DataTable({
+					"language": {
+						"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+					},
 					"pageLength": 15,
 					"scrollCollapse": true,
 					"destroy": true,

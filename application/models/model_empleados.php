@@ -10,21 +10,16 @@ class model_empleados extends CI_Model
         $email                = $array_data['email'];
         $password             = $array_data['password'];
         $sucursal             = $array_data['sucursal'];
+        $id_usuario             = $array_data['id_usuario'];
         $sql_insert_empleados = "insert into empleados values(null,'"
             . $nombre . "','"
             . $apellidos . "','"
             . $email . "','"
             . $password . "','"
-            . $sucursal . "')";
+            . $sucursal . "',1,'"
+             . $id_usuario . "')";
         
         return $this->db->query($sql_insert_empleados);
-    }
-
-    public function existe_email($email)
-    {
-        $sql_consulta = "select id_empleados from empleados where email like BINARY '$email'";
-        $query        = $this->db->query($sql_consulta);
-        return ($query->num_rows() == 1) ? $query->row() : null;
     }
 
     public function select_empleados()
@@ -35,11 +30,36 @@ class model_empleados extends CI_Model
                 e.nombre,
                 e.apellidos,
                 e.sucursal,
-                e.estatus
+                e.estatus,
+                u.id_usuario
             from
-                empleados e ";
+                usuarios u
+                inner join empleados e on u.id_usuario = e.id_usuario";
+            
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+
+    public function existe_email($email)
+    {
+        $sql_consulta = "select id_empleados from empleados where email like BINARY '$email'";
+        $query        = $this->db->query($sql_consulta);
+        return ($query->num_rows() == 1) ? $query->row() : null;
+    }
+
+    public function exist_email_update($email, $id_empleado) {
+        $sql_consulta = "
+            select id_empleados 
+            from empleados 
+            where email like BINARY '$email' and id_empleados not in ('.$id_empleado.')";
+        $query        = $this->db->query($sql_consulta);
+        return ($query->num_rows() == 1) ? $query->row() : null;
+    }
+
+    public function return_password($id_empleado) {
+        $sql_consulta = "select password from empleados where id_empleados = '.$id_empleado'";
+        $query        = $this->db->query($sql_consulta);
+        return ($query->num_rows() == 1) ? $query->row() : null;
     }
 
     public function delete_empleado($id_empleado) {
@@ -60,50 +80,18 @@ class model_empleados extends CI_Model
         return $this->db->query($sql_update);
     }
 
-    // public function exist_email_update($email, $id_empleado) {
-    //     $sql_select = "
-    //         select id_empleados
-    //         from Empleados
-    //         where
-    //             email like binary '$email'
-    //              and id_empleados not in (" . $id_empleado . ")";
-    //     $query = $this->db->query($sql_select);
-    //     return ($query->num_rows() == 1) ? $query->row() : null;
-    // }
+    public function update_usuario($array) {
+        $email       = $array['email'];
+        $password    = $array['password'];
+        $sucursal     = $array['sucursal'];
+        $id_empleado      = $array['id_empleados'];
+        $id_usuario  = $array['id_usuario'];
 
-    // public function exist_tel_update($tel_cel, $id_empleado) {
-    //     $sql_select = "
-    //         select id_empleados
-    //         from Empleados
-    //         where
-    //             tel_cel like binary '$tel_cel'
-    //              and id_empleados not in (" . $id_empleado . ")";
-    //     $query = $this->db->query($sql_select);
-    //     return ($query->num_rows() == 1) ? $query->row() : null;
-    // }
-
-    // public function update_empleado($email, $app_activa, $tel_cel, $id_empleado) {
-    //     $sql_update = "
-    //         update Empleados set
-    //         email = '" . $email . "',
-    //         app_activa = " . $app_activa . ",
-    //         tel_cel = '" . $tel_cel . "'
-    //         where id_empleados = " . $id_empleado;
-    //     return $this->db->query($sql_update);
-    // }
-
-    // public function delete_empleado($id_empleado) {
-    //     $sql_update = "
-    //         update
-    //             Empleados set
-    //                 estatus = 0,
-    //                 app_activa = 0
-    //         where id_empleados = " . $id_empleado;
-    //     return $this->db->query($sql_update);
-    // }
-
-    // public function delete_empleado_producto($id_empleado_producto) {
-    //     $sql_update = "update Empleado_producto set estatus = 0 where id_empleado_producto = " . $id_empleado_producto;
-    //     return $this->db->query($sql_update);
-    // }
+        $sql_update = "update Empleados set email = '" . $email .
+            "', password = '" . $password .
+            "', sucursal = '" . $sucursal .
+            "', id_usuario = '" . $id_usuario .
+            "' where id_empleados = '.$id_empleado'";
+        return $this->db->query($sql_update);
+    }
 }
