@@ -94,4 +94,105 @@ class model_empleados extends CI_Model
             "' where id_empleados = '.$id_empleado'";
         return $this->db->query($sql_update);
     }
+
+    public function select_empresa_caratula($fecha_comprobacion)
+    {
+        $consulta = " Select Empresa from general where Fecha_captura = '$fecha_comprobacion'";
+        $query    = $this->db->query($consulta);
+        return ($query->num_rows() == 1) ? $query->row() : null;
+    }
+
+    public function select_caratula_vehiculos()
+    {
+        $sql_gastos_vehiculos = "
+            Select
+            w.combustible,
+            w.casetas,
+            g.id_general
+            from
+                general g
+                inner join vehiculos w on g.id_general = w.id_general";
+            
+        $query = $this->db->query($sql_gastos_vehiculos);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+        
+    public function select_caratula_viaticos()
+    {
+
+        $sql_gastos_viaticos = "
+            Select
+            v.estacionamientoViaticos,
+            v.alimentos,
+            v.hospedaje,
+            v.pasajes,
+            g.id_general
+            from
+                general g
+                inner join viaticos v on g.id_general = v.id_general";
+            
+        $query = $this->db->query($sql_gastos_viaticos);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+
+        public function select_caratula_gastosudn()
+    {
+        $sql_gastos_gastosudn = "
+            Select
+            u.papeleria,
+            u.impuestos,
+            u.sistemas,
+            u.cajachica,
+            u.arrenamunidades,
+            u.servcomputo,
+            g.id_general
+            from
+            general g
+            inner join gastosudn u on g.id_general = u.id_general";
+            
+        $query = $this->db->query($sql_gastos_gastosudn);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+
+
+    public function select_caratula_fletes()
+    {
+        $sql_gastos_fletes ="
+        Select
+                f.maniobras,
+                f.infraccionesfletes,
+                f.fletes,
+                f.paqueteria,
+                f.noDeduFletes,
+                g.Empresa,
+                g.id_general
+            from
+                general g
+                inner join gastosfletes f on g.id_general = f.id_general";
+        $query = $this->db->query($sql_gastos_fletes);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+        
+    }
+
+    public function select_caratula_servudn()
+    {
+        $sql_gastos_servudn = "
+        Select
+            s.gas,
+            s.arrendamientoinmuebles,
+            s.ServiciosAGL,
+            s.Internet,
+            s.monitoreo,
+            s.fianzas,
+            s.facturacion,
+            g.id_general
+        from
+            general g
+            inner join serviciosudn s on g.id_general = s.id_general";
+         $query = $this->db->query($sql_gastos_servudn);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+
+    }
+
+
 }

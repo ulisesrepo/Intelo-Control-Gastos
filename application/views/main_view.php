@@ -148,6 +148,10 @@
 	<script src="<?=base_url();?>static/js/jquery.steps.js"></script>
 	<script src="<?=base_url();?>static/js/main.js"></script>
 	<!-- <script src="<?=base_url();?>static/my_jquerys/empleados.js"></script> -->
+	
+	<!-- pdfmaker -->
+	<script src="{{url('static/plugins/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{url('static/plugins/pdfmake/vfs_fonts.js')}}"></script>
 
 	<!-- mi jq -->
 	<script src="<?=base_url();?>static/my_jquerys/<?=$my_jquery;?>"></script>

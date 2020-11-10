@@ -96,6 +96,9 @@ class Principal extends CI_Controller
                     $valor = $this->agregar_gastos_almacen($id_general, $array_almacen);
 
                 }
+
+                $json['response_code'] = 200;
+                $json['response_text'] = "se guardaron con exito";
                 
             }
         } else {
@@ -103,7 +106,7 @@ class Principal extends CI_Controller
             $json['response_text'] = "No se a guardado los datos
                 generales de este registro, es importante que se ingresen";
         }
-
+        echo json_encode($json);
     }
 
     public function agregar_general($array_general)
@@ -939,6 +942,7 @@ class Principal extends CI_Controller
         echo json_encode($json);
 
     }
+
     public function agregar_gastos_facturacion($id_serviciosudn, $data)
     {
         $array_facturacion = array();

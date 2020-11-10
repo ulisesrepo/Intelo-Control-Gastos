@@ -167,7 +167,7 @@ $(document).ready(function () {
 					error: function (xhr) {
 						infoAlert("Verifica", data.response_text);
 					}
-				})
+				});
 			} else {
 				infoAlert("Cancelado", "La activación ha sido cancelada");
 			}
