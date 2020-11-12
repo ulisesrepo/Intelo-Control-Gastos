@@ -301,10 +301,11 @@ $(document).ready(function () {
 
 				var myJson = JSON.stringify(almacen);
 				localStorage.setItem('array_almacen', myJson);
+				
+				
 			}
 		})
 	});
-
 
 	$(document).on('click', '#btn_agregar_datos_tabla', function () {
 		var tabla = $('#data_table_costos').DataTable();

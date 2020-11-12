@@ -33,7 +33,8 @@ class CaratulaGastos extends CI_Controller
 
     public function cargar_gastos_empleado($fecha_comprobacion)
     {
-        $datos_empresa = $this->model_empleados->select_empresa_caratula($fecha_comprobacion);
+        $id_empleado   = $this->session->userdata('id_empleados');
+        $datos_empresa = $this->model_empleados->select_empresa_caratula($fecha_comprobacion, $id_empleado);
         if (!is_null($datos_empresa)) {
             $json['response_code'] = 200;
             $json['response_text'] = "Mostrar datos de Usuario";
@@ -44,8 +45,37 @@ class CaratulaGastos extends CI_Controller
         }
         echo json_encode($json);
     }
-    public function cargar_gastos_caratula(){
-        $datos_gastos =$this->model_empleados->select_caratula_vehiculos();
 
+    public function cargar_gastos_caratula($id_general)
+    {
+        $json = array();
+        $array = array();
+        $datos_empresa_vehiculos = $this->model_empleados->select_caratula_vehiculos($id_general);
+        $datos_empresa_viaticos = $this->model_empleados->select_caratula_viaticos($id_general);
+        $datos_empresa_gastosudn = $this->model_empleados->select_caratula_gastosudn($id_general);
+        $datos_empresa_fletes = $this->model_empleados->select_caratula_fletes($id_general);
+        $datos_empresa_servudn = $this->model_empleados->select_caratula_servudn($id_general);
+
+        if(!is_null($datos_empresa_vehiculos)){
+            $array['vehiculos'] = $datos_empresa_vehiculos;
+        }
+        if(!is_null($datos_empresa_viaticos)){
+            $array['viaticos'] = $datos_empresa_viaticos;
+        }
+        if(!is_null($datos_empresa_gastosudn)){
+            $array['gastos_udn'] = $datos_empresa_gastosudn;
+        }
+        if(!is_null($datos_empresa_fletes)){
+            $array['fletes'] = $datos_empresa_fletes;
+        }
+        if(!is_null($datos_empresa_servudn)){
+            $array['servicios_udn'] = $datos_empresa_servudn;
+        }
+        $json['response_code'] = 200;
+        $json['response_text'] = "Mostrar datos de Usuario";
+        $json['response_data'] =  $array;
+        echo json_encode($json);
+      
     }
+
 }

@@ -39,22 +39,22 @@
 								GASTO:       </label>
 							<input type="date" class="form-control col-sm-6 required" id="fecha_comprobacion"
 								name="fecha_comprobacion" placeholder="">
-							 &nbsp;
+							<!--  &nbsp;
 							<button type="submit" class="btn btn-info" id="btn_imprimir" data-dismiss="modal" aria-label="Close"> <i
 									class="fas fa-search"></i>
 								Buscar
-							</button>
+							</button> -->
 						</div>
 						<div class="form-group p-2 col-sm-12">
 							<label class="m-0 font-weight-bold text-dark " for="Empresa">EMPRESA:
 								                                              </label>
-							<input type="text" class="form-control col-sm-6" id="empresas" name="empresas" 
-								placeholder="" readonly>
+							<select id="empresa" name="empresa" class="form-control" required>
+								<option value="">Seleccione una opción</option>
+							</select>
 						</div>
 					</div>
 				</form>
-				<br> <br>
-				<div class="table-responsive">
+				<!-- <div class="table-responsive">
 					<table class="table table-bordered table-sm" id="dataTable_detalle_gastos" width="100%"
 						cellspacing="0">
 						<thead>
@@ -67,9 +67,8 @@
 						<tbody>
 						</tbody>
 					</table>
-				</div>
-				<br> <br>
-				<div class="form-inline">
+				</div> -->
+				<!-- <div class="form-inline">
 					<div class=" d-flex justify-content-end form-group p-2 col-sm-12">
 						<label class="m-0 font-weight-bold text-dark" for="Total">TOTAL GASTADO:    </label>
 						<input type="text" class="form-control col-sm-3" id="total" placeholder="">
@@ -83,34 +82,19 @@
 						<input type="text" class="form-control col-sm-3" id="diferencia" placeholder="">
 					</div>
 
-				</div>
-				<br> <br>
+				</div> -->
+				 <br> <br><!--
 				<div class="form-inline d-flex justify-content-end p-2">
 					<a class="btn btn-info " id="btn_imprimir" data-dismiss="modal" aria-label="Close"> <i
 							class="fas fa-print"></i>
 						Imprimir
 					</a>
-				</div>
-				<!-- <div class="d-flex bd-highlight mb-0">
-					<div class="mr-auto p-2 bd-highlight m-0 font-weight-bold text-dark">___________________________
-					</div>
-					<div class="p-2 bd-highlight m-0 font-weight-bold text-dark">___________________________</div>
-
-				</div>
-				<div class="d-flex bd-highlight mb-4">
-					<div class="mr-auto p-2 bd-highlight m-0 font-weight-bold text-dark"> ENTREGA COMPROBACIÓN</div>
-					<div class="p-2 bd-highlight m-0 font-weight-bold text-dark">RECIBE COMPROBACIÓN
-						 </div>
-
 				</div> -->
-
-
-
+		
 			</div>
 
 		</div>
 
 	</div>
-
 
 </div>
