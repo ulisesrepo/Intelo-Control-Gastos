@@ -39,11 +39,6 @@
 								GASTO:       </label>
 							<input type="date" class="form-control col-sm-6 required" id="fecha_comprobacion"
 								name="fecha_comprobacion" placeholder="">
-							<!--  &nbsp;
-							<button type="submit" class="btn btn-info" id="btn_imprimir" data-dismiss="modal" aria-label="Close"> <i
-									class="fas fa-search"></i>
-								Buscar
-							</button> -->
 						</div>
 						<div class="form-group p-2 col-sm-12">
 							<label class="m-0 font-weight-bold text-dark " for="Empresa">EMPRESA:
@@ -54,42 +49,8 @@
 						</div>
 					</div>
 				</form>
-				<!-- <div class="table-responsive">
-					<table class="table table-bordered table-sm" id="dataTable_detalle_gastos" width="100%"
-						cellspacing="0">
-						<thead>
-							<tr class="table-info">
-								<th class="center m-0 font-weight-bold text-dark">GRUPO GASTO</th>
-								<th class="center m-0 font-weight-bold text-dark">TIPO GASTO</th>
-								<th class="center m-0 font-weight-bold text-dark">TOTAL (I.v.a incluido)</th>
-							</tr>
-						</thead>
-						<tbody>
-						</tbody>
-					</table>
-				</div> -->
-				<!-- <div class="form-inline">
-					<div class=" d-flex justify-content-end form-group p-2 col-sm-12">
-						<label class="m-0 font-weight-bold text-dark" for="Total">TOTAL GASTADO:    </label>
-						<input type="text" class="form-control col-sm-3" id="total" placeholder="">
-					</div>
-					<div class=" d-flex justify-content-end form-group p-2 col-sm-12">
-						<label class="m-0 font-weight-bold text-dark" for="totalAuto">TOTAL AUTORIZADO:    </label>
-						<input type="text" class="form-control col-sm-3" id="totalAuto" placeholder="">
-					</div>
-					<div class=" d-flex justify-content-end form-group p-2 col-sm-12">
-						<label class="m-0 font-weight-bold text-dark" for="diferencia">DIF. A. FAVOR L23R:   </label>
-						<input type="text" class="form-control col-sm-3" id="diferencia" placeholder="">
-					</div>
-
-				</div> -->
-				 <br> <br><!--
-				<div class="form-inline d-flex justify-content-end p-2">
-					<a class="btn btn-info " id="btn_imprimir" data-dismiss="modal" aria-label="Close"> <i
-							class="fas fa-print"></i>
-						Imprimir
-					</a>
-				</div> -->
+				
+				 <br> <br>
 		
 			</div>
 

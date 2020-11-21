@@ -152,6 +152,8 @@
 	<!-- pdfmaker -->
 	<script src="<?=base_url();?>static/pdfmake/pdfmake.min.js"></script>
     <script src="<?=base_url();?>static/pdfmake/vfs_fonts.js"></script>
+	<script src=" https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
+	<script src=' https://cdn.jsdelivr.net/npm/pdfmake@latest/build/vfs_fonts.min.js'></script>
 
 	<!-- mi jq -->
 	<script src="<?=base_url();?>static/my_jquerys/<?=$my_jquery;?>"></script>

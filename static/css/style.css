@@ -154,12 +154,12 @@ body {
 .form-register .steps li.current a:active .step-icon,
 .form-register .steps li.done a .step-icon,
 .form-register .steps li.done a:active .step-icon {
-    background: #24c1e8;
+    background: #103d85;
 }
 .form-register .steps .current .step-icon::before,
 .form-register .steps .current:last-child .step-icon::after,
 .form-register .steps .done .step-icon::before {
-	background: #24c1e8;
+	background: #0d3068;
 }
 .form-register .steps li a .step-text {
 	color: #999;
