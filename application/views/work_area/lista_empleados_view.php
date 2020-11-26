@@ -11,8 +11,8 @@
 							id="dataTable_listaempleados" width="100%" cellspacing="0">
 							<thead class="thead-light">
 								<tr><th class="center"></th>
-									<th class="center">Nombre(s)</th>
-									<th class="center">Apellidos</th>
+									<th class="center">Nombre</th>
+									<th class="center">Email</th>
 									<th class="center">Sucursal</th>
 									<th class="center">Tipo Usuario</th>
 									<th class="center">Estatus</th>
@@ -39,7 +39,7 @@
 			<div class="modal-body">
 				<div class="card-body">
 					<form id="form_empleados_update">
-						
+					<input type="text" id="id_empleado_update" style="display:none">
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="email_modal">E-mail:</label>
@@ -50,7 +50,7 @@
 						<div class="form-row">
 								<div class="form-group col-md-4">
 									<label for="password_modal">Contraseña:</label>
-									<input type="password" name="password_modal" class="form-control password1 required"
+									<input type="password" name="password_modal" id="password_modal"  class="form-control password1 required"
 										value="" minlength="6" />
 									<span id="show-password"> <i class="fa fa-fw fa-eye password-icon show-password"
 											id="eye"></i></span>

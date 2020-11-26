@@ -61,7 +61,7 @@ $(document).ready(function () {
 				cancelButtonText: 'Cancelar'
 			}).then((result) => {
 				if (result.value) {
-					actualizar_usuario()
+					actualizar_empleado()
 				}
 			})
 		}
@@ -146,7 +146,6 @@ $(document).ready(function () {
 			cancelButtonText: 'Cancelar'
 		}).then((result) => {
 			if (result.value) {
-				// var id_empleado = data.id_empleados;
 				$.ajax({
 					url: "Empleados/activar_empleado",
 					type: "POST",
@@ -158,8 +157,6 @@ $(document).ready(function () {
 						if (data.response_code == 200) {
 							successAlert("Activado!", data.response_text, "success");
 							cargaTabla_Empleados()
-							// tabla.row(row).remove().draw(false);
-							// tabla.clear().draw(false);
 						} else if (data.response_code == 500) {
 							infoAlert("Verificar", data.response_text);
 						}
@@ -174,12 +171,25 @@ $(document).ready(function () {
 		});
 	});
 
-	$(document).on('click', '#btn_editar_empleados', function () {
 
+	$(document).on('click', '#btn_editar_empleados', function () {
+		var tabla = $("#dataTable_listaempleados").DataTable();
+		var row = tabla.row($(this).parent().parent());
+		var data = row.data();
+		var id_empleado = data.id_empleados;
+		var email = data.email;
+		var password =data.password;
+		var sucursal =data.sucursal;
+		var id_usuario=data.id_usuario;
+		$('#id_empleado_update').val(id_empleado);
+		$('#email_modal').val(email);
+        $('#password_modal').val(password);
+		$('#sucursal_modal').val(sucursal);
+		$('#id_usuario_modal').val(id_usuario);
 		$("#modal_editar_empleados").modal("show");
-		
 	});
 
+	
 	function cargaTabla_Empleados() {
 		$.ajax({
 			url: "Empleados/mostrar_empleados",
@@ -203,11 +213,13 @@ $(document).ready(function () {
 						"columns": [{
 								'data': "id_empleados"
 							},
-							{
-								'data': "nombre"
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							} 
 							},
 							{
-								'data': "apellidos"
+								'data': "email"
 							},
 							{
 								'data': "sucursal"
@@ -223,7 +235,6 @@ $(document).ready(function () {
 										tipousuario = "<h9 class='m-0 '>Empleado</h9>"
 									}
 									return tipousuario;
-
 								}
 							},
 							{
@@ -250,7 +261,7 @@ $(document).ready(function () {
 											" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Activar empleado'>" +
 											"<i class='fas fa-trash-restore-alt'></i></a>"
 									}
-									return "<a id='btn_editar_empleados' class='btn btn-warning btn-sm btn_editar_empleados'" +
+									return "<a id='btn_editar_empleados' class='btn btn-dark btn-sm btn_editar_empleados'" +
 										" data-toggle='tooltip' data-attr='is_checken' data-placement='right' title='Editar empleado'>" +
 										"<i class='far fa-edit'></i></a>    " + boton;
 
@@ -296,46 +307,42 @@ $(document).ready(function () {
 					infoAlert("Verifica", data.response_text);
 				}
 			}
-			// error: function (xhre) {
-			// 	Swal.close();
-			// 	infoAlert("Verifica", data.response_text);
-
-
 		});
 	}
 
-	function  actualizar_usuario() {
-		var email_modal = $('#email_modal').val();
-		var password_modal = $('#password_modal').val();
+	function  actualizar_empleado() {
+		var id_empleado = $('#id_empleado_update').val();
+		var email_modal 	 = $('#email_modal').val();
+		var password_modal   = $('#password_modal').val();
+		var sucursal_modal   = $('#sucursal_modal').val();
 		var id_usuario_modal = $('#id_usuario_modal').val();
-		var sucursal_modal = $('#sucursal_modal').val();
-		var id_empleados_modal = $('#id_empleados_modal').val();
 		$.ajax({
-		  url: "Empleados/actualizar_datos",
+		  url: "Empleados/actualizar_empleado",
 		  type: "POST",
 		  dataType: "json",
 		  data: {
+			id_empleado: id_empleado,
 			email_modal: email_modal,
 			password_modal: password_modal,
-			id_usuario_modal: id_usuario_modal,
 			sucursal_modal:sucursal_modal,
-			id_empleados_modal: id_empleados_modal
+			id_usuario_modal: id_usuario_modal,
 		  },
+		  
 		  success: function (data) {
 			if (data.response_code == 200) {
 			  successAlert(data.response_text);
 			  $('#modal_editar_empleados').modal("hide");
-			  
+			  cargaTabla_Empleados()
 			} else if (data.response_code == 500) {
-			  infoAert("Verifica", data.response_text);
+				infoAlert("Verifica", data.response_text);
 			} else {
-			  infoAlert("Verifica", data.response_text);
+				infoAlert("Verifica", data.response_text);
 			}
 		  },
 		  error: function (xhr) {
 			infoAlert("Verifica", data.response_text);
 		  }
-		})
+		});
 	}
 
 	function limpiar_formulario_empleado() {

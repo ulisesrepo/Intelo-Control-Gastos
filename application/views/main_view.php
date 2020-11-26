@@ -35,8 +35,8 @@
 </head>
 <style>
 	.bg-gradient-primary {
-		background-color: #4e73dff2 !important;
-		background-image: linear-gradient(180deg, #0f684873 10%, #77d1f4 100%) !important;
+		background-color: #092756 !important;
+		background-image: linear-gradient(180deg, #436db1 10%, #6f0000 100%) !important;
 		background-size: cover !important;
 	}
 
@@ -65,6 +65,7 @@
 		width: 100% !important;
 		margin-top:.60rem !important; 
 	}
+
 
 </style>
 
@@ -147,7 +148,7 @@
 	<!-- wizar -->
 	<script src="<?=base_url();?>static/js/jquery.steps.js"></script>
 	<script src="<?=base_url();?>static/js/main.js"></script>
-	<!-- <script src="<?=base_url();?>static/my_jquerys/empleados.js"></script> -->
+	
 	
 	<!-- pdfmaker -->
 	<script src="<?=base_url();?>static/pdfmake/pdfmake.min.js"></script>

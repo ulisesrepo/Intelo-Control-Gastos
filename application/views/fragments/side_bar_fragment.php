@@ -20,13 +20,13 @@
   <hr class="sidebar-divider">
   <!-- Heading -->
   <div class="sidebar-heading">
-    Menus
+    Menu
   </div>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
       aria-controls="collapseTwo">
-      <i class="fa fa-folder-open"></i>
+      <i class="fas fa-tasks"></i>
       <span>Control de Gastos</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

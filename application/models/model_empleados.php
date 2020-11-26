@@ -29,6 +29,7 @@ class model_empleados extends CI_Model
                 e.id_empleados,
                 e.nombre,
                 e.apellidos,
+                e.email,
                 e.sucursal,
                 e.estatus,
                 u.id_usuario
@@ -84,20 +85,17 @@ class model_empleados extends CI_Model
         return $this->db->query($sql_update);
     }
 
-    public function update_usuario($array)
+    public function update_usuario($email, $password,$sucursal, $id_usuario, $id_empleado)
     {
-        $email       = $array['email'];
-        $password    = $array['password'];
-        $sucursal    = $array['sucursal'];
-        $id_empleado = $array['id_empleados'];
-        $id_usuario  = $array['id_usuario'];
-
-        $sql_update = "update Empleados set email = '" . $email .
-            "', password = '" . $password .
-            "', sucursal = '" . $sucursal .
-            "', id_usuario = '" . $id_usuario .
-            "' where id_empleados = '.$id_empleado'";
+        $sql_update = "
+            update empleados set
+            email = '" . $email . "',
+            password = '" . $password . "',
+            sucursal = '" . $sucursal . "',
+            id_usuario = " . $id_usuario . "
+            where id_empleados = " . $id_empleado;
         return $this->db->query($sql_update);
+
     }
 
     public function select_empresa_caratula($fecha_comprobacion, $id_empleado)

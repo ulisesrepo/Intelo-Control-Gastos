@@ -404,16 +404,6 @@ $(document).ready(function () {
 		$("#iva").val('');
     }
     
-    function limpiar_formulario_vehiculos() {
-    	$('#unidad').val();
-    	$('#km_inicial').val();
-    	$('#km_final').val();
-    	$('#lts_consumidos').val();
-    	$('#inputcombustible').val();
-    	$('#inputcasetas').val();
-    	$('#noDeduVehi').val();
-    	$('#inputserviunidades').val();
-    }
 
 	function successAlert(text) {
 		Swal.fire(
