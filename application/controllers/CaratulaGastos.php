@@ -6,6 +6,10 @@ class CaratulaGastos extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_empleados');
+        // $this->load->helper(array('form', 'url'));
+        // if (!$this->session->userdata('is_login')) {
+        //     redirect(base_url());
+        // }
     }
 
     public function index()
@@ -37,11 +41,11 @@ class CaratulaGastos extends CI_Controller
         $datos_empresa = $this->model_empleados->select_empresa_caratula($fecha_comprobacion, $id_empleado);
         if (!is_null($datos_empresa)) {
             $json['response_code'] = 200;
-            $json['response_text'] = "Mostrar datos de Usuario";
+            $json['response_text'] = "Mostrar datos de Gastos";
             $json['response_data'] = $datos_empresa;
         } else {
             $json['response_code'] = 500;
-            $json['response_text'] = "No hay datos de los Usuarios";
+            $json['response_text'] = "No hay datos de gastos en esta fecha";
         }
         echo json_encode($json);
     }

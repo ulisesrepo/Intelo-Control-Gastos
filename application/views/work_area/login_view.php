@@ -52,7 +52,7 @@
 			<input type="password" name="password" id="password" class="form-control password1 required" value=""
 				minlength="6" />
 			<span id="show-password"> <i class="fa fa-fw fa-eye password-icon show-password" id="eye"></i></span>
-			<button type="submit" class="btn btn-primary btn-block btn-large">Ingresar.</button>
+			<button type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
 		</form>
 	</div>
 

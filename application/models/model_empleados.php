@@ -98,6 +98,12 @@ class model_empleados extends CI_Model
 
     }
 
+    public function select_usuario() {
+        $sql_consulta = "select id_usuario, tipo_usuario from usuarios";
+        $query = $this->db->query($sql_consulta);
+        return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+
     public function select_empresa_caratula($fecha_comprobacion, $id_empleado)
     {
         $consulta = " Select id_general, Empresa from general 
@@ -105,6 +111,9 @@ class model_empleados extends CI_Model
                 and id_empleados = $id_empleado ";
         $query    = $this->db->query($consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
+    }
+    public function select_empleado_caratula(){
+        $consulta="";
     }
 
     public function select_caratula_vehiculos($id_general)

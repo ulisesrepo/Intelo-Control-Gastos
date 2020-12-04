@@ -8,6 +8,7 @@
     <img src="assets/img/intelo123.png" width="128"
        height="78">
   </a>
+  
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
   <!-- Nav Item - Dashboard -->
@@ -23,8 +24,8 @@
     Menu
   </div>
   <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+  <!-- <li class="nav-item">
+    <a class="nav-link collapsed" href="Principal" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
       aria-controls="collapseTwo">
       <i class="fas fa-tasks"></i>
       <span>Control de Gastos</span>
@@ -32,22 +33,33 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
 
-      
       <a class="collapse-item" href="Principal"> <i class="fas fa-dice-d6"></i>  Control de Gastos</a>
       
         <a class="collapse-item" href="Tablas"> <i class="fa fa-table"></i>  Concentrado Gastos</a>
-        <a class="collapse-item" href="Graficas"> <i class="fas fa-chart-bar"></i>  Grafica Gastos</a>
+         <a class="collapse-item" href="Graficas"> <i class="fas fa-chart-bar"></i>  Grafica Gastos</a>
     
       </div>
     </div>
-  </li>
+  </li> -->
   <!-- Nav Item - Utilities Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link" href="Principal">
+    <i class="fas fa-tasks"></i>
+      <span>Control de Gastos</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="Tablas">
+    <i class="fa fa-table"></i>
+      <span>Concentrado de Gastos</span></a>
+  </li>
+
   <li class="nav-item">
     <a class="nav-link" href="CaratulaGastos">
     <i class="fa fa-file-alt"></i>
       <span>Caratula de Gastos</span></a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" href="#">
     <i class="fas fa-money-check-alt"></i>
       <span>Cuentas por Pagar</span></a>
@@ -56,7 +68,7 @@
     <a class="nav-link" href="#">
     <i class="fas fa-child"></i>
       <span>Gastos Provedores</span></a>
-  </li>
+  </li> -->
  
 
  
@@ -85,6 +97,7 @@
       </div>
     </div>
   </li>
+  
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">

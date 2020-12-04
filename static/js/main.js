@@ -111,12 +111,12 @@ $(function () {
 							
 							// swal.closer //
 						}),
-						
-
 						localStorage.clear();
-						
 				}
-				//loader()
+				loader()
+				setTimeout(function () {
+					window.location.href = "Principal";
+				}, 2000);
 			});
 		}
 	})
@@ -126,11 +126,12 @@ $(function () {
 			title: '<h1 class="font-weight-bold text-light">Espere un momento...</h1>',
 			allowOutsideClick: false,
             showConfirmButton: false,
-            allowEscapeKey: false,
+			allowEscapeKey: false,
+			timer: 1500,
             width: 600,
             padding: '3em',
 			background: 'rgb(0 0 0 / 0%)',
-			backdrop: 'rgba(107, 160, 233, 0.69) left top no-repeat',
+			backdrop: 'rgba(48, 81, 143, 0.69) left top no-repeat',
 			html: '<div class="sk-cube-grid mt-2">' +
 				'<div class="sk-cube sk-cube1"></div>' +
 				'<div class="sk-cube sk-cube2"></div>' +

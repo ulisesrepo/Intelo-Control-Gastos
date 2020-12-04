@@ -1,9 +1,7 @@
 <?php
-class Principal extends CI_Controller
-{
 
-    public function __construct()
-    {
+class Principal extends CI_Controller{
+    public function __construct(){
         parent::__construct();
         $this->load->model('model_general');
         $this->load->model('model_gastos_vehiculos');
@@ -13,6 +11,10 @@ class Principal extends CI_Controller
         $this->load->model('model_gastos_servicios');
         $this->load->model('model_gastos_almacen');
         $this->load->model('model_gastosFacturables');
+        $this->load->helper(array('form', 'url'));
+        // if (!$this->session->userdata('is_login')) {
+        //     redirect(base_url());
+        // }
     }
 
     public function index()
@@ -26,7 +28,7 @@ class Principal extends CI_Controller
         $data['my_jquery'] = "reportes.js";
         $this->load->view("main_view", $data, false);
     }
-
+    
     public function guardar_dato()
     {
         $array_general = json_decode($_POST['array_general']);

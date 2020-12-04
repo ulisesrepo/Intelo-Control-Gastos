@@ -3,6 +3,10 @@ class Graficas extends CI_Controller{
 
     public function __construct() {
         parent::__construct();
+        $this->load->helper(array('form', 'url'));
+        if (!$this->session->userdata('is_login')) {
+            redirect(base_url());
+        }
     }
 
     public function index() {

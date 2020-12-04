@@ -750,7 +750,7 @@ $(document).ready(function () {
 				},
 				{
 					absolutePosition: { x: 67, y: 760},
-					text: 'Recibe comprobacion:',
+					text: 'Entrega de comprobacion:',
 					style: 'header',
 					fontSize: 12,
 					bold: true,
@@ -767,7 +767,7 @@ $(document).ready(function () {
 				},
 				{
 					absolutePosition: { x: 414, y: 760},
-					text: 'Entrega de comprobacion:',
+					text: 'Recibe comprobacion:',
 					style: 'header',
 					fontSize: 12,
 					bold: true,
@@ -779,6 +779,18 @@ $(document).ready(function () {
 		pdfMake.createPdf(docDefinition).download();
 		array_total=[]; 
 		total=0;
+	}
+
+	function successAlert(text) {
+		Swal.fire(
+			'¡Exito!', text, 'success'
+		)
+	}
+
+	function infoAlert(mensaje, text) {
+		Swal.fire(
+			mensaje, text, 'question'
+		)
 	}
 
 })

@@ -8,6 +8,10 @@ class ListaEmpleados extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_empleados');
+        // $this->load->helper(array('form', 'url'));
+        // if (!$this->session->userdata('is_login')) {
+        //     redirect(base_url());
+        // }
     }
 
     public function index()

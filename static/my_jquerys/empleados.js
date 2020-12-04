@@ -295,7 +295,6 @@ $(document).ready(function () {
 				password: password,
 				sucursal: sucursal,
 				id_usuario: id_usuario,
-
 			},
 			success: function (data) {
 				if (data.response_code == 200) {

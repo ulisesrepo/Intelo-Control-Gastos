@@ -5,8 +5,8 @@
 			<div class="card-body">
 
 
-				<div class="d-flex justify-content-end col-sm-12"><img src="assets/img/intelo123.png" width="220"
-						height="125"></div>
+				<!-- <div class="d-flex justify-content-end col-sm-12"><img src="assets/img/intelo123.png" width="220"
+						height="125"></div> -->
 				<br>
 
 				<h4 class="d-flex justify-content-center col-sm-12 m-0 font-weight-bold text-dark">CARATULA DE

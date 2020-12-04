@@ -36,9 +36,14 @@ $(document).ready(function () {
 					'cliente': cliente,
 					'fecha_cap': fechaCaptura,
 				}
+				
 				var myJson = JSON.stringify(general);
 				localStorage.setItem('array_general', myJson);
 				
+			}else {
+				var mensaje = "Verificar";
+				var text = "Favor de ingresar datos";
+				infoAlert(mensaje, text)
 			}
 		})
 	});
@@ -78,7 +83,6 @@ $(document).ready(function () {
 					} else {
                         $("#rendimiento").val(rendimiento);
                     }
-                    
 				} else {
 					$("#km_total").val(km_total)
 					var vehiculo = {
@@ -130,7 +134,6 @@ $(document).ready(function () {
 					'inputpasajes': pasajes,
 					'noDeduVia': noDeduVia,
 				}
-
 				var myJson = JSON.stringify(viaticos);
 				localStorage.setItem('array_viaticos', myJson);
 			}
@@ -178,7 +181,6 @@ $(document).ready(function () {
 					'inputcomputo': computo,
 					'noDeduGastos': noDeduGastos,
 				}
-
 				var myJson = JSON.stringify(gastosUDN);
 				localStorage.setItem('array_gastosUDN', myJson);
 			}
@@ -210,7 +212,6 @@ $(document).ready(function () {
 					'inputpaqueteria': paqueteria,
 					'noDeduFletes': noDeduFletes,
 				}
-
 				var myJson = JSON.stringify(fletes);
 				localStorage.setItem('array_Gastosfletes', myJson);
 			}
@@ -270,7 +271,6 @@ $(document).ready(function () {
 					'gastolegal': gastolegal,
 					'noDeduServ': noDeduServ,
 				}
-
 				var myJson = JSON.stringify(serviciosUDN);
 				localStorage.setItem('array_serviciosUDN', myJson);
 			}
@@ -298,7 +298,6 @@ $(document).ready(function () {
 					'noDeduAlm': noDeduAlm,
 					'sistemasAlm': sistemasAlm,
 				}
-
 				var myJson = JSON.stringify(almacen);
 				localStorage.setItem('array_almacen', myJson);
 				

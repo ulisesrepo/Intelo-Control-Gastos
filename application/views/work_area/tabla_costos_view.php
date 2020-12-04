@@ -3,7 +3,7 @@
 		<div class="section">
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h5 class="m-0 font-weight-bold text-dark">Tablas</h5>
+					<h5 class="m-0 font-weight-bold text-dark">Concentrado de Gastos</h5>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -12,7 +12,7 @@
 								<tr>
 									<th class="center">Nombre</th>
 									<th class="center">Descripcion</th>
-									<th class="center">Visualizar</th>
+									<th class="center">Visualizar </th>
 								</tr>
 							</thead>
 
