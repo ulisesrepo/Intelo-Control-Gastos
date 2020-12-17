@@ -8,6 +8,60 @@ $(document).ready(function () {
 		"bPaginate": false,
 	});
 
+	// var form_validate_general = $('#form_datos_general').validate({
+	// 	rules: {},
+	// 	messages: {},
+	// 	errorElement: 'span',
+	// 	errorPlacement: function (error, element) {
+	// 		error.addClass('invalid-feedback');
+	// 		element.closest('.form-group').append(error);
+	// 	},
+	// 	highlight: function (element, errorClass, validClass) {
+	// 		$(element).addClass("is-invalid").removeClass("is-valid");
+	// 	},
+	// 	unhighlight: function (element, errorClass, validClass) {
+	// 		$(element).addClass("is-valid").removeClass("is-invalid");
+	// 	},
+	// 	submitHandler: function () {
+	// 		Swal.fire({
+	// 			title: '¿Esta seguro?',
+	// 			text: "",
+	// 			icon: 'warning',
+	// 			showCancelButton: true,
+	// 			confirmButtonColor: '#2c9faf',
+	// 			cancelButtonColor: '#d33',
+	// 			confirmButtonText: 'Si, deseo guardar',
+	// 			cancelButtonText: 'Cancelar'
+	// 		}).then((result) => {
+	// 			if (result.value) {
+	// 				var empresas = $('#empresas').val();
+	// 				var diaGasto = $('#dia_gasto').val();
+	// 				var mes = $('#Mes').val();
+	// 				var plaza = $('#Plaza').val();
+	// 				var cliente = $('#cliente').val();
+	// 				var fechaCaptura = $('#fecha_cap').val();
+	
+	// 				var general = {
+	// 					'empresas': empresas,
+	// 					'dia_gasto': diaGasto,
+	// 					'Mes': mes,
+	// 					'Plaza': plaza,
+	// 					'cliente': cliente,
+	// 					'fecha_cap': fechaCaptura,
+	// 				}
+					
+	// 				var myJson = JSON.stringify(general);
+	// 				localStorage.setItem('array_general', myJson);
+					
+	// 			}else {
+	// 				var mensaje = "Verificar";
+	// 				var text = "Favor de ingresar datos";
+	// 				infoAlert(mensaje, text)
+	// 			}
+	// 		})
+	// 	}
+	// });
+
 	
 	$(document).on('click', '#btn_datos_general', function () {
 		Swal.fire({

@@ -41,6 +41,8 @@ class model_gastos_UDN extends CI_Model {
     {
         $sql_consulta = "
             Select
+                e.nombre,
+                e.apellidos,
                 u.papeleria,
                 u.materialempaque,
                 u.equipoSeguridad,
@@ -61,7 +63,8 @@ class model_gastos_UDN extends CI_Model {
                 g.id_general
             from
                 general g
-                inner join gastosudn u on g.id_general = u.id_general";
+                inner join gastosudn u on g.id_general = u.id_general
+                inner join empleados e on e.id_empleados = g.id_empleados";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

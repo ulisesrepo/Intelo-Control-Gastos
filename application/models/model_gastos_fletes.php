@@ -26,6 +26,8 @@ class model_gastos_fletes extends CI_Model
     {
         $sql_consulta = "
             Select
+                e.nombre,
+                e.apellidos,
                 f.maniobras,
                 f.infraccionesfletes,
                 f.fletes,
@@ -38,7 +40,8 @@ class model_gastos_fletes extends CI_Model
                 g.id_general
             from
                 general g
-                inner join gastosfletes f on g.id_general = f.id_general";
+                inner join gastosfletes f on g.id_general = f.id_general
+                inner join empleados e on e.id_empleados = g.id_empleados";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

@@ -39,6 +39,8 @@ class model_gastos_vehiculos extends CI_Model
     {
         $sql_consulta = "
             Select
+                e.nombre,
+                e.apellidos,
                 w.unidad,
                 w.km_inicial,
                 w.km_final,
@@ -56,7 +58,8 @@ class model_gastos_vehiculos extends CI_Model
                 g.id_general
             from
                 general g
-                inner join vehiculos w on g.id_general = w.id_general";
+                inner join vehiculos w on g.id_general = w.id_general
+                inner join empleados e on e.id_empleados = g.id_empleados";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

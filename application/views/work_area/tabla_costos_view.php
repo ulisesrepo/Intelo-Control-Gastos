@@ -103,6 +103,7 @@
 							<tr>
 								<th class="center"></th>
 								<th class="center">id</th>
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -120,7 +121,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -137,8 +138,7 @@
 						id="data_table_vizualizar_viaticos" width="100%" cellspacing="0">
 						<thead class="thead-light">
 							<tr>
-
-
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -159,7 +159,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -179,6 +179,7 @@
 
 								<th class="center"></th>
 								<th class="center">id</th>
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -187,7 +188,6 @@
 								<th class="center">Mat.Empaque</th>
 								<th class="center">Equi.Seguridad</th>
 								<th class="center">Infracciones</th>
-								<th class="center">Plomeria</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -198,7 +198,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -218,6 +218,7 @@
 
 
 								<th class="center">id</th>
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -237,7 +238,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -257,6 +258,7 @@
 
 								<th class="center"></th>
 								<th class="center">id</th>
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -268,7 +270,7 @@
 								<th class="center">Mantto. Almacen</th>
 								<th class="center">Internet</th>
 								<th class="center">Limpieza</th>
-								<th class="center">Seguros</th>
+								
 
 							</tr>
 						</thead>
@@ -280,7 +282,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -298,8 +300,9 @@
 						<thead class="thead-light">
 							<tr>
 
-
+								
 								<th class="center">id</th>
+								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>
 								<th class="center">Plaza</th>
@@ -317,7 +320,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>
@@ -325,10 +328,6 @@
 
 
 <!--
-
-
-
-
 
 <div class="section">
 	<div class="card shadow mb-4">

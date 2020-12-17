@@ -29,6 +29,8 @@ $(document).ready(function () {
 			}).then((result) => {
 				if (result.value) {
 					guardar_empleados()
+				} else {
+					infoAlert("Cancelado", "El registro de usuario ha sido cancelado");
 				}
 			})
 		}
@@ -178,9 +180,9 @@ $(document).ready(function () {
 		var data = row.data();
 		var id_empleado = data.id_empleados;
 		var email = data.email;
-		var password =data.password;
-		var sucursal =data.sucursal;
-		var id_usuario=data.id_usuario;
+		var password = data.password;
+		var sucursal = data.sucursal;
+		var id_usuario= data.id_usuario;
 		$('#id_empleado_update').val(id_empleado);
 		$('#email_modal').val(email);
         $('#password_modal').val(password);

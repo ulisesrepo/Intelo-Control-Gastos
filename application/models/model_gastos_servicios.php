@@ -52,6 +52,8 @@ class model_gastos_servicios extends CI_Model {
     {
         $sql_consulta = "
             Select
+                e.nombre,
+                e.apellidos,
                 s.gas,
                 s.arrendamientoinmuebles,
                 s.ServiciosAGL,
@@ -78,7 +80,8 @@ class model_gastos_servicios extends CI_Model {
                 g.id_general
             from
                 general g
-                inner join serviciosudn s on g.id_general = s.id_general";
+                inner join serviciosudn s on g.id_general = s.id_general
+                inner join empleados e on e.id_empleados = g.id_empleados";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

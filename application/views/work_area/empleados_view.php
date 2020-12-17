@@ -31,13 +31,14 @@
 								<div class="form-group col-md-4">
 									<label for="password">Contraseña:</label>
 									<input type="password" name="password" class="form-control password1 required"
-										value="" minlength="6" />
+										value="" minlength="6"/>
 									<span id="show-password"> <i class="fa fa-fw fa-eye password-icon show-password"
 											id="eye"></i></span>
 								</div>
 								<div class="form-group col-md-4">
 									<label for="sucursal">Sucursal</label>
 									<select id="sucursal" name="sucursal" class="form-control" required>
+									<option selected disabled value="">Elige una...</option>
 										<option value="Colima">Colima</option>
 										<option value="Guadalajara">Guadalajara</option>
 										<option value="Irapuato">Irapuato</option>
@@ -51,7 +52,7 @@
 								<div class="form-group col-md-4">
 									<label for="id_usuario">Tipo usuario</label>
 									<select id="id_usuario" name="id_usuario" class="form-control required" required>
-
+									<option selected disabled value="">Elige uno...</option>
 										<option value="1">Administrador</option>
 										<option value="2">Empleado</option>
 

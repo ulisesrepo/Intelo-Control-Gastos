@@ -37,14 +37,17 @@
 		width: 100% !important;
 		margin-top: .60rem !important;
 	}
-
+	
 </style>
 
 <body>
 	<div class="login">
-
-		<img src="assets/img/intelo123.png" width="300" height="150">
-
+		
+		<img  src="assets/img/intelo123.png"  width="310" height="155">
+		
+		<br>
+		<br>
+		
 		<h1>Inicio Sesion</h1>
 
 		<form id="login">

@@ -58,7 +58,7 @@
 								<div class="form-group col-md-4">
 									<label for="sucursal_modal">Sucursal</label>
 									<select id="sucursal_modal" name="sucursal_modal" class="form-control" required>
-
+									<option selected disabled value="">Elige una...</option>
 										<option value="Colima">Colima</option>
 										<option value="Guadalajara">Guadalajara</option>
 										<option value="Irapuato">Irapuato</option>
@@ -72,7 +72,7 @@
 								<div class="form-group col-md-4">
 									<label for="id_usuario_modal">Tipo usuario</label>
 									<select id="id_usuario_modal" name="id_usuario_modal" class="form-control" required>
-
+									<option selected disabled value="">Elige uno...</option>
 										<option value="1">Administrador</option>
 										<option value="2">Empleado</option>
 
@@ -89,7 +89,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>

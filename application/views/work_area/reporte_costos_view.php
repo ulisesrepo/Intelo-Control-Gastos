@@ -23,18 +23,17 @@
 											<div class="row">
 												<div class="col-sm-12">
 													<!--inicio formulario de inputs boostrap -->
-													<form>
+													<form id="form_datos_general">
 
 														<div class="form-inline">
 															<div class="form-group p-2 col-sm-6">
-																<label class="mr-1" for="">Empresa:</label>
+																<label class="mr-1" for="empresas">Empresa:</label>
 
-																<select for="empresas" class="form-control"
-																	id="empresas" placeholder="">
+																<select id="empresas" for="empresas" class="form-control" required>
+																	<option selected disabled value="">Elige una...</option>
 																	<option value="L23R">L23R</option>
 																	<option value="Logistorage">Logistorage</option>
 																	<option value="Securintelo">Securintelo</option>
-
 																</select>
 															</div>
 
@@ -81,7 +80,7 @@
 																</select>
 															</div>
 															<div class="form-group p-2 col-sm-6">
-																<label class="mr-1" for="cliente">Cliente:     </label>
+																<label class="mr-1" for="cliente">Cliente:    </label>
 																<select for="cliente" class="form-control" id="cliente"
 																	placeholder="">
 																	<option value="Administrativo">Administrativo
@@ -103,7 +102,7 @@
 																<label class="mr-1" for="fecha_cap">Fecha de Captura:
 																</label>
 																<input type="date" class="form-control" id="fecha_cap"
-																	placeholder="">
+																name="fecha_cap"  value="<?php echo date("Y-m-d");?>" disabled>
 															</div>
 															<div
 																class="form-group p-2 col-sm-12 justify-content-sm-end">

@@ -119,6 +119,11 @@ $(document).ready(function () {
 									return data.id_general;
 								}
 							},
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+							},
 							{
 								'data': "Empresa"
 							},
@@ -157,7 +162,7 @@ $(document).ready(function () {
 	}
 	
 	function format_vehiculos(d) {
-		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +	
 			'<tr>' +
 			'<td>Rendimiento:</td>' +
 			'<td>' + d.rendimiento + '</td>' +
@@ -207,8 +212,6 @@ $(document).ready(function () {
 
 	});
 	//---------------------------Viaticos--------------------------------------------------------
-	
-
 	function cargaTabla_Viaticos() {
 		$.ajax({
 			url: "Tablas/mostrar_viaticos",
@@ -229,7 +232,13 @@ $(document).ready(function () {
 							"className": "text-center",
 							"targets": "_all"
 						}],
-						"columns": [{
+						"columns": [ 
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+							},
+							{
 								'data': "Empresa"
 							},
 							{
@@ -308,6 +317,11 @@ $(document).ready(function () {
 									return data.id_general;
 								}
 							},
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+							},
 							{
 								'data': "Empresa"
 							},
@@ -331,9 +345,6 @@ $(document).ready(function () {
 							},
 							{
 								'data': 'infracciones'
-							},
-							{
-								'data': 'plomeria'
 							}
 						],
 					});
@@ -347,6 +358,10 @@ $(document).ready(function () {
 
 	function format_gastosudn(d) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+			'<tr>' +
+			'<td>Plomeria:</td>' +
+			'<td>' + d.plomeria + '</td>' +
+			'</tr>' +
 			'<tr>' +
 			'<td>Ferreteria:</td>' +
 			'<td>' + d.ferreteria + '</td>' +
@@ -438,6 +453,11 @@ $(document).ready(function () {
 									return data.id_general;
 								}
 							},
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+							}, 
 							{
 								'data': "Empresa"
 							},
@@ -515,6 +535,11 @@ $(document).ready(function () {
 									return data.id_general;
 								}
 							},
+							{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+							},
 							{
 								'data': "Empresa"
 							},
@@ -547,9 +572,6 @@ $(document).ready(function () {
 							},
 							{
 								'data': 'limpieza'
-							},
-							{
-								'data': 'seguros'
 							}
 							
 						],
@@ -564,6 +586,10 @@ $(document).ready(function () {
 
 	function format_servudn(d) {
 		return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+			'<tr>' +
+			'<td>Seguros:</td>' +
+			'<td>' + d.seguros + '</td>' +
+			'</tr>' +
 			'<tr>' +
 			'<td>Seguridad:</td>' +
 			'<td>' + d.seguridad + '</td>' +
@@ -660,13 +686,17 @@ function cargaTabla_Almacen() {
 						"targets": "_all"
 					}],
 					"columns": [
-						 
 						{
 							"data": null,
 							'render': function (data, type, row) {
 								return data.id_general;
 							}
 						},
+						{ 	'data': null, 
+								'render': function ( data, type, row ) {
+								return data.nombre+' '+data.apellidos;
+							}
+						}, 
 						{
 							'data': "Empresa"
 						},

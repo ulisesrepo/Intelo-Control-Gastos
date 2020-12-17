@@ -64,8 +64,8 @@ $(document).ready(function () {
 		Swal.fire({
 			title: "¡Acceso Correcto!",
 			text: text,
-			timer: 1000,
 			type: "success",
+			timer: 1000,
 			showConfirmButton: false
 		})
 	}

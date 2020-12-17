@@ -63,9 +63,14 @@
 		position: relative !important;
 		line-height: 1 !important;
 		width: 100% !important;
-		margin-top:.60rem !important; 
+		margin-top: .60rem !important;
 	}
 
+	.btn-dark {
+		color: #fff;
+		background-color: #2a2e48;
+		border-color: #2a2e48;
+	}
 
 </style>
 
@@ -148,11 +153,11 @@
 	<!-- wizar -->
 	<script src="<?=base_url();?>static/js/jquery.steps.js"></script>
 	<script src="<?=base_url();?>static/js/main.js"></script>
-	
-	
+
+
 	<!-- pdfmaker -->
 	<script src="<?=base_url();?>static/pdfmake/pdfmake.min.js"></script>
-    <script src="<?=base_url();?>static/pdfmake/vfs_fonts.js"></script>
+	<script src="<?=base_url();?>static/pdfmake/vfs_fonts.js"></script>
 	<script src=" https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
 	<script src=' https://cdn.jsdelivr.net/npm/pdfmake@latest/build/vfs_fonts.min.js'></script>
 

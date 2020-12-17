@@ -30,6 +30,8 @@ class model_gastos_viaticos extends CI_Model
     {
         $sql_consulta = "
             Select
+                e.nombre,
+                e.apellidos,
                 v.estacionamientoViaticos,
                 v.alimentos,
                 v.hospedaje,
@@ -42,7 +44,8 @@ class model_gastos_viaticos extends CI_Model
                 g.Fecha_captura
             from
                 general g
-                inner join viaticos v on g.id_general = v.id_general";
+                inner join viaticos v on g.id_general = v.id_general
+                inner join empleados e on e.id_empleados = g.id_empleados";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }
