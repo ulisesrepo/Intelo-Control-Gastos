@@ -53,18 +53,20 @@
     <i class="fa fa-table"></i>
       <span>Concentrado de Gastos</span></a>
   </li>
+  
 
+  <li class="nav-item">
+    <a class="nav-link" href="AnalisisGastos">
+    <i class="fas fa-folder-open"></i>
+      <span>Analisis de Gastos</span></a>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="CaratulaGastos">
     <i class="fa fa-file-alt"></i>
       <span>Caratula de Gastos</span></a>
   </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link" href="#">
-    <i class="fas fa-money-check-alt"></i>
-      <span>Cuentas por Pagar</span></a>
-  </li>
-  <li class="nav-item">
+  
+ <!-- <li class="nav-item">
     <a class="nav-link" href="#">
     <i class="fas fa-child"></i>
       <span>Gastos Provedores</span></a>
@@ -97,6 +99,11 @@
       </div>
     </div>
   </li>
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="Hover">
+    <i class="fas fa-dice-d6"></i>
+      <span>Hover</span></a>
+  </li> -->
   
 
   <!-- Divider -->

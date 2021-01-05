@@ -1,3 +1,4 @@
+
 <div class="row  mr-2 ml-2">
 	<div class="col-sm-12">
 		<div class="inner">
@@ -65,6 +66,7 @@
 										<i class="far fa-save"></i>  Guardar</button>
 								</div>
 							</div>
+							
 						</form>
 					</div>
 				</div>

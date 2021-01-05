@@ -9,8 +9,8 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" type="image/x-icon" href="<?=base_url();?>/assets/img/intelo_ico.ico" />
 	<title><?=$titulo;?></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	
 	<!-- Custom fonts for this template-->
 	<link href="<?=base_url();?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link
@@ -31,7 +31,11 @@
 		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/css/bootstrap3/bootstrap-switch.min.css" />
 
 	<link rel="stylesheet" type="text/css" href="<?=base_url();?>/assets/css/spinner.css">
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
+	<link href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+
+	
 </head>
 <style>
 	.bg-gradient-primary {
@@ -71,7 +75,6 @@
 		background-color: #2a2e48;
 		border-color: #2a2e48;
 	}
-
 </style>
 
 </head>
@@ -163,6 +166,7 @@
 
 	<!-- mi jq -->
 	<script src="<?=base_url();?>static/my_jquerys/<?=$my_jquery;?>"></script>
+	
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -172,6 +176,20 @@
 	<script src="<?=base_url();?>static/vendor/form_validate/jquery.validate.min.js"></script>
 	<script src="<?=base_url();?>static/vendor/form_validate/app_charateres.js"></script>
 	<script src="<?=base_url();?>static/vendor/form_validate/messages_es.js"></script>
+
+
+<!--Export buttons-->
+
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+
 
 
 </body>

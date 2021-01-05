@@ -5,12 +5,11 @@
 				<div class="wizard-form">
 					<div class="wizard-header">
 						<h3 class="heading">Control de Gastos</h3>
-
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<form class="form-register" action="#" method="post">
-
+								<!-- <h6></h6> -->
 								<div id="form-total">
 									<!-- SECTION 1 -->
 									<h2>
@@ -29,8 +28,10 @@
 															<div class="form-group p-2 col-sm-6">
 																<label class="mr-1" for="empresas">Empresa:</label>
 
-																<select id="empresas" for="empresas" class="form-control" required>
-																	<option selected disabled value="">Elige una...</option>
+																<select id="empresas" for="empresas"
+																	class="form-control" required>
+																	<option selected disabled value="">Elige una...
+																	</option>
 																	<option value="L23R">L23R</option>
 																	<option value="Logistorage">Logistorage</option>
 																	<option value="Securintelo">Securintelo</option>
@@ -102,7 +103,8 @@
 																<label class="mr-1" for="fecha_cap">Fecha de Captura:
 																</label>
 																<input type="date" class="form-control" id="fecha_cap"
-																name="fecha_cap"  value="<?php echo date("Y-m-d");?>" disabled>
+																	name="fecha_cap" value="<?php echo date("Y-m-d");?>"
+																	disabled>
 															</div>
 															<div
 																class="form-group p-2 col-sm-12 justify-content-sm-end">
@@ -944,7 +946,7 @@
 							maxlength="20">
 
 						<label for="recipient-name" class="col-form-label">IVA</label>
-						<input type="number" class="form-control col-sm-2" id="iva" name="iva" maxlength="3" value="">
+						<input type="number" class="form-control col-sm-2" id="iva" name="iva" value="">
 
 
 					</div>

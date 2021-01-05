@@ -35,6 +35,12 @@
 								placeholder="">
 						</div>
 						<div class="form-group p-2 col-sm-12">
+							<label class="m-0 font-weight-bold text-dark" for="dia_gasto"> FECHA DIA DEL GASTO:                  
+								    </label>
+							<input type="text" class="form-control col-sm-6 required" id="dia_gasto"
+								name="dia_gasto" placeholder="" readonly>
+						</div>
+						<div class="form-group p-2 col-sm-12">
 							<label class="m-0 font-weight-bold text-dark" for="Motivo"> FECHA COMPROBACION
 								GASTO:       </label>
 							<input type="date" class="form-control col-sm-6 required" id="fecha_comprobacion"

@@ -365,8 +365,8 @@ $(document).ready(function () {
 		var no_factura = $('#no_factura').val();
 		var sub_total = $('#sub_total').val();
 		var iva = $('#iva').val();
-		var resultado_iva = sub_total * iva;
-		var total = parseFloat(sub_total) + parseFloat(resultado_iva);
+		// var resultado_iva = sub_total + iva;
+		var total = parseFloat(sub_total) + parseFloat(iva);
 		tabla.row.add([
 			no_factura,
 			sub_total,
@@ -449,6 +449,8 @@ $(document).ready(function () {
 			}
 		})
 	});
+
+	
 
 
 	function limpiar_formularios() {
