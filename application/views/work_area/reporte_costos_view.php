@@ -205,8 +205,7 @@
 														<div class="form-group p-2 col-sm-6">
 															<label class="mr-1" for="noDeduVehi">No
 																deducibles:   </label>
-															<input type="number" class="form-control" id="noDeduVehi"
-																placeholder="">
+															<input type="number" class="form-control" id="noDeduVehi">
 														</div>
 
 														<div class="form-group p-2 col-sm-6">

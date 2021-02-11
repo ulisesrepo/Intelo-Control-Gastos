@@ -41,11 +41,13 @@ class model_gastos_viaticos extends CI_Model
                 g.Empresa,
                 g.Dia_gasto,
                 g.Plaza,
-                g.Fecha_captura
+                g.Fecha_captura,
+                g.id_general
             from
                 general g
                 inner join viaticos v on g.id_general = v.id_general
-                inner join empleados e on e.id_empleados = g.id_empleados";
+                inner join empleados e on e.id_empleados = g.id_empleados
+                where g.estatus = 1";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

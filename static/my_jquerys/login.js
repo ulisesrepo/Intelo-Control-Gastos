@@ -26,15 +26,18 @@ $(document).ready(function () {
 					// localStorage.setItem("id_usuario", json.response_data);
 					// localStorage.setItem("tipo_usuario", json.response_data1);
 					setTimeout(function () {
-						window.location.href = "Principal";
-						// switch(json.response_data) {
-						//   case '1':
-						//     window.location.href = "Principal";
-						//     break;
-						//   case '2':
-						//     window.location.href = "CaratulaGastos";
-						//     break;
-						// }
+						// window.location.href = "Principal";
+						switch(json.response_data) {
+						  case '1':
+						    window.location.href = "Principal";
+						    break;
+						  case '2':
+						    window.location.href = "Principal";
+							break;
+							case '3':
+						    window.location.href = "AnalisisGastos";
+						    break;
+						}
 					}, 1000);
 				} else if (json.response_code == 500) {
 					infoAlert("Verifica", json.response_text);

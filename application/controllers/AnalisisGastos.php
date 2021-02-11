@@ -13,6 +13,7 @@ public function __construct() {
         $this->load->model('model_gastos_servicios');
         $this->load->model('model_gastos_almacen');
         $this->load->model('model_gastosFacturables');
+        $this->load->helper(array('form', 'url'));
         
         
     }
@@ -41,4 +42,79 @@ public function __construct() {
         echo json_encode($json);
     }
 
+    public function eliminar_registro()
+    {
+        $id_general = $this->input->post('id_general');
+        if ($this->model_analisis_gastos->delete_registro($id_general)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se elimino el Registro con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se elimino el Registro";
+        }
+        echo json_encode($json);
+    }
+
+    public function activar_registro()
+    {
+        $id_general = $this->input->post('id_general');
+
+        if ($this->model_analisis_gastos->activate_registro($id_general)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se activo el Registro con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se activo el Registro";
+        }
+        echo json_encode($json);
+    }
+
+    public function actualizar_registro_almacen()
+    {
+        // $array_datos_usuario = array();
+       
+        $merma       = $this->input->post('merma_modal');
+        $sistemasAlm  = $this->input->post('sistemasAlm_modal');
+        $id_general = $this->input->post('id_general');
+        $noDeduAlm    = $this->input->post('noDeduAlm_modal');
+
+            if ($this->model_analisis_gastos->update_registros_almacen($merma, $sistemasAlm, $id_general,$noDeduAlm)) {
+                $json['response_code'] = 200;
+                $json['response_text'] = "Se Actualizaron los gastos de Almacen con Exito";
+            } else {
+                $json['response_code'] = 500;
+                $json['response_text'] = "No se pudo Actualizar los gastos de Almacen";
+            }
+        echo json_encode($json);
+    }
+
+
+    public function actualizar_gastos_combustible()
+    {
+        $data           = json_decode($_POST['array_combustible']);
+        $longitud_data  = $this->input->post('longitud_datos_tabla');
+        $array_combustible = array();
+        if ($longitud_data == '0') {
+            $json['response_code'] = 500;
+            $json['response_text'] = "Favor de agregar productos a la tabla";
+        } else {
+            for ($i = 0; $i < count($data); ++$i) {
+                $no_factura   = $data[$i]->no_factura;
+                $sub_total    = $data[$i]->sub_total;
+                $iva          = $data[$i]->iva;
+                $total        = $data[$i]->total;
+
+                $array_combustible["no_factura"]  = $no_factura;
+                $array_combustible["sub_total"]   = $sub_total;
+                $array_combustible["iva"]         = $iva;
+                $array_combustible["total"]       = $total;
+                if($this->model_analisis_gastos->update_gastos_combustible($array_combustible,$id_vehiculos));
+            }
+            $json['response_code'] = 200;
+            $json['response_text'] = "Guardado con Exito";
+        }
+        echo json_encode($json);
+
+      
+    }
 }

@@ -34,7 +34,8 @@ class model_gastos_almacen extends CI_Model {
             from
                 general g
                 inner join almacen a on g.id_general = a.id_general
-                inner join empleados e on e.id_empleados = g.id_empleados";
+                inner join empleados e on e.id_empleados = g.id_empleados
+                where g.estatus = 1";
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

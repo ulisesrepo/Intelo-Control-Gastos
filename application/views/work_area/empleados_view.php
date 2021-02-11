@@ -56,6 +56,7 @@
 									<option selected disabled value="">Elige uno...</option>
 										<option value="1">Administrador</option>
 										<option value="2">Empleado</option>
+										<option value="3">Analista</option>
 
 									</select>
 								</div>

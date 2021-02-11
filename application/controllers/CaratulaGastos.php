@@ -15,14 +15,6 @@ class CaratulaGastos extends CI_Controller
     public function index()
     {
         $data      = array();
-        $arraydata = array(
-            'id_empleados' => '3',
-            'nombre'       => 'Ulises',
-            'apellidos'    => 'Maya Castillo',
-            'sucursal'     => 'Acceso 3',
-
-        );
-        $this->session->set_userdata($arraydata);
         $data['id_empleados'] = $this->session->userdata('id_empleados');
         $data['nombre']       = $this->session->userdata('nombre');
         $data['apellidos']    = $this->session->userdata('apellidos');

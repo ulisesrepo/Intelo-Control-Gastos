@@ -119,6 +119,8 @@ class Principal extends CI_Controller{
         $Plaza      = $array_general->Plaza;
         $cliente    = $array_general->cliente;
         $fecha_cap  = $array_general->fecha_cap;
+       
+
         $array_data = array(
             'empresas'  => $empresas,
             'dia_gasto' => $dia_gasto,
@@ -126,6 +128,7 @@ class Principal extends CI_Controller{
             'Plaza'     => $Plaza,
             'cliente'   => $cliente,
             'fecha_cap' => $fecha_cap,
+           
         );
         $id_general = $this->model_general->insert_general($array_data);
         if ($id_general > 0) {

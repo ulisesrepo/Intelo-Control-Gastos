@@ -138,6 +138,7 @@
 						id="data_table_vizualizar_viaticos" width="100%" cellspacing="0">
 						<thead class="thead-light">
 							<tr>
+								<th class="center">id</th>
 								<th class="center">Nombre</th>
 								<th class="center">Empresa</th>
 								<th class="center">Dia del Gasto</th>

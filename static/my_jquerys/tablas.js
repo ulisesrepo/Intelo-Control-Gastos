@@ -233,6 +233,12 @@ $(document).ready(function () {
 							"targets": "_all"
 						}],
 						"columns": [ 
+							{
+								"data": null,
+								'render': function (data, type, row) {
+									return data.id_general;
+								}
+							},
 							{ 	'data': null, 
 								'render': function ( data, type, row ) {
 								return data.nombre+' '+data.apellidos;

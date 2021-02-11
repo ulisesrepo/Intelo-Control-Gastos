@@ -77,17 +77,34 @@ $(document).ready(function () {
 								alignment: 'center'
 							},
 							{
-								text: 'Total (i.v.a incluido)',
+								text: 'I.V.A',
+								fontSize: 13,
+								bold: true,
+								alignment: 'center'
+							},
+							{
+								text: 'Subtotal',
+								fontSize: 13,
+								bold: true,
+								alignment: 'center'
+							},
+							{
+								text: 'Total',
 								fontSize: 13,
 								bold: true,
 								alignment: 'center'
 							}
 						]
 					];
+
 					if (typeof (data.response_data.vehiculos) != "undefined") {
 						var vehiculos = data.response_data.vehiculos;
 						for (var i = 0; i < vehiculos.length; i++) {
 							if (vehiculos[i].casetas != "") {
+								
+								var array_iva_calculado = calcular_iva(vehiculos[i].casetas);
+							
+
 								fila = [{
 										text: "Vehiculos",
 										fontSize: 9,
@@ -95,6 +112,16 @@ $(document).ready(function () {
 									},
 									{
 										text: "Casetas",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -108,6 +135,9 @@ $(document).ready(function () {
 								array_total.push(parseInt(vehiculos[i].casetas));
 							}
 							if (vehiculos[i].combustible != "") {
+
+								var array_iva_calculado = calcular_iva(vehiculos[i].combustible);
+								
 								fila = [{
 										text: "Vehiculos ",
 										fontSize: 9,
@@ -118,8 +148,53 @@ $(document).ready(function () {
 										fontSize: 9,
 										bold: true
 									},
+
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
+										fontSize: 9,
+										bold: true
+									},
 									{
 										text: "$ " + vehiculos[i].combustible,
+										fontSize: 9,
+										bold: true
+									}
+								];
+								array_content_pdf.push(fila);
+								array_total.push(parseInt(vehiculos[i].ser_unidades));
+							}
+							if (vehiculos[i].ser_unidades != "") {
+
+								var array_iva_calculado = calcular_iva(vehiculos[i].ser_unidades);
+								
+								fila = [{
+										text: "Vehiculos ",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "Serv.Unidades ",
+										fontSize: 9,
+										bold: true
+									},
+
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + vehiculos[i].ser_unidades,
 										fontSize: 9,
 										bold: true
 									}
@@ -129,30 +204,14 @@ $(document).ready(function () {
 							}
 						}
 					}
+
 					if (typeof (data.response_data.viaticos) != "undefined") {
 						var viaticos = data.response_data.viaticos;
 						for (var i = 0; i < viaticos.length; i++) {
-							if (viaticos[i].alimentos != "") {
-								fila = [{
-										text: "Viaticos",
-										fontSize: 9,
-										bold: true
-									},
-									{
-										text: "Alimentos",
-										fontSize: 9,
-										bold: true
-									},
-									{
-										text: "$ " + viaticos[i].alimentos,
-										fontSize: 9,
-										bold: true
-									}
-								];
-								array_content_pdf.push(fila);
-								array_total.push(parseInt(viaticos[i].alimentos));
-							}
+
 							if (viaticos[i].estacionamientoViaticos != "") {
+								var array_iva_calculado = calcular_iva(viaticos[i].estacionamientoViaticos);
+								
 								fila = [{
 										text: "Viaticos ",
 										fontSize: 9,
@@ -160,6 +219,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Estacionamiento",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -173,14 +243,63 @@ $(document).ready(function () {
 								array_total.push(parseInt(viaticos[i].estacionamientoViaticos));
 
 							}
+
+							if (viaticos[i].alimentos != "") {
+
+								var array_iva_calculado = calcular_iva(viaticos[i].alimentos);
+								
+								fila = [{
+										text: "Viaticos",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "Alimentos",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + viaticos[i].alimentos,
+										fontSize: 9,
+										bold: true
+									}
+								];
+								array_content_pdf.push(fila);
+								array_total.push(parseInt(viaticos[i].alimentos));
+							}
+							
 							if (viaticos[i].hospedaje != "") {
+								var array_iva_calculado = calcular_iva(viaticos[i].hospedaje);
+								
 								fila = [{
 										text: "Viaticos ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "Estacionamiento",
+										text: "Hospedaje",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -193,14 +312,62 @@ $(document).ready(function () {
 								array_content_pdf.push(fila);
 								array_total.push(parseInt(viaticos[i].hospedaje));
 							}
-							if (viaticos[i].pasajes != "") {
+
+							if (viaticos[i].taxis != "") {
+								var array_iva_calculado = calcular_iva(viaticos[i].taxis);
+								
 								fila = [{
 										text: "Viaticos ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "Estacionamiento",
+										text: "Taxis",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + viaticos[i].taxis,
+										fontSize: 9,
+										bold: true
+									}
+								];
+								array_content_pdf.push(fila);
+								array_total.push(parseInt(viaticos[i].taxis));
+
+							}
+
+							if (viaticos[i].pasajes != "") {
+								var array_iva_calculado = calcular_iva(viaticos[i].pasajes);
+								
+								fila = [{
+										text: "Viaticos ",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "Pasajes",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " +array_iva_calculado[1],
 										fontSize: 9,
 										bold: true
 									},
@@ -215,10 +382,13 @@ $(document).ready(function () {
 							}
 						}
 					}
+
 					if (typeof (data.response_data.gastos_udn) != "undefined") {
 						var gastos_udn = data.response_data.gastos_udn;
 						for (var i = 0; i < gastos_udn.length; i++) {
 							if (gastos_udn[i].papeleria != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].papeleria);
+							
 								fila = [{
 										text: "Gastos_udn",
 										fontSize: 9,
@@ -226,6 +396,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Papeleria",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -239,6 +420,8 @@ $(document).ready(function () {
 								array_total.push(parseInt(gastos_udn[i].papeleria));
 							}
 							if (gastos_udn[i].impuestos != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].impuestos);
+								
 								fila = [{
 										text: "Gastos_udn ",
 										fontSize: 9,
@@ -246,6 +429,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Impuestos",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -259,6 +453,8 @@ $(document).ready(function () {
 								array_total.push(parseInt(gastos_udn[i].impuestos));
 							}
 							if (gastos_udn[i].sistemas != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].sistemas);
+								
 								fila = [{
 										text: "Gastos_udn ",
 										fontSize: 9,
@@ -266,6 +462,18 @@ $(document).ready(function () {
 									},
 									{
 										text: "Sistemas",
+										fontSize: 9,
+										bold: true
+									},
+
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -279,6 +487,8 @@ $(document).ready(function () {
 								array_total.push(parseInt(gastos_udn[i].sistemas));
 							}
 							if (gastos_udn[i].cajachica != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].cajachica);
+								
 								fila = [{
 										text: "Gastos_udn ",
 										fontSize: 9,
@@ -286,6 +496,16 @@ $(document).ready(function () {
 									},
 									{
 										text: "Caja chica",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -299,13 +519,25 @@ $(document).ready(function () {
 								array_total.push(parseInt(gastos_udn[i].cajachica));
 							}
 							if (gastos_udn[i].arrenamunidades != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].arrenamunidades);
+								
 								fila = [{
 										text: "Gastos_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "Arrendamiento unds.",
+										text: "Arren. Unidades",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -319,6 +551,8 @@ $(document).ready(function () {
 								array_total.push(parseInt(gastos_udn[i].arrenamunidades));
 							}
 							if (gastos_udn[i].servcomputo != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].servcomputo);
+								
 								fila = [{
 										text: "Gastos_udn ",
 										fontSize: 9,
@@ -326,6 +560,16 @@ $(document).ready(function () {
 									},
 									{
 										text: "Serv. Computo",
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -345,6 +589,8 @@ $(document).ready(function () {
 						var fletes = data.response_data.fletes;
 						for (var i = 0; i < fletes.length; i++) {
 							if (fletes[i].maniobras != "") {
+								var array_iva_calculado = calcular_iva(fletes[i].maniobras);
+								
 								fila = [{
 										text: "fletes",
 										fontSize: 9,
@@ -352,6 +598,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Maniobras",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -365,13 +622,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(fletes[i].maniobras));
 							}
 							if (fletes[i].infraccionesfletes != "") {
+								var array_iva_calculado = calcular_iva(fletes[i].infraccionesfletes);
+								
 								fila = [{
 										text: "fletes ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "infraccionesfletes",
+										text: "Infracciones",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -385,13 +655,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(fletes[i].infraccionesfletes));
 							}
 							if (fletes[i].fletes != "") {
+								var array_iva_calculado = calcular_iva(fletes[i].fletes);
+								
 								fila = [{
 										text: "fletes ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "fletes",
+										text: "Fletes",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -405,13 +688,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(fletes[i].fletes));
 							}
 							if (fletes[i].paqueteria != "") {
+								var array_iva_calculado = calcular_iva(fletes[i].paqueteria);
+								
 								fila = [{
 										text: "fletes ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "paqueteria",
+										text: "Paqueteria",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -431,6 +727,8 @@ $(document).ready(function () {
 						var servicios_udn = data.response_data.servicios_udn;
 						for (var i = 0; i < servicios_udn.length; i++) {
 							if (servicios_udn[i].gas != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].gas);
+								
 								fila = [{
 										text: "servicios_udn",
 										fontSize: 9,
@@ -438,6 +736,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Gas",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -451,13 +760,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].gas));
 							}
 							if (servicios_udn[i].arrendamientoinmuebles != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].arrendamientoinmuebles);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "arrendamientoinmuebles",
+										text: "Arren.Inmuebles",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -471,13 +793,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].arrendamientoinmuebles));
 							}
 							if (servicios_udn[i].ServiciosAGL != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].ServiciosAGL);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "ServiciosAGL",
+										text: "Servicios.AGL",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -491,6 +826,8 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].ServiciosAGL));
 							}
 							if (servicios_udn[i].Internet != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].Internet);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
@@ -498,6 +835,17 @@ $(document).ready(function () {
 									},
 									{
 										text: "Internet",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -511,13 +859,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].Internet));
 							}
 							if (servicios_udn[i].monitoreo != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].monitoreo);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "monitoreo",
+										text: "Monitoreo",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -531,13 +892,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].monitoreo));
 							}
 							if (servicios_udn[i].fianzas != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].fianzas);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "fianzas",
+										text: "Fianzas",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -551,13 +925,26 @@ $(document).ready(function () {
 								array_total.push(parseInt(servicios_udn[i].fianzas));
 							}
 							if (servicios_udn[i].facturacion != "") {
+								var array_iva_calculado = calcular_iva(servicios_udn[i].facturacion);
+								console.log(array_iva_calculado);
 								fila = [{
 										text: "servicios_udn ",
 										fontSize: 9,
 										bold: true
 									},
 									{
-										text: "facturacion",
+										text: "Facturacion",
+										fontSize: 9,
+										bold: true
+									},
+									
+									{
+										text: "$ " + array_iva_calculado[0],
+										fontSize: 9,
+										bold: true
+									},
+									{
+										text: "$ " + array_iva_calculado[1] ,
 										fontSize: 9,
 										bold: true
 									},
@@ -572,6 +959,7 @@ $(document).ready(function () {
 							}
 						}
 					}
+
 					generar_pdf_carga(array_content_pdf);
 
 				} else if (data.response_code == 500) {
@@ -609,23 +997,21 @@ $(document).ready(function () {
 		});
 
 	}
-
+	
 	function generar_pdf_carga(detalle) {
 		var solicitante = $('#solicitante').val();
 		var Plaza = $('#Plaza').val();
 		var Motivo = $('#Motivo').val();
+		var id_general = $('#empresa').val();
+		var dia_gasto = $('#dia_gasto').val();
 		var fecha_comprobacion = $('#fecha_comprobacion').val();
 		var empresa = $('#empresa option:selected').text();
 		let total = 0;
 		for (i = 0; i < array_total.length; i++) {
 			total = array_total[i] + total;	
 		}
-
-		array_total.forEach(function (numero) {
-			;
-			 console.log(array_total);
-		});
-
+		console.log(detalle);
+	
 		var docDefinition = {
 			pageSize: 'LETTER',
 			pageMargins: [40, 60, 40, 0],
@@ -637,6 +1023,14 @@ $(document).ready(function () {
 					height: 90, 
 					margin: 80,
 					absolutePosition: { x: 450, y: 10 },
+				},
+				{
+					absolutePosition: { x: 41, y: 44 },
+					margin: [0, 30],
+					text: 'No.' + id_general,
+					style: 'header',
+					fontSize: 22,
+					bold: true,
 				},
 				{
 					absolutePosition: { x: 52, y: 111 },
@@ -659,6 +1053,7 @@ $(document).ready(function () {
 							[{ text: 'SOLICITANTE:  ' + solicitante, fontSize: 12, bold: true }],
 							[{ text: 'PLAZA:  ' + Plaza, fontSize: 12, bold: true }],
 							[{ text: 'MOTIVO DEL GASTO:  ' + Motivo, fontSize: 12, bold: true }],
+							[{ text: 'FECHA DIA DEL GASTO:  ' + dia_gasto, fontSize: 12, bold: true }],
 							[{ text: 'FECHA COMPROBACION GASTO:  ' + fecha_comprobacion, fontSize: 12, bold: true }],
 		                ]
 					},
@@ -685,7 +1080,7 @@ $(document).ready(function () {
 					style: 'tableExample',
 					margin: [0,15],
 					table: { 
-						widths: ['33%', '33%', '33%'],
+						widths: ['20%', '20%', '20%','20%','20%'],
 						headerRows: 1,
 						body: detalle
 					},
@@ -793,4 +1188,14 @@ $(document).ready(function () {
 		)
 	}
 
+	function calcular_iva(total){
+		var array = [];
+		var iva = 0.16;
+		var subtotal = 0;
+		var iva_calculado = 0;
+		iva_calculado = total * iva;
+		subtotal = total - iva_calculado
+		return [parseFloat(iva_calculado).toFixed( 2 ),
+			 parseFloat(subtotal).toFixed( 2 )]
+	}
 })

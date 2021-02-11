@@ -113,10 +113,10 @@ $(function () {
 						}),
 						localStorage.clear();
 				}
-				loader()
-				setTimeout(function () {
-					window.location.href = "Principal";
-				}, 2000);
+				// loader()
+				// setTimeout(function () {
+				// 	window.location.href = "Principal";
+				// }, 2000);
 			});
 		}
 	})

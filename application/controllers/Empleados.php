@@ -11,31 +11,12 @@ class Empleados extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         
-        // if (!$this->session->userdata('is_login')) {
-        //     redirect(base_url());
-        // }
        
     }
 
     public function index()
     {
-        
-        // if($this->session->userdata('id_usuario') == 1){
-        //     $data           = array();
-        //     $nombre         = $this->session->userdata('nombre');
-        //     $apellidos      = $this->session->userdata('apellidos');
-        //     $email          = $this->session->userdata('email');
-        //     $sucursal       = $this->session->userdata('sucursal');
-        //     $usuario        = $this->session->userdata('usuario');
-        //     $id_usuario     = $this->session->userdata('id_usuario');
-    
-            // $data['u_nombre']      = $nombre . ' ' . $apellidos;
-            // $data['u_email']       = $email;
-            // $data['u_sucursal']    = $sucursal;
-            // $data['u_usuario']     = $usuario;
-            // $data['u_id_usuario']  = $id_usuario;
-            // $data['usuario']       = $this->model_empleados->select_usuario();
-
+       
             $data              = array();
             $data['side_bar']  = $this->load->view('fragments/side_bar_fragment', $data, true);
             $data['top_bar']   = $this->load->view('fragments/top_bar_fragment', $data, true);
@@ -43,12 +24,7 @@ class Empleados extends CI_Controller
             $data['titulo']    = "Gestion Empleados | Intelo";
             $data['my_jquery'] = "empleados.js";
             $this->load->view("main_view", $data, false);
-        // }else{
-        //     redirect(base_url());
-        // }
-
-
-
+   
     }
 
     public function guardar_empleados()
@@ -120,7 +96,7 @@ class Empleados extends CI_Controller
 
     public function actualizar_empleado()
     {
-        // $array_datos_usuario = array();
+        
         $password    = sha1($this->input->post('password_modal'));
         $email       = $this->input->post('email_modal');
         $id_usuario  = $this->input->post('id_usuario_modal');

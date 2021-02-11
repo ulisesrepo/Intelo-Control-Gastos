@@ -11,6 +11,7 @@ class model_general extends CI_Model
         $Plaza              = $array_data['Plaza'];
         $Cliente            = $array_data['cliente'];
         $Fecha_captura      = $array_data['fecha_cap'];
+      
         $id_empleado        = $this->session->userdata('id_empleados');
         $sql_insert_general = "insert into general values(null,'"
             . $Empresa . "','"
@@ -18,7 +19,8 @@ class model_general extends CI_Model
             . $Mes . "','"
             . $Plaza . "','"
             . $Cliente . "','"
-            . $Fecha_captura . "'," . $id_empleado . ")";
+            . $Fecha_captura . "',1,"
+            . $id_empleado . ")";
         $this->db->query($sql_insert_general);
         return $this->db->insert_id();
     }

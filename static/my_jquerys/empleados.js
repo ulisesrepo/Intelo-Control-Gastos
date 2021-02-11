@@ -235,6 +235,9 @@ $(document).ready(function () {
 
 									} else if (data.id_usuario == 2) {
 										tipousuario = "<h9 class='m-0 '>Empleado</h9>"
+
+									} else if (data.id_usuario == 3) {
+										tipousuario = "<h9 class='m-0 '>Analista</h9>"
 									}
 									return tipousuario;
 								}

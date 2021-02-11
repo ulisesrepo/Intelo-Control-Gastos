@@ -16,9 +16,8 @@ class model_empleados extends CI_Model
             . $apellidos . "','"
             . $email . "','"
             . $password . "','"
-            . $sucursal . "',1,'"
-            . $id_usuario . "')";
-
+            . $sucursal . "',1,"
+            . $id_usuario . ")";
         return $this->db->query($sql_insert_empleados);
     }
 
@@ -108,13 +107,11 @@ class model_empleados extends CI_Model
     {
         $consulta = " Select id_general, Empresa from general 
             where Fecha_captura = '$fecha_comprobacion' 
-                and id_empleados = $id_empleado ";
+                and id_empleados = $id_empleado and estatus = 1 ";
         $query    = $this->db->query($consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }
-    public function select_empleado_caratula(){
-        $consulta="";
-    }
+
 
     public function select_caratula_vehiculos($id_general)
     {
@@ -122,6 +119,7 @@ class model_empleados extends CI_Model
             Select
                 w.combustible,
                 w.casetas,
+                w.ser_unidades,
                 g.id_general
             from general g
                 inner join vehiculos w on g.id_general = w.id_general
@@ -137,6 +135,7 @@ class model_empleados extends CI_Model
                 v.estacionamientoViaticos,
                 v.alimentos,
                 v.hospedaje,
+                v.taxis,
                 v.pasajes,
                 g.id_general
             from general g
