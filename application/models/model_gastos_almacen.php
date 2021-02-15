@@ -6,12 +6,12 @@ class model_gastos_almacen extends CI_Model {
         // return $this->db->insert("vehiculos", $array_vehiculos);
 
         $merma        = $array_data['merma'];
-        $sistemas     = $array_data['sistemasAlm'];
+        $sistemasALM     = $array_data['sistemasAlm'];
         $noDeduAlm    = $array_data['noDeduAlm'];
 
        $sql_insert_almacen = "insert into almacen values(null,'"
             . $merma . "','"
-            . $sistemas . "','"
+            . $sistemasALM . "','"
             . $noDeduAlm ."',"
             . $id_general .")";
         return $this->db->query($sql_insert_almacen);
@@ -24,7 +24,7 @@ class model_gastos_almacen extends CI_Model {
                 e.nombre,
                 e.apellidos,
                 a.merma,
-                a.sistemas,
+                a.sistemas as sistemasALM,
                 a.noDeduAlm,
                 g.Empresa,
                 g.Dia_gasto,

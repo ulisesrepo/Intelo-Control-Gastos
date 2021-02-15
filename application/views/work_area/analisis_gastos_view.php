@@ -389,14 +389,14 @@
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
-																			for="taxis">Taxis:               
+																			for="taxis_modal">Taxis:               
 																		</label>
 																		<input type="number" class="form-control"
-																			id="taxis" placeholder="">
+																			id="taxis_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
-																			for="pasajes">Pasajes:             
+																			for="inputmodalpasajes">Pasajes:             
 																		</label>
 																		<!--	<input type="text" class="form-control" id="pasajes"
 																	placeholder="">-->
@@ -414,10 +414,10 @@
 																		</div>
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
-																		<label class="mr-1" for="noDeduVia"> No
+																		<label class="mr-1" for="noDeduVia_modal"> No
 																			deducibles:</label>
 																		<input type="number" class="form-control"
-																			id="noDeduVia" placeholder="">
+																			id="noDeduVia_modal" placeholder="">
 																	</div>
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">
@@ -465,7 +465,7 @@
 																		<label class="mr-1" for="empaque">Material
 																			empaque:</label>
 																		<input type="number" class="form-control"
-																			id="empaque" placeholder="">
+																			id="empaque_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="equipoSeguridad">Equipo
@@ -478,20 +478,20 @@
 																		<label class="mr-1"
 																			for="infracciones">Infracciones:          </label>
 																		<input type="number" class="form-control"
-																			id="infracciones" placeholder="">
+																			id="infracciones_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
 																			for="plomeria">Plomeria:                   
 																		</label>
 																		<input type="number" class="form-control"
-																			id="plomeria" placeholder="">
+																			id="plomeria_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
 																			for="ferreteria">Ferreteria:              </label>
 																		<input type="number" class="form-control"
-																			id="ferreteria" placeholder="">
+																			id="ferreteria_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="impuestos">
@@ -546,7 +546,7 @@
 																			for="asesoria">Asesoria:                
 																		</label>
 																		<input type="number" class="form-control"
-																			id="asesoria" placeholder="">
+																			id="asesoria_modal" placeholder="">
 
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
@@ -586,7 +586,7 @@
 																		<label class="mr-1" for="noDeduGastos"> No
 																			deducibles:           </label>
 																		<input type="number" class="form-control"
-																			id="noDeduGastos" placeholder="">
+																			id="noDeduGastos_modal" placeholder="">
 																	</div>
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">

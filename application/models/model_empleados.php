@@ -152,7 +152,7 @@ class model_empleados extends CI_Model
             Select
                 u.papeleria,
                 u.impuestos,
-                u.sistemas,
+                u.sistemas as sistemasgastos,
                 u.cajachica,
                 u.arrenamunidades,
                 u.servcomputo,

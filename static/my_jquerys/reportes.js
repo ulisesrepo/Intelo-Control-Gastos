@@ -159,7 +159,7 @@ $(document).ready(function () {
 				var plomeria = $('#plomeria').val();
 				var ferreteria = $('#ferreteria').val();
 				var impuestos = $('#inputimpuestos').val();
-				var sistemas = $('#inputsistemas').val();
+				var sistemasgastos = $('#inputsistemas').val();
 				var caja = $('#inputcaja').val();
 				var asesoria = $('#asesoria').val();
 				var arreunidades = $('#inputarreunidades').val();
@@ -174,7 +174,7 @@ $(document).ready(function () {
 					'plomeria': plomeria,
 					'ferreteria': ferreteria,
 					'inputimpuestos': impuestos,
-					'inputsistemas': sistemas,
+					'inputsistemas': sistemasgastos,
 					'inputcaja': caja,
 					'asesoria': asesoria,
 					'inputarreunidades': arreunidades,
@@ -291,12 +291,12 @@ $(document).ready(function () {
 			if (result.value) {
 				var merma = $('#merma').val();
 				var noDeduAlm = $('#noDeduAlm').val();
-				var sistemasAlm = $('#sistemasAlm').val();
+				var sistemasALM = $('#sistemasAlm').val();
 
 				var almacen = {
 					'merma': merma,
 					'noDeduAlm': noDeduAlm,
-					'sistemasAlm': sistemasAlm,
+					'sistemasAlm': sistemasALM,
 				}
 				var myJson = JSON.stringify(almacen);
 				localStorage.setItem('array_almacen', myJson);

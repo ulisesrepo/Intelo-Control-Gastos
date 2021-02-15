@@ -452,8 +452,8 @@ $(document).ready(function () {
 								array_content_pdf.push(fila);
 								array_total.push(parseInt(gastos_udn[i].impuestos));
 							}
-							if (gastos_udn[i].sistemas != "") {
-								var array_iva_calculado = calcular_iva(gastos_udn[i].sistemas);
+							if (gastos_udn[i].sistemasgastos != "") {
+								var array_iva_calculado = calcular_iva(gastos_udn[i].sistemasgastos);
 								
 								fila = [{
 										text: "Gastos_udn ",
@@ -478,13 +478,13 @@ $(document).ready(function () {
 										bold: true
 									},
 									{
-										text: "$ " + gastos_udn[i].sistemas,
+										text: "$ " + gastos_udn[i].sistemasgastos,
 										fontSize: 9,
 										bold: true
 									}
 								];
 								array_content_pdf.push(fila);
-								array_total.push(parseInt(gastos_udn[i].sistemas));
+								array_total.push(parseInt(gastos_udn[i].sistemasgastos));
 							}
 							if (gastos_udn[i].cajachica != "") {
 								var array_iva_calculado = calcular_iva(gastos_udn[i].cajachica);

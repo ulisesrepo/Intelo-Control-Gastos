@@ -111,11 +111,34 @@ $(document).ready(function () {
 		var km_total = data.km_total;
 		var lts_consumidos = data.lts_consumidos;
 		var rendimiento = data.rendimiento;
+		var noDeduVehi = data.noDeduVehi;
 		var merma = data.merma;
-		var sistemas = data.sistemas;
+		var sistemasALM = data.sistemasALM;
 		var noDeduAlm = data.noDeduAlm;
 		var id_general = data.id_general;
-
+		var combustible = data.combustible;
+		var casetas = data.casetas;
+		var ser_unidades = data.ser_unidades;
+		var estacionamientoViaticos = data.estacionamientoViaticos;
+		var alimentos = data.alimentos;
+		var hospedaje = data.hospedaje;
+		var taxis = data.taxis;
+		var pasajes =data.pasajes;
+		var noDeduVia = data.noDeduVia;
+		var papeleria = data.papeleria;
+		var materialempaque = data.materialempaque;
+		var equipoSeguridad= data.equipoSeguridad;
+		var infracciones = data.infracciones;
+		var plomeria = data.plomeria;
+		var ferreteria = data.ferreteria; 
+		var impuestos = data.impuestos;
+		var sistemasgastos = data.sistemasgastos;
+		var cajachica = data.cajachica;
+		var asesoria =data.asesoria;
+		var arrenamunidades = data.arrenamunidades;
+		var servcomputo = data.servcomputo;
+		var noDeduGastos = data.noDeduGastos;
+		
 		id_vehiculos = data.id_vehiculos;
 		id_viaticos = data.id_viaticos;
 		id_gastosudn = data.id_gastosudn;
@@ -133,9 +156,37 @@ $(document).ready(function () {
 		$('#km_total_modal').val(km_total);
 		$('#rendimiento_modal').val(rendimiento);
 		$('#lts_consumidos_modal').val(lts_consumidos);
+		$('#inputmodalcasetas').val(casetas);
+		$('#inputmodalcombustible').val(combustible);
+		$('#inputmodalserviunidades').val(ser_unidades);
+		$('#noDeduVehi_modal').val(noDeduVehi);
+
+		$('#inputmodalestacionamientoViaticos').val(estacionamientoViaticos);
+		$('#inputmodalalimentos').val(alimentos);
+		$('#inputmodalhospedaje').val(hospedaje);
+		$('#taxis_modal').val(taxis);
+		$('#inputmodalpasajes').val(pasajes);
+		$('#noDeduVia_modal').val(noDeduVia);
+
+		$('#inputmodalpapeleria').val(papeleria);
+		$('#empaque_modal').val(materialempaque);
+		$('#inputequipoSeguridad').val(equipoSeguridad);
+		$('#infracciones_modal').val(infracciones);
+		$('#plomeria_modal').val(plomeria);
+		$('#ferreteria_modal').val(ferreteria);
+		$('#inputmodalimpuestos').val(impuestos);
+		$('#inputmodalsistemas').val(sistemasgastos);
+		$('#inputmodalcaja').val(cajachica);
+		$('#asesoria_modal').val(asesoria);
+		$('#inputmodalarreunidades').val(arrenamunidades);
+		$('#inputmodalcomputo').val(servcomputo);
+		$('#noDeduGastos_modal').val(noDeduGastos);
+
+
+		
 		$('#id_general_update').val(id_general);
 		$('#merma_modal').val(merma);
-		$('#sistemasAlm_modal').val(sistemas);
+		$('#sistemasAlm_modal').val(sistemasALM);
 		$('#noDeduAlm_modal').val(noDeduAlm);
 		$("#modal_editar_registros").modal("show");
 	});
@@ -574,9 +625,9 @@ $(document).ready(function () {
 								'data': null,
 								'render': function (data, type, row) {
 									if (data.estatus == 1) {
-										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemas}</h9>`;
+										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemasgastos}</h9>`;
 									} else {
-										return `<h9 class='m-0 text-danger'>${data.sistemas}</h9>`
+										return `<h9 class='m-0 text-danger'>${data.sistemasgastos}</h9>`
 
 									}
 								}
@@ -946,9 +997,9 @@ $(document).ready(function () {
 								'data': null,
 								'render': function (data, type, row) {
 									if (data.estatus == 1) {
-										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemas}</h9>`;
+										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemasAlm}</h9>`;
 									} else {
-										return `<h9 class='m-0 text-danger'>${data.sistemas}</h9>`
+										return `<h9 class='m-0 text-danger'>${data.sistemasAlm}</h9>`
 
 									}
 								}
@@ -1017,7 +1068,7 @@ $(document).ready(function () {
 		actualizar_registro_vehiculos();
 	});
 
-	function actualizar_registro_combustible() { }
+
 	// -------------------------------------------------------------------------------------------------
 
 	// -----------------------------Actualizar datos viaticos------------------------------------------

@@ -378,7 +378,7 @@ $(document).ready(function () {
 			'</tr>' +
 			'<tr>' +
 			'<td>Sistemas:</td>' +
-			'<td>' + d.sistemas + '</td>' +
+			'<td>' + d.sistemasgastos + '</td>' +
 			'</tr>' +
 			'<tr>' +
 			'<td>Caja chica:</td>' +
@@ -719,7 +719,7 @@ function cargaTabla_Almacen() {
 							'data': "merma"
 						},
 						{
-							'data': "sistemas"
+							'data': "sistemasALM"
 						},
 						{
 							'data': 'noDeduAlm'

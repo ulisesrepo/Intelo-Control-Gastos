@@ -41,7 +41,7 @@ class model_analisis_gastos extends CI_Model {
                 u.plomeria,
                 u.ferreteria,
                 u.impuestos,
-                u.sistemas,
+                u.sistemas as sistemasgastos,
                 u.cajachica,
                 u.asesoria,
                 u.arrenamunidades,
@@ -74,7 +74,7 @@ class model_analisis_gastos extends CI_Model {
                 s.gastolegal,
                 s.noDeduServ,
                 a.merma,
-                a.sistemas,
+                a.sistemas as sistemasALM,
                 a.noDeduAlm
             FROM general g
                 left JOIN vehiculos w
