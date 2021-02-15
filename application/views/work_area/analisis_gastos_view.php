@@ -7,11 +7,9 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-
 						<table class="table table-bordered table-striped rounded table-xl"
 							id="dataTable_analisis_gastos" width="100%" cellspacing="0">
 							<thead class="thead-light">
-
 								<tr>
 									<th class="center">Acciones</th>
 									<th class="center">Estatus</th>
@@ -81,11 +79,7 @@
 									<th class="center">No deducibles</th>
 								</tr>
 							</thead>
-
-							<tbody>
-
-
-							</tbody>
+							<tbody></tbody>
 						</table>
 
 					</div>
@@ -106,25 +100,18 @@
 		margin-left: -32px;
 	}
 
-
-
 </style>
 
 <!-- ---------------------------------Modal pasos para editar------------------------------------------------------------------------ -->
 <div class="modal fade" id="modal_editar_registros" role="dialog" style="overflow-y: scroll;">
 	<div class="modal-dialog modal-xl">
 		<div class="modal-content">
-			<div class="modal-header">
-				Editar Registros
-			</div>
+			<div class="modal-header">Editar Registros</div>
 			<div class="modal-body">
 				<div class="card-body">
 					<div class="page-content" style="background-image:">
-
 						<div class="wizard-form">
-							<div class="wizard-header">
-
-							</div>
+							<div class="wizard-header"></div>
 							<div class="row">
 								<div class="col-sm-12">
 									<form class="form-register" id="form_registros_update">
@@ -191,8 +178,8 @@
 																			id="fecha_cap_modal" placeholder=""
 																			disabled>
 																	</div>
-																
-																	
+
+
 																</div>
 															</form>
 														</div>
@@ -218,8 +205,8 @@
 																	<label class="mr-1"
 																		for="unidad_modal">Unidad:                
 																	</label>
-																	<input type="text" class="form-control" id="unidad_modal"
-																		placeholder="" disabled>
+																	<input type="text" class="form-control"
+																		id="unidad_modal" placeholder="" disabled>
 																</div>
 
 
@@ -228,14 +215,14 @@
 																		Inicial:    
 																	</label>
 																	<input class="form-control" type="number"
-																		id="km_inicial_modal" disabled/>
+																		id="km_inicial_modal" disabled />
 																</div>
 																<div class="form-group p-2 col-sm-6">
 																	<label class="mr-1" for="km_final_modal">KM
 																		Final:             
 																	</label>
 																	<input class="form-control" type="number"
-																		id="km_final_modal" disabled/>
+																		id="km_final_modal" disabled />
 																</div>
 																<div class="form-group p-2 col-sm-6">
 																	<label class="mr-1" for="km_total_modal">KM
@@ -249,10 +236,11 @@
 																		Consumidos: 
 																	</label>
 																	<input class="form-control" type="number"
-																		id="lts_consumidos_modal" disabled/></div>
+																		id="lts_consumidos_modal" disabled /></div>
 
 																<div class="form-group p-2 col-sm-6">
-																	<label class="mr-1" for="rendimiento_modal">Rendimiento:
+																	<label class="mr-1"
+																		for="rendimiento_modal">Rendimiento:
 																	</label>
 																	<input class="form-control" type="number"
 																		id="rendimiento_modal" disabled /></div>
@@ -268,7 +256,7 @@
 
 																		<div class="input-group-append">
 																			<a class="btn btn-success btn_agregar_costos_modal"
-																				data-value="combustible">
+																				data-value="combustible,id_combustible,id_vehiculos,vehiculo">
 																				<i class="fas fa-plus"></i>
 																			</a>
 																		</div>
@@ -283,7 +271,7 @@
 																			id="inputmodalcasetas">
 																		<div class="input-group-append">
 																			<a class="btn btn-success btn_agregar_costos_modal"
-																				data-value="casetas">
+																				data-value="casetas,id_casetas,id_vehiculos,vehiculo">
 																				<i class="fa fa-plus"
 																					aria-hidden="true"></i>
 																			</a>
@@ -297,7 +285,6 @@
 																	<input type="number" class="form-control"
 																		id="noDeduVehi_modal" placeholder="">
 																</div>
-
 																<div class="form-group p-2 col-sm-6">
 																	<label class="mr-1"
 																		for="serviunidades">Ser.Unidades/Refacciones:</label>
@@ -307,7 +294,7 @@
 																			id="inputmodalserviunidades">
 																		<div class="input-group-append">
 																			<a class="btn btn-success btn_agregar_costos_modal"
-																				data-value="serviunidades">
+																				data-value="serviunidades,id_serviunidades,id_vehiculos,vehiculo">
 																				<i class="fa fa-plus"
 																					aria-hidden="true"></i>
 																			</a>
@@ -319,7 +306,8 @@
 
 																<div
 																	class="form-group p-2 col-sm-12 justify-content-sm-end">
-																	<a id="btn_datos_vehiculos_modal" class="btn btn-info">
+																	<a id="btn_datos_vehiculos_modal"
+																		class="btn btn-info">
 																		<i class="far fa-save"></i>  Guardar</a>
 																</div>
 															</div>
@@ -354,7 +342,7 @@
 																				id="inputmodalestacionamientoViaticos">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="estacionamientoViaticos">
+																					data-value="estacionamientoViaticos,id_estacionamientoViaticos,id_viaticos,viaticos">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -373,7 +361,7 @@
 																				id="inputmodalalimentos">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="alimentos">
+																					data-value="alimentos,id_alimentos,id_viaticos,viaticos">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -392,7 +380,7 @@
 																				id="inputmodalhospedaje">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="hospedaje">
+																					data-value="hospedaje,id_hospedaje,id_viaticos,viaticos">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -418,7 +406,7 @@
 																				id="inputmodalpasajes">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="pasajes">
+																					data-value="pasajes,id_pasajes,id_viaticos,viaticos">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -456,21 +444,17 @@
 															<!--inicio formulario de inputs boostrap -->
 															<form>
 																<div class="form-inline">
-
-
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="papeleria">
 																			Papeleria:                  
 																		</label>
-																		<!--<input type="text" class="form-control" id="papeleria"
-																	placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalpapeleria">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="papeleria">
+																					data-value="papeleria,id_papeleria,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -489,9 +473,7 @@
 																			seguridad:</label>
 																		<input type="number" class="form-control"
 																			id="inputequipoSeguridad" placeholder="">
-
 																	</div>
-
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
 																			for="infracciones">Infracciones:          </label>
@@ -514,15 +496,13 @@
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="impuestos">
 																			Impuestos:                  </label>
-																		<!--<input type="text" class="form-control" id="impuestos"
-																	placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalimpuestos">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="impuestos">
+																					data-value="impuestos,id_impuestos,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -532,15 +512,13 @@
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="sistemas">
 																			Sistemas:               </label>
-																		<!--<input type="text" class="form-control" id="sistemas"
-																	placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalsistemas">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="sistemas">
+																					data-value="sistemas,id_sistemas,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -550,15 +528,13 @@
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="caja">Caja chica:
 																			                </label>
-																		<!--<input type="text" class="form-control" id="caja"
-																	placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalcaja">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="caja">
+																					data-value="caja_chica,id_caja_chica,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -577,15 +553,13 @@
 																		<label class="mr-1" for="arreunidades">Arrendam.
 																			Unidades:
 																		</label>
-																		<!--	<input type="text" class="form-control"
-																	id="arreunidades" placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalarreunidades">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="arreunidades">
+																					data-value="arrendam_unidades,id_arrendam_unidades,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -595,15 +569,13 @@
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1"
 																			for="computo">Serv.computo:        </label>
-																		<!--	<input type="text" class="form-control"
-																	id="computo" placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalcomputo">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="computo">
+																					data-value="serv_computo,id_serv_computo,id_gastosudn,gastosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -658,15 +630,13 @@
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="fletes">
 																			Fletes:             </label>
-																		<!--	<input type="text" class="form-control" id="fletes"
-																	placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
 																				id="inputmodalfletes">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="fletes">
+																					data-value="fletes,id_fletes_tabla,id_fletes,gastosfletes">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -682,7 +652,7 @@
 																				id="inputmodalpaqueteria">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="paqueteria">
+																					data-value="paqueteria,id_paqueteria,id_fletes,gastosfletes">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -738,7 +708,7 @@
 																				id="inputmodalarrendamientoinmuebles">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="arrendamientoinmuebles">
+																					data-value="arrendamientoinmuebles,id_arrendamientoinmuebles,id_serviciosudn,serviciosuds">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -755,7 +725,7 @@
 																				id="inputmodalServiciosAGL">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="ServiciosAGL">
+																					data-value="Serviciosagl,id_serviciosagl,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -787,7 +757,7 @@
 																				id="inputmodalInternet">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="Internet">
+																					data-value="internet,id_internet,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -825,7 +795,7 @@
 																				id="inputmodalmonitoreo">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="monitoreo">
+																					data-value="monitoreo,id_monitoreo,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -869,7 +839,7 @@
 																				id="inputmodalfianzas">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="fianzas">
+																					data-value="fianzas,id_fianzas,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -892,7 +862,7 @@
 																				id="inputmodalfacturacion">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="facturacion">
+																					data-value="facturacion,id_facturacion,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -992,7 +962,7 @@
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- --------------------------------Modal atributos hijos--------------------------------------------------------------------------- -->
-<div class="modal fade" id="modal_costos_update"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal_costos_update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog modal-lg " role="dialog">
 		<div class="modal-content">
@@ -1003,55 +973,17 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form id="id_Formulario_Modal">
-					<div class="form-row">
-
-
-						<input id="input_modal_update" type="text" class="d-none">
-
-						<label for="recipient-name" class="col-form-label">No de
-							Factura</label>
-						<input type="text" class="form-control col-sm-2" id="no_factura" name="nombre_editar"
-							maxlength="20"
-							onKeyUp="document.getElementById(this.id).value = document.getElementById(this.id).value.toUpperCase()">
-
-
-						<label for="recipient-name" class="col-form-label">Subtotal</label>
-						<input type="number" class="form-control col-sm-2" id="sub_total" step="0.01" name="sub_total"
-							maxlength="20">
-
-						<label for="recipient-name" class="col-form-label">IVA</label>
-						<input type="number" class="form-control col-sm-2" id="iva" name="iva" value="">
-
-
-					</div>
-
-					<div class="form-row">
-						<div class="col-sm-12 d-flex justify-content-end">
-							<a class="btn btn-success" id="btn_agregar_datos_tabla">
-								<i class="fas fa-plus-circle"></i>
-								Agregar
-							</a>
-						</div>
-
-					</div>
-				</form>
 				<div class="form-row">
 					<div class="table-responsive">
-						<table class="table table-bordered table-striped rounded table-sm" id="data_table_costos_update"
+						<table class="table table-bordered table-striped rounded table-sm" id="data_tabledit"
 							width="100%" cellspacing="0">
 							<thead class="thead-light">
 								<tr>
-									<th class="text-center">No
-										Factura</th>
-									<th class="text-center">
-										Subtotal</th>
-									<th class="text-center">IVA
-									</th>
-									<th class="text-center">
-										Total</th>
-									<th class="text-center">
-										Quitar</th>
+									<th class="text-center">id</th>
+									<th class="text-center">No Factura</th>
+									<th class="text-center">Subtotal</th>
+									<th class="text-center">IVA</th>
+									<th class="text-center">Total</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -1072,3 +1004,10 @@
 	</div>
 </div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+<div class="col-sm-12">
+
+</div>
