@@ -137,7 +137,35 @@ $(document).ready(function () {
 		var asesoria =data.asesoria;
 		var arrenamunidades = data.arrenamunidades;
 		var servcomputo = data.servcomputo;
-		var noDeduGastos = data.noDeduGastos;
+		var noDeduUDN = data.noDeduUDN;
+		var maniobras = data.maniobras;
+		var infraccionesfletes=data.infraccionesfletes;
+		var fletes = data.fletes;
+		var paqueteria =data.paqueteria;
+		var noDeduFletes = data.noDeduFletes;
+
+
+		var gas = data.gas;
+		var arrendamientoinmuebles= data.arrendamientoinmuebles; 
+		var ServiciosAGL = data.ServiciosAGL;
+		var manttoGRAL = data.manttoGRAL;
+		var ManttoAlmacen = data.ManttoAlmacen;
+		var Internet = data.Internet;
+		var limpieza = data.limpieza;
+		var seguros = data.seguros;
+		var seguridad = data.seguridad;
+		var monitoreo = data.monitoreo;
+		var plagas = data.plagas;
+		var basura = data.basura;
+		var higiene = data.higiene;
+		var publicidad = data.publicidad;
+		var fianzas = data.fianzas;
+		var almacenaje = data.almacenaje;
+		var facturacion = data.facturacion;
+		var gastolegal = data.gastolegal;
+		var noDeduServ = data.noDeduServ;
+
+
 		
 		id_vehiculos = data.id_vehiculos;
 		id_viaticos = data.id_viaticos;
@@ -180,7 +208,36 @@ $(document).ready(function () {
 		$('#asesoria_modal').val(asesoria);
 		$('#inputmodalarreunidades').val(arrenamunidades);
 		$('#inputmodalcomputo').val(servcomputo);
-		$('#noDeduGastos_modal').val(noDeduGastos);
+		$('#noDeduGastos_modal').val(noDeduUDN);
+
+		$('#maniobras_modal').val(maniobras);
+		$('#infraccionesFletes_modal').val(infraccionesfletes);
+		$('#inputmodalfletes').val(fletes);
+		$('#inputmodalpaqueteria').val(paqueteria);
+		$('#noDeduFletes_modal').val(noDeduFletes);
+
+		$('#gas_modal').val(gas);
+		$('#inputmodalarrendamientoinmuebles').val(arrendamientoinmuebles);
+		$('#inputmodalServiciosAGL').val(ServiciosAGL);
+		$('#manttoGRAL_modal').val(manttoGRAL);
+		$('#ManttoAlmacen_modal').val(ManttoAlmacen);
+		$('#inputmodalInternet').val(Internet);
+		$('#limpieza_modal').val(limpieza);
+		$('#seguros_modal').val(seguros);
+		$('#seguridad_modal').val(seguridad);
+		$('#inputmodalmonitoreo').val(monitoreo);
+		$('#plagas_modal').val(plagas);
+		$('#basura_modal').val(basura);
+		$('#higiene_modal').val(higiene);
+		$('#publicidad1_modal').val(publicidad);
+		$('#inputmodalfianzas').val(fianzas);
+		$('#almacenaje_modal').val(almacenaje);
+		$('#inputmodalfacturacion').val(facturacion);
+		$('#gastolegal_modal').val(gastolegal);
+		$('#noDeduServ_modal').val(noDeduServ);
+		
+
+
 
 
 		
@@ -997,9 +1054,9 @@ $(document).ready(function () {
 								'data': null,
 								'render': function (data, type, row) {
 									if (data.estatus == 1) {
-										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemasAlm}</h9>`;
+										return `<h9 class='m-0 font-weight-bold text-primary'>${data.sistemasALM}</h9>`;
 									} else {
-										return `<h9 class='m-0 text-danger'>${data.sistemasAlm}</h9>`
+										return `<h9 class='m-0 text-danger'>${data.sistemasALM}</h9>`
 
 									}
 								}
@@ -1029,8 +1086,8 @@ $(document).ready(function () {
 			}
 		});
 	}
-
-	// -----------------------------Actualizar datos vehiculos------------------------------------------
+// *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+
+	// -----------------------------Actualizar datos vehiculos--------------------------------------------------------------------
 	function actualizar_registro_vehiculos() {
 		var id_general = $('#id_general_update').val();
 		var combustible_modal = $('#inputmodalcombustible').val();
@@ -1038,7 +1095,7 @@ $(document).ready(function () {
 		var serviunidades_modal = $('#inputmodalserviunidades').val();
 		var noDeduVehi_modal = $('#noDeduVehi_modal').val();
 		$.ajax({
-			url: "AnalisisGastos/actualizar_registro_almacen",
+			url: "AnalisisGastos/actualizar_registro_vehiculos",
 			type: "POST",
 			dataType: "json",
 			data: {
@@ -1067,13 +1124,222 @@ $(document).ready(function () {
 	$(document).on('click', '#btn_datos_vehiculos_modal', function () {
 		actualizar_registro_vehiculos();
 	});
+	// ---------------------------------------------------------------------------------------------------------------------------
 
+	// -----------------------------Actualizar datos viaticos--------------------------------------------------------------------
+	function actualizar_registro_viaticos() {
+		var id_general = $('#id_general_update').val();
+		var estacionamientoViaticos_modal = $('#inputmodalestacionamientoViaticos').val();
+		var alimentos_modal = $('#inputmodalalimentos').val();
+		var hospedaje_modal = $('#inputmodalhospedaje').val();
+		var taxis_modal = $('#taxis_modal').val();
+		var pasajes_modal = $('#pasajes_modal').val();
+		var noDeduVia_modal = $('#noDeduVia_modal').val();
+		$.ajax({
+			url: "AnalisisGastos/actualizar_registro_viaticos",
+			type: "POST",
+			dataType: "json",
+			data: {
+				id_general: id_general,
+				estacionamientoViaticos_modal: estacionamientoViaticos_modal,
+				alimentos_modal: alimentos_modal,
+				hospedaje_modal: hospedaje_modal,
+				taxis_modal: taxis_modal,
+				pasajes_modal: pasajes_modal,
+				noDeduVia_modal: noDeduVia_modal,
+			},
 
-	// -------------------------------------------------------------------------------------------------
+			success: function (data) {
+				if (data.response_code == 200) {
+					successAlert(data.response_text);
+				} else if (data.response_code == 500) {
+					infoAlert("Verifica", data.response_text);
+				} else {
+					infoAlert("Verifica", data.response_text);
+				}
+			},
+			error: function (xhr) {
+				infoAlert("Verifica", data.response_text);
+			}
+		});
+	}
 
-	// -----------------------------Actualizar datos viaticos------------------------------------------
+	$(document).on('click', '#btn_datos_viaticos_modal', function () {
+		actualizar_registro_viaticos();
+	});
+	// ---------------------------------------------------------------------------------------------------------------------------
+	// -----------------------------Actualizar datos Gastos UDN--------------------------------------------------------------------
+	function actualizar_registro_gastosudn() {
+		var id_general = $('#id_general_update').val();
+		var papeleria_modal = $('#inputmodalpapeleria').val();
+		var empaque_modal = $('#empaque_modal').val();
+		var equipoSeguridad_modal = $('#inputequipoSeguridad').val();
+		var infracciones_modal = $('#infracciones_modal').val();
+		var plomeria_modal = $('#plomeria_modal').val();
+		var ferreteria_modal = $('#ferreteria_modal').val();
+		var impuestos_modal = $('#inputmodalimpuestos').val();
+		var sistemasgastos_modal = $('#inputmodalsistemas').val();
+		var cajachica_modal = $('#inputmodalcaja').val();
+		var asesoria_modal = $('#asesoria_modal').val();
+		var arreunidades_modal = $('#inputmodalarreunidades').val();
+		var computo_modal = $('#inputmodalcomputo').val();
+		var noDeduGastos_modal = $('#noDeduGastos_modal').val();
+		$.ajax({
+			url: "AnalisisGastos/actualizar_registro_gastosudn",
+			type: "POST",
+			dataType: "json",
+			data: {
+				id_general: id_general,
+				papeleria_modal: papeleria_modal,
+				empaque_modal: empaque_modal,
+				equipoSeguridad_modal: equipoSeguridad_modal,
+				infracciones_modal: infracciones_modal,
+				plomeria_modal: plomeria_modal,
+				ferreteria_modal: ferreteria_modal,
+				impuestos_modal: impuestos_modal,
+				sistemasgastos_modal: sistemasgastos_modal,
+				cajachica_modal: cajachica_modal,
+				asesoria_modal: asesoria_modal,
+				arreunidades_modal: arreunidades_modal,
+				computo_modal: computo_modal,
+				noDeduGastos_modal: noDeduGastos_modal,
+			},
 
-	// -------------------------------------------------------------------------------------------------
+			success: function (data) {
+				if (data.response_code == 200) {
+					successAlert(data.response_text);
+				} else if (data.response_code == 500) {
+					infoAlert("Verifica", data.response_text);
+				} else {
+					infoAlert("Verifica", data.response_text);
+				}
+			},
+			error: function (xhr) {
+				infoAlert("Verifica", data.response_text);
+			}
+		});
+	}
+
+	$(document).on('click', '#btn_datos_gastosudn_modal', function () {
+		actualizar_registro_gastosudn();
+	});
+	// -------------------------------------------------------------------------------------------------------------------
+// -----------------------------Actualizar datos Gastos Fletes------------------------------------------------------------
+	function actualizar_registro_gastosfletes() {
+		var id_general = $('#id_general_update').val();
+		var maniobras_modal = $('#maniobras_modal').val();
+		var infraccionesFletes_modal = $('#infraccionesFletes_modal').val();
+		var fletes_modal = $('#inputmodalfletes').val();
+		var paqueteria_modal = $('#inputmodalpaqueteria').val();
+		var noDeduFletes_modal = $('#noDeduFletes_modal').val();
+		
+		$.ajax({
+			url: "AnalisisGastos/actualizar_registro_gastosfletes",
+			type: "POST",
+			dataType: "json",
+			data: {
+				id_general: id_general,
+				maniobras_modal: maniobras_modal,
+				infraccionesFletes_modal: infraccionesFletes_modal,
+				fletes_modal: fletes_modal,
+				paqueteria_modal: paqueteria_modal,
+				noDeduFletes_modal: noDeduFletes_modal,
+			
+			},
+
+			success: function (data) {
+				if (data.response_code == 200) {
+					successAlert(data.response_text);
+				} else if (data.response_code == 500) {
+					infoAlert("Verifica", data.response_text);
+				} else {
+					infoAlert("Verifica", data.response_text);
+				}
+			},
+			error: function (xhr) {
+				infoAlert("Verifica", data.response_text);
+			}
+		});
+	}
+
+	$(document).on('click', '#btn_datos_gastosfletes_modal', function () {
+		actualizar_registro_gastosfletes();
+	});
+
+// -----------------------------------------------------------------------------------------------------------------------
+// -----------------------------Actualizar datos Servicios UDN------------------------------------------------------------
+	function actualizar_registro_serviciosudn() {
+		var id_general = $('#id_general_update').val();
+		var gas_modal = $('#gas_modal').val();
+		var arrendamientoinmuebles_modal = $('#inputmodalarrendamientoinmuebles').val();
+		var ServiciosAGL_modal = $('#inputmodalServiciosAGL').val();
+		var manttoGRAL_modal = $('#manttoGRAL_modal').val();
+		var ManttoAlmacen_modal = $('#ManttoAlmacen_modal').val();
+		var Internet_modal = $('#inputmodalInternet').val();
+		var limpieza_modal = $('#limpieza_modal').val();
+		var seguros_modal = $('#seguros_modal').val();
+		var seguridad_modal = $('#seguridad_modal').val();
+		var monitoreo_modal = $('#inputmodalmonitoreo').val();
+		var plagas_modal = $('#plagas_modal').val();
+		var basura_modal = $('#basura_modal').val();
+		var higiene_modal = $('#higiene_modal').val();
+		var publicidad1_modal = $('#publicidad1_modal').val();
+		var fianzas_modal = $('#inputmodalfianzas').val();
+		var almacenaje_modal = $('#almacenaje_modal').val();
+		var facturacion_modal = $('#inputmodalfacturacion').val();
+		var gastolegal_modal = $('#gastolegal_modal').val();
+		var noDeduServ_modal = $('#noDeduServ_modal').val();
+		
+		$.ajax({
+			url: "AnalisisGastos/actualizar_registro_serviciosudn",
+			type: "POST",
+			dataType: "json",
+			data: {
+				id_general: id_general,
+				gas_modal: gas_modal,
+				arrendamientoinmuebles_modal: arrendamientoinmuebles_modal,
+				ServiciosAGL_modal: ServiciosAGL_modal,
+				manttoGRAL_modal: manttoGRAL_modal,
+				ManttoAlmacen_modal: ManttoAlmacen_modal,
+				Internet_modal: Internet_modal,
+				limpieza_modal: limpieza_modal,
+				seguros_modal: seguros_modal,
+				seguridad_modal: seguridad_modal,
+				monitoreo_modal: monitoreo_modal,
+				plagas_modal: plagas_modal,
+				basura_modal: basura_modal,
+				higiene_modal: higiene_modal,
+				publicidad1_modal: publicidad1_modal,
+				fianzas_modal: fianzas_modal,
+				almacenaje_modal: almacenaje_modal,
+				facturacion_modal: facturacion_modal,
+				gastolegal_modal: gastolegal_modal,
+				noDeduServ_modal: noDeduServ_modal,
+			
+			},
+
+			success: function (data) {
+				if (data.response_code == 200) {
+					successAlert(data.response_text);
+				} else if (data.response_code == 500) {
+					infoAlert("Verifica", data.response_text);
+				} else {
+					infoAlert("Verifica", data.response_text);
+				}
+			},
+			error: function (xhr) {
+				infoAlert("Verifica", data.response_text);
+			}
+		});
+	}
+
+	$(document).on('click', '#btn_datos_serviciosudn_modal', function () {
+		actualizar_registro_serviciosudn();
+	});
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+// *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+
 
 	// -----------------------------Actualizar datos almacen--------------------------------------------
 	function actualizar_registro_almacen() {
@@ -1146,6 +1412,7 @@ $(document).ready(function () {
 		}
 		if (nombre_tabla_padre == 'serviciosudn') {
 			id = id_serviciosudn;
+			console.log(id)
 		}
 		$.ajax({
 			url: "AnalisisGastos/gastos_detalle",
@@ -1159,6 +1426,8 @@ $(document).ready(function () {
 			},
 			success: function (data) {
 				if (data.response_code == 200) {
+					nombre_tabla_hija_update = nombre_tabla_hija;
+					nombre_id_hija_update = nombre_id_hija
 					var tabla = $("#data_tabledit").DataTable();
 					tabla.clear().draw(false);
 					$("#data_tabledit").DataTable({
@@ -1171,34 +1440,22 @@ $(document).ready(function () {
 						"data": data.response_data,
 						"columns": [
 							{ "data": 'id', },
-							{
-								"data": 'no_factura',
-							},
-							{
-								"data": 'iva',
-							},
-							{
-								"data": 'sub_total',
-							},
-							{
-								"data": 'total',
-							}
+							{ "data": 'no_factura' },
+							{ "data": 'iva' },
+							{ "data": 'sub_total' },
+							{ "data": 'total' }
 						]
 					});
 					$('#modal_costos_update').modal({ backdrop: 'static', keyboard: false });
 					$("#modal_costos_update").modal("show");
-				} else if (data.response_code == 500) {
-
-				} else {
-
-				}
+				} else if (data.response_code == 500) {} else {}
 			},
 			error: function (xhr) {
 				infoAlert("Verifica", data.response_text);
 			}
 		});
 	}
-
+	
 	$("#data_tabledit").on("draw.dt", function () {
 		$("#data_tabledit").Tabledit({
 			url: "AnalisisGastos/prueba2edit",
@@ -1207,9 +1464,13 @@ $(document).ready(function () {
 			buttons: {
 				edit: {
 					class: 'btn btn-sm btn-primary',
-					html: ' EDIT',
+					html: `<i class="fas fa-edit"></i> Editar`,
 					action: 'edit'
-				}
+				},
+				save: {
+					class: 'btn btn-sm btn-success',
+					html: '<i class="fas fa-save"></i> Guardar'
+				},
 			},
 			columns: {
 				identifier: [0, "id"],
@@ -1223,11 +1484,173 @@ $(document).ready(function () {
 			restoreButton: false,
 			onSuccess: function (data, textStatus, jqXHR) {
 				if (data.action == "edit") {
-					localStorage.setItem('variablePrueba', data.action)
+					var objecto = [];
+					var json = '';
+					var existe = false
+					var array = {
+						nombre_tabla: nombre_tabla_hija_update,
+						nombre_id_hija: nombre_id_hija_update,
+						id: data.id,
+						iva: data.iva,
+						no_factura: data.no_factura,
+						sub_total: data.sub_total,
+						total: data.total
+					}
+					if (localStorage.getItem('array_detalles_gastos' + nombre_tabla_hija_update) == undefined) {
+						objecto.push(array);
+						json = JSON.stringify(objecto);
+						localStorage.setItem('array_detalles_gastos' + nombre_tabla_hija_update, json);
+						console.log('entra en este if'); // aun no existe el array
+					} else {
+						var array_storage = localStorage.getItem('array_detalles_gastos' + nombre_tabla_hija_update);
+						var array_parse = JSON.parse(array_storage);
+						array_parse.forEach(item => {
+							if (item.id == array.id) { existe = true }
+						});
+						if (!existe) {
+							array_parse.push(array);
+						} else {
+							var index = array_parse.findIndex(x => x.id === array.id)
+							var nombre_local_storage = 'array_detalles_gastos' + nombre_tabla_hija_update
+							reditar_fila(index, nombre_local_storage)
+						}
+						var json_stringify = JSON.stringify(array_parse);
+						localStorage.setItem('array_detalles_gastos' + nombre_tabla_hija_update, json_stringify);
+					}
 				}
 			},
 		});
 	});
+	
+	function reditar_fila(index, nombre_local_storage) {
+		Swal.fire({
+			title: 'Reeditar',
+			text: "Esta fila ya fue editado con anterioridad. ¿Desean volver a editar?",
+			icon: 'question',
+			iconHtml: '?',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si',
+			cancelButtonText: 'No'
+		}).then((result) => {
+			if (result.value) {
+				var array_local = localStorage.getItem(nombre_local_storage);
+				var array_parse = JSON.parse(array_local);
+				var json_stringify = "";
+				array_parse.splice(index, 1)
+				json_stringify = JSON.stringify(array_parse)
+				localStorage.setItem(nombre_local_storage, json_stringify);
+			} else {
+				infoAlert("Cancelado", "La eliminación ha sido cancelada");
+			}
+		});
+	}
+	
+
+	// function mostrar_tablas_hijas(value_attr) {
+	// 	let id = '';
+	// 	let split_array = value_attr.split(',')
+	// 	let nombre_tabla_hija = split_array[0];
+	// 	let nombre_id_hija = split_array[1];
+	// 	let nombre_id_padre = split_array[2];
+	// 	let nombre_tabla_padre = split_array[3];
+	// 	if (nombre_tabla_padre == 'vehiculo') {
+	// 		id = id_vehiculos;
+	// 	}
+	// 	if (nombre_tabla_padre == 'viaticos') {
+	// 		id = id_viaticos;
+	// 	}
+	// 	if (nombre_tabla_padre == 'gastosudn') {
+	// 		id = id_gastosudn;
+	// 	}
+	// 	if (nombre_tabla_padre == 'gastosfletes') {
+	// 		id = id_fletes;
+	// 	}
+	// 	if (nombre_tabla_padre == 'serviciosudn') {
+	// 		id = id_serviciosudn;
+	// 	}
+	// 	$.ajax({
+	// 		url: "AnalisisGastos/gastos_detalle",
+	// 		type: "POST",
+	// 		dataType: "json",
+	// 		data: {
+	// 			nombre_tabla_hija: nombre_tabla_hija,
+	// 			nombre_id_hija: nombre_id_hija,
+	// 			nombre_id_padre: nombre_id_padre,
+	// 			id: id,
+	// 		},
+	// 		success: function (data) {
+	// 			if (data.response_code == 200) {
+	// 				var tabla = $("#data_tabledit").DataTable();
+	// 				tabla.clear().draw(false);
+	// 				$("#data_tabledit").DataTable({
+	// 					"destroy": true,
+	// 					processing: true,
+	// 					"searching": false,
+	// 					"ordering": false,
+	// 					"info": false,
+	// 					"bPaginate": false,
+	// 					"data": data.response_data,
+	// 					"columns": [
+	// 						{ "data": 'id', },
+	// 						{
+	// 							"data": 'no_factura',
+	// 						},
+	// 						{
+	// 							"data": 'iva',
+	// 						},
+	// 						{
+	// 							"data": 'sub_total',
+	// 						},
+	// 						{
+	// 							"data": 'total',
+	// 						}
+	// 					]
+	// 				});
+	// 				$('#modal_costos_update').modal({ backdrop: 'static', keyboard: false });
+	// 				$("#modal_costos_update").modal("show");
+	// 			} else if (data.response_code == 500) {
+
+	// 			} else {
+
+	// 			}
+	// 		},
+	// 		error: function (xhr) {
+	// 			infoAlert("Verifica", data.response_text);
+	// 		}
+	// 	});
+	// }
+
+	// $("#data_tabledit").on("draw.dt", function () {
+	// 	$("#data_tabledit").Tabledit({
+	// 		url: "AnalisisGastos/prueba2edit",
+	// 		dataType: "json",
+	// 		eventType: 'dblclick',
+	// 		buttons: {
+	// 			edit: {
+	// 				class: 'btn btn-sm btn-primary',
+	// 				html: ' EDIT',
+	// 				action: 'edit'
+	// 			}
+	// 		},
+	// 		columns: {
+	// 			identifier: [0, "id"],
+	// 			editable: [
+	// 				[1, "no_factura"],
+	// 				[2, "sub_total"],
+	// 				[3, "iva"],
+	// 				[4, "total"],
+	// 			],
+	// 		},
+	// 		restoreButton: false,
+	// 		onSuccess: function (data, textStatus, jqXHR) {
+	// 			if (data.action == "edit") {
+	// 				localStorage.setItem('variablePrueba', data.action)
+	// 			}
+	// 		},
+	// 	});
+	// });
 
 
 	function successAlert(text) {

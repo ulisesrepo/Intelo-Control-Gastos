@@ -124,6 +124,113 @@ class model_analisis_gastos extends CI_Model {
         return $this->db->query($sql_update);
 
     }
+// *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+
+    public function update_registros_vehiculos($combustible, $casetas,
+     $id_general,$serviunidades, $noDeduVehi) {
+        $sql_update = "
+            update vehiculos set
+            combustible = '" . $combustible . "',
+            casetas = '" . $casetas . "',
+            ser_unidades = '" . $serviunidades . "',
+            noDeduVehi ='" . $noDeduVehi . "'
+            where id_general = " . $id_general;
+        return $this->db->query($sql_update);
+
+    }
+    public function update_registros_viaticos($estacionamientoViaticos, $alimentos,$hospedaje
+    ,$taxis,$pasajes, $id_general, $noDeduVia) {
+        $sql_update = "
+            update viaticos set
+            estacionamientoViaticos = '" . $estacionamientoViaticos . "',
+            alimentos = '" . $alimentos . "',
+            hospedaje = '" . $hospedaje . "',
+            taxis = '" . $taxis . "',
+            pasajes = '" . $pasajes . "',
+            noDeduVia ='" . $noDeduVia . "'
+            where id_general = " . $id_general;
+        return $this->db->query($sql_update);
+
+    }
+    public function update_registros_gastosudn($papeleria,$materialempaque,$equipoSeguridad,$infracciones,
+    $plomeria,$ferreteria,$impuestos,$sistemasgastos,$cajachica,$asesoria,$arrenamunidades,$servcomputo,$id_general,$noDeduUDN) {
+        $sql_update = "
+            update gastosudn set
+            papeleria = '" . $papeleria . "',
+            materialempaque = '" . $materialempaque . "',
+            equipoSeguridad = '" . $equipoSeguridad . "',
+            infracciones = '" . $infracciones . "',
+            plomeria = '" . $plomeria . "',
+            ferreteria = '" . $ferreteria . "',
+            impuestos = '" . $impuestos . "',
+            sistemas = '" . $sistemasgastos . "',
+            cajachica = '" . $cajachica . "',
+            asesoria = '" . $asesoria . "',
+            arrenamunidades = '" . $arrenamunidades . "',
+            servcomputo = '" . $servcomputo . "',
+            noDeduUDN ='" . $noDeduUDN . "'
+            where id_general = " . $id_general;
+        return $this->db->query($sql_update);
+
+    }
+
+    public function update_registros_gastosfletes($maniobras, 
+    $infraccionesfletes,$fletes,$paqueteria, $id_general, $noDeduFletes) {
+        $sql_update = "
+            update viaticos set
+            maniobras = '" . $maniobras . "',
+            infraccionesfletes = '" . $infraccionesfletes . "',
+            fletes = '" . $fletes . "',
+            paqueteria = '" . $paqueteria . "',
+            noDeduFletes ='" . $noDeduFletes . "'
+            where id_general = " . $id_general;
+        return $this->db->query($sql_update);
+
+    }
+
+    public function update_registros_serviciosudn($gas,$ServiciosAGL, $manttoGRAL, $ManttoAlmacen,$Internet,
+    $limpieza, $seguros,$seguridad, $monitoreo, $plagas,$basura, $higiene, $publicidad,$fianzas, $almacenaje,
+     $facturacion,$gastolegal, $id_general, $noDeduServ) {
+        $sql_update = "
+            update serviciosudn set
+            gas = '" . $gas . "',
+            ServiciosAGL = '" . $ServiciosAGL . "',
+            manttoGRAL = '" . $manttoGRAL . "',
+            ManttoAlmacen = '" . $ManttoAlmacen . "',
+            Internet = '" . $Internet . "',
+            limpieza = '" . $limpieza . "',
+            seguros = '" . $seguros . "',
+            seguridad = '" . $seguridad . "',
+            monitoreo = '" . $monitoreo . "',
+            plagas = '" . $plagas . "',
+            basura = '" . $basura . "',
+            higiene = '" . $higiene . "',
+            publicidad = '" . $publicidad . "',
+            fianzas = '" . $fianzas . "',
+            almacenaje = '" . $almacenaje . "',
+            facturacion = '" . $facturacion . "',
+            gastolegal = '" . $gastolegal . "',
+            noDeduServ ='" . $noDeduServ . "'
+            where id_general = " . $id_general;
+        return $this->db->query($sql_update);
+
+    }
+
+    public function update_detalles_gastos($array) {
+        $nombre_tabla   = $array['nombre_tabla'];
+        $nombre_id_hija = $array['nombre_id_hija'];
+        $no_factura     = $array['no_factura'];
+        $subtotal       = $array['subtotal'];
+        $iva            = $array['iva'];
+        $total          = $array['total'];
+        $id             = $array['id'];
+        $sql_update     = "update {$nombre_tabla}
+            set no_factura = {$no_factura}, sub_total = {$sub_total},
+            iva = {$iva}, total {$total}
+            where {$nombre_id_hijo} = $id";
+    }
+
+// *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+
+
 
     public function update_gastos_combustible($no_factura, $sub_total, $iva, $id_vehiculos, $total) {
         $sql_update = "

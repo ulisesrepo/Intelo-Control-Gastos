@@ -50,7 +50,7 @@ class model_gastos_UDN extends CI_Model {
                 u.plomeria,
                 u.ferreteria,
                 u.impuestos,
-                u.sistemas,
+                u.sistemas as sistemasgastos,
                 u.cajachica,
                 u.asesoria,
                 u.arrenamunidades,

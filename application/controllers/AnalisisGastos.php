@@ -64,6 +64,127 @@ class AnalisisGastos extends CI_Controller {
         }
         echo json_encode($json);
     }
+    // +*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*
+    public function actualizar_registro_vehiculos() {
+
+        $combustible   = $this->input->post('inputmodalcombustible');
+        $casetas       = $this->input->post('inputmodalcasetas');
+        $id_general    = $this->input->post('id_general');
+        $serviunidades = $this->input->post('inputmodalserviunidades');
+        $noDeduVehi    = $this->input->post('noDeduVehi_modal');
+
+        if ($this->model_analisis_gastos->update_registros_vehiculos($combustible, $casetas,
+        $id_general,$serviunidades, $noDeduVehi)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se Actualizaron los gastos de Vehiculos con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo Actualizar los gastos de Vehiculos";
+        }
+        echo json_encode($json);
+    }
+    public function actualizar_registro_viaticos() {
+
+        $estacionamientoViaticos = $this->input->post('inputmodalestacionamientoViaticos');
+        $alimentos               = $this->input->post('inputmodalalimentos');
+        $hospedaje               = $this->input->post('inputmodalhospedaje');
+        $taxis                   = $this->input->post('taxis_modal');
+        $pasajes                 = $this->input->post('pasajes_modal');
+        $id_general              = $this->input->post('id_general');
+        $noDeduVia               = $this->input->post('noDeduVia_modal');
+
+        if ($this->model_analisis_gastos->update_registros_viaticos($estacionamientoViaticos, $alimentos,$hospedaje
+        ,$taxis,$pasajes, $id_general, $noDeduVia)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se Actualizaron los gastos de Viaticos con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo Actualizar los gastos de Viaticos";
+        }
+        echo json_encode($json);
+    }
+    public function actualizar_registro_gastosudn() {
+
+        $papeleria          = $this->input->post('inputmodalpapeleria');
+        $materialempaque    = $this->input->post('empaque_modal');
+        $equipoSeguridad    = $this->input->post('inputequipoSeguridad');
+        $infracciones       = $this->input->post('infracciones_modal');
+        $plomeria           = $this->input->post('plomeria_modal');
+        $ferreteria         = $this->input->post('ferreteria_modal');
+        $impuestos          = $this->input->post('inputmodalimpuestos');
+        $sistemasgastos     = $this->input->post('inputmodalsistemas');
+        $cajachica          = $this->input->post('inputmodalcaja');
+        $asesoria           = $this->input->post('asesoria_modal');
+        $arrenamunidades    = $this->input->post('inputmodalarreunidades');
+        $servcomputo        = $this->input->post('inputmodalcomputo');
+        $id_general         = $this->input->post('id_general');
+        $noDeduUDN          = $this->input->post('noDeduGastos_modal');
+
+        if ($this->model_analisis_gastos->update_registros_gastosudn($papeleria,$materialempaque,$equipoSeguridad,$infracciones,
+        $plomeria,$ferreteria,$impuestos,$sistemasgastos,$cajachica,$asesoria,$arrenamunidades,$servcomputo,$id_general,$noDeduUDN)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se Actualizaron los gastos de Gastos UDN con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo Actualizar los gastos de Gastos UDN";
+        }
+        echo json_encode($json);
+    }
+    public function actualizar_registro_gastosfletes() {
+       
+        $maniobras       = $this->input->post('maniobras_modal');
+        $infraccionesfletes = $this->input->post('infraccionesFletes_modal');
+        $fletes = $this->input->post('inputmodalfletes');
+        $paqueteria = $this->input->post('inputmodalpaqueteria');
+        $id_general  = $this->input->post('id_general');
+        $noDeduFletes   = $this->input->post('noDeduFletes_modal');
+
+        if ($this->model_analisis_gastos->update_registros_gastosfletes($maniobras, 
+        $infraccionesfletes,$fletes,$paqueteria, $id_general, $noDeduFletes)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se Actualizaron los gastos de Fletes con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo Actualizar los gastos de Fletes";
+        }
+        echo json_encode($json);
+    }
+    public function actualizar_registro_serviciosudn() {
+  
+        $gas       = $this->input->post('gas_modal');
+        $arrendamientoinmuebles = $this->input->post('inputmodalarrendamientoinmuebles');
+        $ServiciosAGL = $this->input->post('inputmodalServiciosAGL');
+        $manttoGRAL = $this->input->post('manttoGRAL_modal');
+        $ManttoAlmacen = $this->input->post('ManttoAlmacen_modal');
+        $Internet = $this->input->post('inputmodalInternet');
+        $limpieza = $this->input->post('limpieza_modal');
+        $seguros = $this->input->post('seguros_modal');
+        $seguridad = $this->input->post('seguridad_modal');
+        $monitoreo = $this->input->post('inputmodalmonitoreo');
+        $plagas = $this->input->post('plagas_modal');
+        $basura = $this->input->post('basura_modal');
+        $higiene = $this->input->post('higiene_modal');
+        $publicidad = $this->input->post('publicidad1_modal');
+        $fianzas = $this->input->post('inputmodalfianzas');
+        $almacenaje = $this->input->post('almacenaje_modal');
+        $facturacion = $this->input->post('inputmodalfacturacion');
+        $gastolegal = $this->input->post('gastolegal_modal');
+        $id_general  = $this->input->post('id_general');
+        $noDeduServ   = $this->input->post('noDeduServ_modal');
+
+        if ($this->model_analisis_gastos->update_registros_serviciosudn($gas,$ServiciosAGL, $manttoGRAL, $ManttoAlmacen,$Internet,
+        $limpieza, $seguros,$seguridad, $monitoreo, $plagas,$basura, $higiene, $publicidad,$fianzas, $almacenaje, $facturacion,
+        $gastolegal, $id_general, $noDeduServ)) {
+            $json['response_code'] = 200;
+            $json['response_text'] = "Se Actualizaron los gastos de Servicios UDN con Exito";
+        } else {
+            $json['response_code'] = 500;
+            $json['response_text'] = "No se pudo Actualizar los gastos de Servicios UDN";
+        }
+        echo json_encode($json);
+    }
+
+    // +*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*
 
     public function actualizar_registro_almacen() {
         // $array_datos_usuario = array();

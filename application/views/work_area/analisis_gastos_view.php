@@ -421,7 +421,7 @@
 																	</div>
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">
-																		<a id="btn_datos_viaticos" class="btn btn-info">
+																		<a id="btn_datos_viaticos_modal" class="btn btn-info">
 																			<i class="far fa-save"></i>  Guardar</a>
 																	</div>
 
@@ -583,14 +583,14 @@
 																		</div>
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
-																		<label class="mr-1" for="noDeduGastos"> No
+																		<label class="mr-1" for="noDeduGastos_modal"> No
 																			deducibles:           </label>
 																		<input type="number" class="form-control"
 																			id="noDeduGastos_modal" placeholder="">
 																	</div>
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">
-																		<a id="btn_datos_gastosUDN"
+																		<a id="btn_datos_gastosudn_modal"
 																			class="btn btn-info"> <i
 																				class="far fa-save"></i>  Guardar</a>
 																	</div>
@@ -618,14 +618,14 @@
 																		<label class="mr-1" for="maniobras">
 																			Maniobras:      </label>
 																		<input type="number" class="form-control"
-																			id="inmaniobras" placeholder="">
+																			id="maniobras_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="infraccionesFletes">
 																			Infracciones:       
 																		</label>
 																		<input type="number" class="form-control"
-																			id="infraccionesFletes" placeholder="">
+																			id="infraccionesFletes_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="fletes">
@@ -663,12 +663,12 @@
 																		<label class="mr-1" for="noDeduFletes"> No
 																			deducibles:</label>
 																		<input type="number" class="form-control"
-																			id="noDeduFletes" placeholder="">
+																			id="noDeduFletes_modal" placeholder="">
 																	</div>
 
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">
-																		<a id="btn_datos_fletes" class="btn btn-info">
+																		<a id="btn_datos_gastosfletes_modal" class="btn btn-info">
 																			<i class="far fa-save"></i>  Guardar</a>
 																	</div>
 
@@ -695,7 +695,7 @@
 																		<label class="mr-1" for="gas">Gas
 																			LP:                             </label>
 																		<input type="number" class="form-control"
-																			id="gas" placeholder="">
+																			id="gas_modal" placeholder="">
 																	</div>
 
 																	<div class="form-group p-2 col-sm-6">
@@ -738,14 +738,14 @@
 																			Mantenimiento
 																			general:</label>
 																		<input type="number" class="form-control"
-																			id="manttoGRAL" placeholder="">
+																			id="manttoGRAL_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="ManttoAlmacen">
 																			Mantenimiento
 																			Almacen:  </label>
 																		<input type="number" class="form-control"
-																			id="ManttoAlmacen" placeholder="">
+																			id="ManttoAlmacen_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="Internet">Telefonia
@@ -769,21 +769,21 @@
 																			Articulos
 																			Limpieza:            </label>
 																		<input type="number" class="form-control"
-																			id="limpieza" placeholder="">
+																			id="limpieza_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="seguros"> Polizas
 																			de seguro:
 																			       </label>
 																		<input type="number" class="form-control"
-																			id="seguros" placeholder="">
+																			id="seguros_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="seguridad">
 																			Seguridad
 																			Privada:            </label>
 																		<input type="number" class="form-control"
-																			id="seguridad" placeholder="">
+																			id="seguridad_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="monitoreo">
@@ -806,28 +806,28 @@
 																		<label class="mr-1" for="plagas"> Control
 																			Plagas:                  </label>
 																		<input type="number" class="form-control"
-																			id="plagas" placeholder="">
+																			id="plagas_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="basura">
 																			Recoleccion
 																			Basura:      </label>
 																		<input type="number" class="form-control"
-																			id="basura" placeholder="">
+																			id="basura_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="higiene"> Seguridad
 																			e higiene:
 																			       </label>
 																		<input type="number" class="form-control"
-																			id="higiene" placeholder="">
+																			id="higiene_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="publicidad1">
 																			Publicidad:                  
 																			 </label>
 																		<input type="number" class="form-control"
-																			id="publicidad1">
+																			id="publicidad1_modal">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="fianzas">
@@ -850,7 +850,7 @@
 																		<label class="mr-1" for="almacenaje">
 																			Almacenaje:                   </label>
 																		<input type="number" class="form-control"
-																			id="almacenaje" placeholder="">
+																			id="almacenaje_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="facturacion">
@@ -873,17 +873,17 @@
 																		<label class="mr-1" for="gastolegal"> Gasto
 																			Legal:                   </label>
 																		<input type="number" class="form-control"
-																			id="gastolegal" placeholder="">
+																			id="gastolegal_modal" placeholder="">
 																	</div>
 																	<div class="form-group p-2 col-sm-6">
 																		<label class="mr-1" for="noDeduServ"> No
 																			deducibles:                 </label>
 																		<input type="number" class="form-control"
-																			id="noDeduServ" placeholder="">
+																			id="noDeduServ_modal" placeholder="">
 																	</div>
 																	<div
 																		class="form-group p-2 col-sm-12 justify-content-sm-end">
-																		<a id="btn_datos_serviciosUDN"
+																		<a id="btn_datos_serviciosudn_modal"
 																			class="btn btn-info"> <i
 																				class="far fa-save"></i>  Guardar</a>
 																	</div>
