@@ -176,13 +176,13 @@ class model_analisis_gastos extends CI_Model {
     public function update_registros_gastosfletes($maniobras, 
     $infraccionesfletes,$fletes,$paqueteria, $id_general, $noDeduFletes) {
         $sql_update = "
-            update viaticos set
-            maniobras = '" . $maniobras . "',
-            infraccionesfletes = '" . $infraccionesfletes . "',
-            fletes = '" . $fletes . "',
-            paqueteria = '" . $paqueteria . "',
-            noDeduFletes ='" . $noDeduFletes . "'
-            where id_general = " . $id_general;
+            update gastosfletes set
+            maniobras = '{$maniobras}' ,
+            infraccionesfletes = '{$infraccionesfletes}' ,
+            fletes =  '{$fletes}',
+            paqueteria = '{$paqueteria}' ,
+            noDeduFletes = '{$noDeduFletes}' 
+            where id_general =  {$id_general} ";
         return $this->db->query($sql_update);
 
     }
@@ -212,7 +212,6 @@ class model_analisis_gastos extends CI_Model {
             noDeduServ ='" . $noDeduServ . "'
             where id_general = " . $id_general;
         return $this->db->query($sql_update);
-
     }
 
     public function update_detalles_gastos($array) {
@@ -224,9 +223,10 @@ class model_analisis_gastos extends CI_Model {
         $total          = $array['total'];
         $id             = $array['id'];
         $sql_update     = "update {$nombre_tabla}
-            set no_factura = {$no_factura}, sub_total = {$sub_total},
-            iva = {$iva}, total {$total}
-            where {$nombre_id_hijo} = $id";
+            set no_factura = {$no_factura}, sub_total = {$subtotal},
+            iva = {$iva}, total = {$total}
+            where {$nombre_id_hija} = $id";
+        return $this->db->query($sql_update);
     }
 
 // *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+
@@ -247,7 +247,8 @@ class model_analisis_gastos extends CI_Model {
     public function select_detalle_gastos_inputs($nombre_id_hija,
         $nombre_tabla_hija, $id, $nombre_id_padre) {
         $sql_consulta = "select {$nombre_id_hija} as id, no_factura, sub_total,
-            iva, total from {$nombre_tabla_hija} where {$nombre_id_padre} = {$id}";
+            iva, total from {$nombre_tabla_hija} where {$nombre_id_padre} = {$id}"; 
+            
         $query = $this->db->query($sql_consulta);
         return ($query->num_rows() <= 0) ? null : $query->result();
     }

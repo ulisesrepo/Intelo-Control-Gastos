@@ -373,7 +373,7 @@
 																			for="hospedaje">Hospedaje:         
 																		</label>
 																		<!--	<input type="text" class="form-control" id="hospedaje"
-																	placeholder="">-->
+																		placeholder="">-->
 																		<div class="input-group mb-3">
 																			<input type="number" class="form-control"
 																				aria-describedby="basic-addon2" disabled
@@ -708,7 +708,7 @@
 																				id="inputmodalarrendamientoinmuebles">
 																			<div class="input-group-append">
 																				<a class="btn btn-success btn_agregar_costos_modal"
-																					data-value="arrendamientoinmuebles,id_arrendamientoinmuebles,id_serviciosudn,serviciosuds">
+																					data-value="arrendamientoinmuebles,id_arrendamientoinmuebles,id_serviciosudn,serviciosudn">
 																					<i class="fa fa-plus"
 																						aria-hidden="true"></i>
 																				</a>
@@ -997,8 +997,8 @@
 					aria-label="Close"> <i class="fas fa-times"></i>
 					Cancelar
 				</a>
-				<a class="btn btn-info" id="btn_guardar_tabla_update">
-					<i class="far fa-save"></i>  Guardar</a>
+				<!-- <a class="btn btn-info" id="btn_guardar_tabla_update">
+					<i class="far fa-save"></i>  Guardar</a> -->
 			</div>
 		</div>
 	</div>
